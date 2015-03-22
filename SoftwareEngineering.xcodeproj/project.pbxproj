@@ -38,6 +38,7 @@
 		913232E71AA69E6A0069C64F /* EDJTableServices.m in Sources */ = {isa = PBXBuildFile; fileRef = 913232E61AA69E6A0069C64F /* EDJTableServices.m */; };
 		913233381AA7BAAE0069C64F /* UIView+Genie.m in Sources */ = {isa = PBXBuildFile; fileRef = 913233371AA7BAAE0069C64F /* UIView+Genie.m */; };
 		916345C01AB8803C00AAE1FD /* FKListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 916345BF1AB8803C00AAE1FD /* FKListViewController.m */; };
+		9179A3D21ABF7F0700C1B7E4 /* EDJTableTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9179A3D11ABF7F0700C1B7E4 /* EDJTableTests.m */; };
 		918A81E81AA7F60A000966D1 /* NSAttributedString+Constructors.m in Sources */ = {isa = PBXBuildFile; fileRef = 918A81E71AA7F60A000966D1 /* NSAttributedString+Constructors.m */; };
 		918A81EB1AA7FFAA000966D1 /* EDJForeignKey.m in Sources */ = {isa = PBXBuildFile; fileRef = 918A81EA1AA7FFAA000966D1 /* EDJForeignKey.m */; };
 		9190E5381AB7A7FD0074CEB8 /* EDJColumnCreationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9190E5371AB7A7FD0074CEB8 /* EDJColumnCreationView.xib */; };
@@ -122,6 +123,7 @@
 		913233371AA7BAAE0069C64F /* UIView+Genie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Genie.m"; sourceTree = "<group>"; };
 		916345BE1AB8803C00AAE1FD /* FKListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FKListViewController.h; sourceTree = "<group>"; };
 		916345BF1AB8803C00AAE1FD /* FKListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FKListViewController.m; sourceTree = "<group>"; };
+		9179A3D11ABF7F0700C1B7E4 /* EDJTableTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDJTableTests.m; sourceTree = "<group>"; };
 		918A81E61AA7F60A000966D1 /* NSAttributedString+Constructors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAttributedString+Constructors.h"; sourceTree = "<group>"; };
 		918A81E71AA7F60A000966D1 /* NSAttributedString+Constructors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSAttributedString+Constructors.m"; sourceTree = "<group>"; };
 		918A81E91AA7FFAA000966D1 /* EDJForeignKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDJForeignKey.h; sourceTree = "<group>"; };
@@ -246,6 +248,7 @@
 		836F98D21A01DA9B00A73F85 /* SoftwareEngineeringTests */ = {
 			isa = PBXGroup;
 			children = (
+				9179A3D01ABF7EE000C1B7E4 /* DB Objects  */,
 				836F98D51A01DA9B00A73F85 /* SoftwareEngineeringTests.m */,
 				836F98D31A01DA9B00A73F85 /* Supporting Files */,
 			);
@@ -360,6 +363,14 @@
 				837A1B1D1A1AEA57009BE6A7 /* MenuViewController.m */,
 			);
 			name = "Container Views";
+			sourceTree = "<group>";
+		};
+		9179A3D01ABF7EE000C1B7E4 /* DB Objects  */ = {
+			isa = PBXGroup;
+			children = (
+				9179A3D11ABF7F0700C1B7E4 /* EDJTableTests.m */,
+			);
+			name = "DB Objects ";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -509,6 +520,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9179A3D21ABF7F0700C1B7E4 /* EDJTableTests.m in Sources */,
 				836F98D61A01DA9B00A73F85 /* SoftwareEngineeringTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

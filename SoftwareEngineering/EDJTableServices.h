@@ -23,6 +23,5 @@
 - (void)dropTable:(NSString *)table;
 -(void)refreshSchema;
 + (EDJTableServices *)sharedInstance;
--(void)createTableWithName:(NSString *)name withColumns:(NSArray *)columns withForeignKeys:(NSArray *)fks primaryKeys:(NSDictionary *)pk;
 -(void)addTableWithRequest:(EDJTableCreationRequest *)tRequest withCompletion:(void (^)(BOOL finished))completion withError:(void (^)(NSString *error))errorMethod;
 @end

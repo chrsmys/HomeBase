@@ -17,9 +17,7 @@
 @implementation EDJColumnAmountSelectionViewController
 
 - (void)viewDidLoad {
-    [super viewDidLoad];
-    EDJTableServices *services = [EDJTableServices sharedInstance];
-    [services createTableWithName:@"tablename" withColumns:@[@"",@""] withForeignKeys:@[] primaryKeys:@{}];
+    [super viewDidLoad];  
     // Do any additional setup after loading the view.
 }
 

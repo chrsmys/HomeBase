@@ -97,7 +97,6 @@ const NSUInteger columnCreationHeight = 300;
         if(creationView.primaryKey){
             return true;
         }
-       
         
     }
     return false;

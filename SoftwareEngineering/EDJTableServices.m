@@ -72,6 +72,10 @@ static EDJTableServices *sharedInstance;
     
     NSURLSessionDataTask *task = [[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
         if (!error) {
+            NSLog(@"============================");
+            NSLog(@"%@", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
+            NSLog(@"============================");
+            
             [self performSelectorOnMainThread:@selector(handleNewSchema:) withObject:[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding] waitUntilDone:false];
         }
         else{
@@ -141,22 +145,6 @@ static EDJTableServices *sharedInstance;
     return _tables;
 }
 
-/*
-    Keys:
-        name:string
-        cols:array<Dictionary>
-        primaryKey:
-        foreignKey:
- */
--(void)createTableWithName:(NSString *)name withColumns:(NSArray *)columns withForeignKeys:(NSArray *)fks primaryKeys:(NSDictionary *)pk{
-    NSMutableDictionary *finalJSON = [[NSMutableDictionary alloc] init];
-    [finalJSON setObject:name forKey:@"name"];
-    [finalJSON setObject:columns forKey:@"cols"];
-    [finalJSON setObject:fks forKey:@"foreignKey"];
-    [finalJSON setObject:pk forKey:@"primaryKey"];
-    NSLog(@"dictionaryToJSON %@", [self dictionaryToJSON:finalJSON]);
-    
-}
 
 -(NSString *)dictionaryToJSON:(NSDictionary *)dictionary{
     NSError *error;
