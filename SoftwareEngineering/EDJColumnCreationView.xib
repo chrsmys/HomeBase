@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6221" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6213"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="fontawesome-webfont.ttf">
+            <string>FontAwesome</string>
+            <string>FontAwesome</string>
+            <string>FontAwesome</string>
+            <string>FontAwesome</string>
+        </mutableArray>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="EDJColumnCreationView">
+            <rect key="frame" x="0.0" y="0.0" width="354" height="301"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Column Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eYY-t4-jO3">
+                    <rect key="frame" x="8" y="8" width="338" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Column Size" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mqi-Ik-dMK">
+                    <rect key="frame" x="8" y="46" width="338" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
+                </textField>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Column Type" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yT2-xn-IWF">
+                    <rect key="frame" x="8" y="84" width="338" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c7k-lb-1RZ">
+                    <rect key="frame" x="8" y="129" width="338" height="31"/>
+                    <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="18"/>
+                    <state key="normal" title=" Primary Key">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="primaryKeyButtonPressed:" destination="iN0-l3-epB" eventType="touchUpInside" id="pje-wQ-AWY"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P8z-bo-cRZ">
+                    <rect key="frame" x="8" y="168" width="338" height="31"/>
+                    <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="18"/>
+                    <state key="normal" title=" Foreign Key">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="foreignKeyButtonPressed:" destination="iN0-l3-epB" eventType="touchUpInside" id="bx1-4X-Rc3"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gto-eg-YBk">
+                    <rect key="frame" x="8" y="207" width="338" height="31"/>
+                    <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="18"/>
+                    <state key="normal" title=" Not Null">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="notNullButtonPressed:" destination="iN0-l3-epB" eventType="touchUpInside" id="2Ie-oG-IQ4"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5IZ-e1-i1Y">
+                    <rect key="frame" x="8" y="246" width="338" height="31"/>
+                    <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="18"/>
+                    <state key="normal" title=" Unique">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="uniqueButtonPressed:" destination="iN0-l3-epB" eventType="touchUpInside" id="ohf-qQ-J3y"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="mqi-Ik-dMK" firstAttribute="trailing" secondItem="yT2-xn-IWF" secondAttribute="trailing" id="07U-Ho-7Bj"/>
+                <constraint firstItem="5IZ-e1-i1Y" firstAttribute="top" secondItem="gto-eg-YBk" secondAttribute="bottom" constant="8" id="2qt-8G-8pe"/>
+                <constraint firstItem="P8z-bo-cRZ" firstAttribute="top" secondItem="c7k-lb-1RZ" secondAttribute="bottom" constant="8" id="5yz-NX-6Nw"/>
+                <constraint firstItem="mqi-Ik-dMK" firstAttribute="leading" secondItem="yT2-xn-IWF" secondAttribute="leading" id="7HD-wW-4bE"/>
+                <constraint firstItem="eYY-t4-jO3" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="7ki-Oq-qqH"/>
+                <constraint firstItem="mqi-Ik-dMK" firstAttribute="top" secondItem="eYY-t4-jO3" secondAttribute="bottom" constant="8" id="7pM-sU-iSW"/>
+                <constraint firstAttribute="bottom" secondItem="5IZ-e1-i1Y" secondAttribute="bottom" constant="24" id="A1z-zc-D43"/>
+                <constraint firstItem="eYY-t4-jO3" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="topMargin" id="Eab-FI-NmR"/>
+                <constraint firstItem="P8z-bo-cRZ" firstAttribute="leading" secondItem="c7k-lb-1RZ" secondAttribute="leading" id="IMD-nJ-QhJ"/>
+                <constraint firstItem="mqi-Ik-dMK" firstAttribute="leading" secondItem="eYY-t4-jO3" secondAttribute="leading" id="Jll-VU-PNI"/>
+                <constraint firstItem="mqi-Ik-dMK" firstAttribute="trailing" secondItem="eYY-t4-jO3" secondAttribute="trailing" id="Rha-hh-Nh1"/>
+                <constraint firstItem="gto-eg-YBk" firstAttribute="top" secondItem="P8z-bo-cRZ" secondAttribute="bottom" constant="8" id="WH4-ao-7sC"/>
+                <constraint firstAttribute="trailing" secondItem="c7k-lb-1RZ" secondAttribute="trailing" constant="8" id="akU-6f-r5I"/>
+                <constraint firstAttribute="trailing" secondItem="eYY-t4-jO3" secondAttribute="trailing" constant="8" id="erX-mU-ypd"/>
+                <constraint firstItem="P8z-bo-cRZ" firstAttribute="trailing" secondItem="c7k-lb-1RZ" secondAttribute="trailing" id="ezb-DD-3wT"/>
+                <constraint firstItem="c7k-lb-1RZ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="gNe-tN-IfF"/>
+                <constraint firstItem="mqi-Ik-dMK" firstAttribute="top" secondItem="eYY-t4-jO3" secondAttribute="bottom" constant="8" symbolic="YES" id="hZP-BD-0At"/>
+                <constraint firstItem="eYY-t4-jO3" firstAttribute="trailing" secondItem="mqi-Ik-dMK" secondAttribute="trailing" id="hqW-Z1-XYM"/>
+                <constraint firstItem="eYY-t4-jO3" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="mre-B7-BNS"/>
+                <constraint firstItem="gto-eg-YBk" firstAttribute="trailing" secondItem="5IZ-e1-i1Y" secondAttribute="trailing" id="oT8-fT-sCu"/>
+                <constraint firstItem="eYY-t4-jO3" firstAttribute="leading" secondItem="mqi-Ik-dMK" secondAttribute="leading" id="odP-u2-Ul3"/>
+                <constraint firstItem="yT2-xn-IWF" firstAttribute="top" secondItem="mqi-Ik-dMK" secondAttribute="bottom" constant="8" id="pME-b1-oXG"/>
+                <constraint firstItem="P8z-bo-cRZ" firstAttribute="leading" secondItem="gto-eg-YBk" secondAttribute="leading" id="t0T-VK-9pc"/>
+                <constraint firstItem="P8z-bo-cRZ" firstAttribute="trailing" secondItem="gto-eg-YBk" secondAttribute="trailing" id="vdw-Nu-aod"/>
+                <constraint firstItem="gto-eg-YBk" firstAttribute="leading" secondItem="5IZ-e1-i1Y" secondAttribute="leading" id="xeY-k5-fIR"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="hqW-Z1-XYM"/>
+                    <exclude reference="odP-u2-Ul3"/>
+                    <exclude reference="hZP-BD-0At"/>
+                </mask>
+            </variation>
+            <connections>
+                <outlet property="columnNameTextField" destination="eYY-t4-jO3" id="pjg-aO-WJy"/>
+                <outlet property="columnSizeTextField" destination="mqi-Ik-dMK" id="JCv-TQ-N9r"/>
+                <outlet property="columnTypeTextField" destination="yT2-xn-IWF" id="Awd-0c-Tr1"/>
+                <outlet property="foreignKeyButton" destination="P8z-bo-cRZ" id="Afe-bu-kmS"/>
+                <outlet property="notNullButton" destination="gto-eg-YBk" id="LaN-9w-Y4H"/>
+                <outlet property="primaryKeyButton" destination="c7k-lb-1RZ" id="sIf-bc-QxJ"/>
+                <outlet property="uniqueButton" destination="5IZ-e1-i1Y" id="lEF-o1-fPM"/>
+            </connections>
+            <point key="canvasLocation" x="158" y="85.5"/>
+        </view>
+    </objects>
+</document>
