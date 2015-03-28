@@ -10,12 +10,13 @@
 
 @implementation EDJColumn
 
-@synthesize name;
-
--(id)initWithName:(NSString *)_names withType:(NSString *)_type{
+@synthesize name=_name;
+@synthesize type=_type;
+-(id)initWithName:(NSString *)name withType:(NSString *)type{
     if(self=[super init]){
-        name=_names;
-        type=_type;
+        _name=name;
+        _type=type;
+    
     }
     return self;
 }

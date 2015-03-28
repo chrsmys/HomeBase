@@ -53,10 +53,11 @@
     }
     NSAttributedString *finalString = [[NSAttributedString alloc] initWithString:columnPreview];
     for (int i = 0; i<[self.primaryKeys count]; i++) {
+        NSLog(@"Self primary key %@", [self.primaryKeys objectAtIndex:i]);
         NSRange range = [[NSString stringWithFormat:@"%@", columnPreview] rangeOfString:[self.primaryKeys objectAtIndex:i]];
         if(range.location!=NSNotFound){
             NSLog(@"final string %@", [NSString stringWithFormat:@"%@", finalString]);
-            finalString = [NSAttributedString returnNSAttributedString:columnPreview range:range WithColour:[UIColor blackColor] WithUnderLine:true];
+            finalString = [NSAttributedString returnNSAttributedStringWithAttributedString:finalString range:range WithColour:[UIColor blackColor] WithUnderLine:true];
         }
     }
     return finalString;

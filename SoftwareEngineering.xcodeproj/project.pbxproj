@@ -53,6 +53,9 @@
 		91D994271AB81BB40076F869 /* EDJTableSubmissionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91D994261AB81BB40076F869 /* EDJTableSubmissionViewController.m */; };
 		91D9942A1AB8239F0076F869 /* EDJListTableTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91D994291AB8239F0076F869 /* EDJListTableTableViewController.m */; };
 		91D9942D1AB825EE0076F869 /* EDJColumnTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91D9942C1AB825EE0076F869 /* EDJColumnTableViewController.m */; };
+		91FF24F31AC6550D0004A38B /* EDJColumnTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 91FF24F21AC6550D0004A38B /* EDJColumnTests.m */; };
+		91FF24F81AC657720004A38B /* AppConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 91FF24F71AC657720004A38B /* AppConstants.m */; };
+		91FF24FC1AC659E60004A38B /* EDJForeignKeyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 91FF24FB1AC659E60004A38B /* EDJForeignKeyTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -150,6 +153,10 @@
 		91D994291AB8239F0076F869 /* EDJListTableTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDJListTableTableViewController.m; sourceTree = "<group>"; };
 		91D9942B1AB825EE0076F869 /* EDJColumnTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDJColumnTableViewController.h; sourceTree = "<group>"; };
 		91D9942C1AB825EE0076F869 /* EDJColumnTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDJColumnTableViewController.m; sourceTree = "<group>"; };
+		91FF24F21AC6550D0004A38B /* EDJColumnTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDJColumnTests.m; sourceTree = "<group>"; };
+		91FF24F61AC657720004A38B /* AppConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppConstants.h; sourceTree = "<group>"; };
+		91FF24F71AC657720004A38B /* AppConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppConstants.m; sourceTree = "<group>"; };
+		91FF24FB1AC659E60004A38B /* EDJForeignKeyTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EDJForeignKeyTests.m; path = ../EDJForeignKeyTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -231,6 +238,8 @@
 				91D994231AB810770076F869 /* EDJFKConstraint.xib */,
 				916345BE1AB8803C00AAE1FD /* FKListViewController.h */,
 				916345BF1AB8803C00AAE1FD /* FKListViewController.m */,
+				91FF24F61AC657720004A38B /* AppConstants.h */,
+				91FF24F71AC657720004A38B /* AppConstants.m */,
 			);
 			path = SoftwareEngineering;
 			sourceTree = "<group>";
@@ -368,7 +377,9 @@
 		9179A3D01ABF7EE000C1B7E4 /* DB Objects  */ = {
 			isa = PBXGroup;
 			children = (
+				91FF24FB1AC659E60004A38B /* EDJForeignKeyTests.m */,
 				9179A3D11ABF7F0700C1B7E4 /* EDJTableTests.m */,
+				91FF24F21AC6550D0004A38B /* EDJColumnTests.m */,
 			);
 			name = "DB Objects ";
 			sourceTree = "<group>";
@@ -488,6 +499,7 @@
 				918A81EB1AA7FFAA000966D1 /* EDJForeignKey.m in Sources */,
 				91D994271AB81BB40076F869 /* EDJTableSubmissionViewController.m in Sources */,
 				91D994191AB7D08F0076F869 /* EDJTableCreationRequest.m in Sources */,
+				91FF24F81AC657720004A38B /* AppConstants.m in Sources */,
 				9190E5411AB7AD310074CEB8 /* ColumnCreationViewController.m in Sources */,
 				83DB0B5A1A1274D60031DD69 /* EDJColumn.m in Sources */,
 				916345C01AB8803C00AAE1FD /* FKListViewController.m in Sources */,
@@ -520,8 +532,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				91FF24FC1AC659E60004A38B /* EDJForeignKeyTests.m in Sources */,
 				9179A3D21ABF7F0700C1B7E4 /* EDJTableTests.m in Sources */,
 				836F98D61A01DA9B00A73F85 /* SoftwareEngineeringTests.m in Sources */,
+				91FF24F31AC6550D0004A38B /* EDJColumnTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

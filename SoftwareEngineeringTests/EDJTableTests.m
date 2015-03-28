@@ -15,8 +15,11 @@
 @end
 
 @implementation EDJTableTests
+
 const NSString *table1Data = @"{\"TABLE_NAME\":\"TEST\",\"TABLE_COLS\":[{\"COLUMN_NAME\":\"T1\"},{\"COLUMN_NAME\":\"T2\"}],\"TABLE_PRIMARY_KEY\":[\"T1\"],\"TABLE_FOREIGN_KEY\":[],\"TABLE_TRIGGERS\":[]}";
+
 const NSString *table2Data = @"{\"TABLE_NAME\":\"CREW\",\"TABLE_COLS\":[{\"COLUMN_NAME\":\"CREWSSN\"},{\"COLUMN_NAME\":\"LNAME\"},{\"COLUMN_NAME\":\"FNAME\"},{\"COLUMN_NAME\":\"STREET\"},{\"COLUMN_NAME\":\"CITY\"},{\"COLUMN_NAME\":\"STATE\"},{\"COLUMN_NAME\":\"ZIP\"}],\"TABLE_PRIMARY_KEY\":[\"CREWSSN\"],\"TABLE_FOREIGN_KEY\":[],\"TABLE_TRIGGERS\":[]}";
+
 - (void)setUp {
     [super setUp];
     // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -40,6 +43,7 @@ const NSString *table2Data = @"{\"TABLE_NAME\":\"CREW\",\"TABLE_COLS\":[{\"COLUM
     XCTAssert([[table getName] isEqualToString:@"TEST"], @"Fail");
     XCTAssert([[table getColumns] count]==2);
 }
+
 - (void)testTable2{
     NSMutableDictionary *tableData=[NSJSONSerialization
                                     JSONObjectWithData:[table2Data dataUsingEncoding:NSUTF8StringEncoding]
@@ -51,6 +55,7 @@ const NSString *table2Data = @"{\"TABLE_NAME\":\"CREW\",\"TABLE_COLS\":[{\"COLUM
     XCTAssert([[table foriegnKeys] count]==0);
     XCTAssert([[table primaryKeys] count]==1);
 }
+
 - (void)testPerformanceExample {
     // This is an example of a performance test case.
     [self measureBlock:^{

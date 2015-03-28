@@ -8,10 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
-@interface EDJColumn : NSObject{
-    NSString *type;
-    NSInteger *columnIndex;
-}
+
+@interface EDJColumn : NSObject
+
 -(id)initWithName:(NSString *)_name withType:(NSString *)_type;
-@property(nonatomic, strong) NSString *name;
+@property(nonatomic, strong, readonly) NSString *name;
+@property(nonatomic, strong, readonly) NSString *type;
 @end

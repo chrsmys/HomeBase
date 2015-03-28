@@ -10,15 +10,17 @@
 #import <UIKit/UIKit.h>
 @implementation NSAttributedString (Constructors)
 
-+ (NSAttributedString*)returnNSAttributedString:(NSString*)string range:(NSRange)range WithColour:(UIColor*)colour WithUnderLine:(BOOL)underline {
++ (NSAttributedString*)returnNSAttributedString:(NSString*)string range:(NSRange)range WithColour:(UIColor*)color WithUnderLine:(BOOL)underline {
+    NSAttributedString *attributedString = [[NSAttributedString alloc] initWithString:string];
+    return [self returnNSAttributedStringWithAttributedString:attributedString range:range WithColour:color WithUnderLine:underline];
+}
++ (NSAttributedString*)returnNSAttributedStringWithAttributedString:(NSAttributedString *)string range:(NSRange)range WithColour:(UIColor*)color WithUnderLine:(BOOL)underline {
     NSMutableAttributedString *attributedString =
-    [[NSMutableAttributedString alloc] initWithString:string];
+    [[NSMutableAttributedString alloc] initWithAttributedString:string];
     if (underline) {
         [attributedString addAttributes:@{NSUnderlineStyleAttributeName: @(NSUnderlineStyleSingle)} range:range];
     }
-    [attributedString addAttribute:NSForegroundColorAttributeName value:colour range:range];
-    [attributedString addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:NSRangeFromString(string)];
+    [attributedString addAttribute:NSForegroundColorAttributeName value:color range:range];
     return attributedString;
 }
-
 @end

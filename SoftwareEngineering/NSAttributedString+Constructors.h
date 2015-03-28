@@ -10,4 +10,5 @@
 #import <UIKit/UIKit.h>
 @interface NSAttributedString (Constructors)
 + (NSAttributedString*)returnNSAttributedString:(NSString*)string range:(NSRange)range WithColour:(UIColor*)colour WithUnderLine:(BOOL)underline;
++ (NSAttributedString*)returnNSAttributedStringWithAttributedString:(NSAttributedString *)string range:(NSRange)range WithColour:(UIColor*)color WithUnderLine:(BOOL)underline;
 @end
