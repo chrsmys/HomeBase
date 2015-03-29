@@ -28,7 +28,6 @@
 
 -(void)viewDidAppear:(BOOL)animated{
     self.primaryKeyListView.text=[self primaryKeyList];
-    NSLog(@"%@", [self.tableRequest getNetworkJSONRequest]);
 }
 -(NSString *)primaryKeyList{
     NSArray *tableRequest = [self.tableRequest listOfPrimaryKeys];
@@ -55,8 +54,6 @@
             ForeignKeyFinalViewController *final = segue.destinationViewController;
             [self.tableRequest addPrimaryKeyWithConstraintName:self.constraintNameTextField.text withColumns:self.tableRequest.listOfPrimaryKeys];
             final.tableRequest=self.tableRequest;
-            NSLog(@"So FAR");
-            NSLog([self.tableRequest getNetworkJSONRequest]);
         }
     }
 }

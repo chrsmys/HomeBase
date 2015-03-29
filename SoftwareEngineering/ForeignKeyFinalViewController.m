@@ -73,7 +73,6 @@
 }
 
 -(void)didSelectTableWithTableName:(NSString *)tableName withColumnName:(NSString *)columnName{
-    NSLog(@"%@", [NSString stringWithFormat:@"%@ %@", tableName, columnName]);
     [self.lastTouched.selectTableButton setTitle:[NSString stringWithFormat:@"Referenceing Table:%@ Referencing Column:%@", tableName, columnName] forState:UIControlStateNormal];
     [self.lastTouched setRefrencingColumnName:columnName];
     [self.lastTouched setRefrencingTableName:tableName];
@@ -102,10 +101,6 @@
         }
         if([currentDestination isKindOfClass:
             [EDJListTableTableViewController class]]){
-            
-            
-            
-            NSLog(@"delegate passed");
             EDJListTableTableViewController *dest = (EDJListTableTableViewController *)currentDestination;
             dest.delegate=self;
         }

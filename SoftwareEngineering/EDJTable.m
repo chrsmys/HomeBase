@@ -31,7 +31,6 @@
 }
 
 -(NSAttributedString *)getPreviewOfColumns:(int)columnAmount{
-    NSLog(@"Getting preview %lu %@", (unsigned long)[self.primaryKeys count], self.primaryKeys);
     NSString *columnPreview=[[NSString alloc] init];
     for (int i=0; i<columnAmount && i<columns.count; i++) {
         EDJColumn *col=[columns objectAtIndex:i];
@@ -45,10 +44,8 @@
     }
     NSAttributedString *finalString = [[NSAttributedString alloc] initWithString:columnPreview];
     for (int i = 0; i<[self.primaryKeys count]; i++) {
-        NSLog(@"Self primary key %@", [self.primaryKeys objectAtIndex:i]);
         NSRange range = [[NSString stringWithFormat:@"%@", columnPreview] rangeOfString:[self.primaryKeys objectAtIndex:i]];
         if(range.location!=NSNotFound){
-            NSLog(@"final string %@", [NSString stringWithFormat:@"%@", finalString]);
             finalString = [NSAttributedString returnNSAttributedStringWithAttributedString:finalString range:range WithColour:[UIColor blackColor] WithUnderLine:true];
         }
     }
@@ -63,7 +60,6 @@
 }
 -(NSString *)getForeignKeyText{
     NSString *foreignKeys = @"";
-    NSLog(@"FOREIGN KEY COUNT %d", [self.foriegnKeys count]);
     for (int i=0; i<[self.foriegnKeys count]; i++) {
         EDJForeignKey *key =[[EDJForeignKey alloc] initWithDic:[self.foriegnKeys objectAtIndex:i]];
         foreignKeys = [NSString stringWithFormat:@"%@%@%@",foreignKeys, i==0 ? @"" : @"\n", [key previewString]];

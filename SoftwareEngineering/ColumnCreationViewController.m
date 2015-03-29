@@ -63,7 +63,6 @@ const NSUInteger columnCreationHeight = 300;
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if ([segue.identifier isEqualToString:@"moveToPrimaryKeyConstraint"]) {
         if([segue.destinationViewController isKindOfClass:[EDJPrimaryKeyFinalViewController class]]){
-            NSLog(@"made it");
             EDJPrimaryKeyFinalViewController *primaryKeyFinal = segue.destinationViewController;
             [self.tableRequest.listOfPrimaryKeys removeAllObjects];
             [self.tableRequest.listOfPossibleFKNames removeAllObjects];
@@ -71,12 +70,10 @@ const NSUInteger columnCreationHeight = 300;
             [self.tableRequest.columns removeAllObjects];
             [self.tableRequest.foriegnKeys removeAllObjects];
             for (int i=0; i<[self.columnViews count]; i++) {
-                NSLog(@"column View here");
                 EDJColumnCreationView *creationView = [self.columnViews objectAtIndex:i];
                 [self.tableRequest addColumnWithName:creationView.columnNameTextField.text type:creationView.columnTypeTextField.text size:creationView.columnSizeTextField.text.intValue notNull:[creationView notNull] unique:[creationView unique]];
                 
                 if(creationView.primaryKey){
-                    NSLog(@"herE");
                     [self.tableRequest.listOfPrimaryKeys addObject:creationView.columnNameTextField.text];
                 }
                 if(creationView.foreignKey){
@@ -90,7 +87,6 @@ const NSUInteger columnCreationHeight = 300;
 }
 -(BOOL)containsPK{
     for (int i=0; i<[self.columnViews count]; i++) {
-        NSLog(@"column View here");
         EDJColumnCreationView *creationView = [self.columnViews objectAtIndex:i];
         [self.tableRequest addColumnWithName:creationView.columnNameTextField.text type:creationView.columnTypeTextField.text size:creationView.columnSizeTextField.text.intValue notNull:[creationView notNull] unique:[creationView unique]];
         
@@ -104,7 +100,6 @@ const NSUInteger columnCreationHeight = 300;
 }
 -(BOOL)containsFK{
     for (int i=0; i<[self.columnViews count]; i++) {
-        NSLog(@"column View here");
         EDJColumnCreationView *creationView = [self.columnViews objectAtIndex:i];
         [self.tableRequest addColumnWithName:creationView.columnNameTextField.text type:creationView.columnTypeTextField.text size:creationView.columnSizeTextField.text.intValue notNull:[creationView notNull] unique:[creationView unique]];
         
