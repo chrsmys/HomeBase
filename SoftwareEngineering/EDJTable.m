@@ -5,10 +5,11 @@
 //  Created by Chris Mays on 11/11/14.
 //  Copyright (c) 2014 Chris Mays. All rights reserved.
 //
-
+#import "AppConstants.h"
 #import "EDJTable.h"
 #import "EDJColumn.h"
 #import "EDJForeignKey.h"
+#import "EDJTrigger.h"
 #import "NSAttributedString+Constructors.h"
 @implementation EDJTable
 
@@ -25,9 +26,19 @@
             EDJColumn *cols=[[EDJColumn alloc] initWithName:((NSString *)[[col objectAtIndex:i] objectForKey:@"COLUMN_NAME"] )withType:@""];
             [columns addObject:cols];
         }
-        
+        [self fillTriggers:[table objectForKey:TABLE_TRIGGERS]];
     }
     return self;
+}
+
+-(void)fillTriggers:(NSArray *)triggers{
+    if(!self.triggers){
+        self.triggers=[[NSMutableArray alloc] init];
+    }
+    for (NSDictionary *triggerData in triggers) {
+        EDJTrigger *trigger = [[EDJTrigger alloc] initWithDictionary:triggerData];
+        [self.triggers addObject:trigger];
+    }
 }
 
 -(NSAttributedString *)getPreviewOfColumns:(int)columnAmount{

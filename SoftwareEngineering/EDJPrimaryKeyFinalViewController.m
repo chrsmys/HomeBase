@@ -28,6 +28,12 @@
 
 -(void)viewDidAppear:(BOOL)animated{
     self.primaryKeyListView.text=[self primaryKeyList];
+    NSArray *tableRequest = [self.tableRequest listOfPrimaryKeys];
+    if([tableRequest count]==1){
+        self.constraintNameTextField.text = [NSString stringWithFormat:@"%@_%@_PK", [self.tableRequest.tableName uppercaseString], [[self getShortestPrimaryKey] uppercaseString]];
+    }else if([tableRequest count]>1){
+        self.constraintNameTextField.text = [NSString stringWithFormat:@"%@_COMPOSITE_PK",[self.tableRequest.tableName uppercaseString]];
+    }
 }
 -(NSString *)primaryKeyList{
     NSArray *tableRequest = [self.tableRequest listOfPrimaryKeys];
@@ -38,7 +44,17 @@
     }
     return pkList;
 }
-
+-(NSString *)getShortestPrimaryKey{
+    NSArray *tableRequest = [self.tableRequest listOfPrimaryKeys];
+    if (!([tableRequest count]>0)) {
+        return @"";
+    }
+    NSString *shortestPK=[tableRequest objectAtIndex:0];
+    for (NSString *PK in tableRequest) {
+        shortestPK = PK.length < shortestPK.length ? PK : shortestPK;
+    }
+    return shortestPK;
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

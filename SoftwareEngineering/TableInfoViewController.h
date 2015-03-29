@@ -11,4 +11,6 @@
 @interface TableInfoViewController : UIViewController
 @property(nonatomic,strong) EDJTable *table;
 @property (weak, nonatomic) IBOutlet UITextView *foreignKeyInfoTextView;
+@property (weak, nonatomic) IBOutlet UIView *columnTableViewContainer;
+@property (weak, nonatomic) IBOutlet UITableView *triggerInfoTableView;
 @end

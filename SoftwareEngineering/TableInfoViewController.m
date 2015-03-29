@@ -8,8 +8,9 @@
 
 #import "TableInfoViewController.h"
 #import "EDJColumnTableViewController.h"
+#import "TriggerInfoDataSource.h"
 @interface TableInfoViewController ()
-
+@property (nonatomic) TriggerInfoDataSource *triggerDataSource;
 @end
 
 @implementation TableInfoViewController
@@ -17,6 +18,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.foreignKeyInfoTextView.text = [self.table getForeignKeyText];
+    _triggerDataSource = [[TriggerInfoDataSource alloc] init];
+    self.triggerDataSource.table = self.table;
+    self.triggerInfoTableView.dataSource=_triggerDataSource;
+    self.triggerInfoTableView.delegate=_triggerDataSource;
 }
 
 -(void)viewWillAppear:(BOOL)animated{

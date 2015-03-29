@@ -106,6 +106,7 @@ static EDJTableServices *sharedInstance;
 }
 
 -(void)handleNewSchema:(NSString *)response{
+    NSLog(@"%@",response);
     [_tables removeAllObjects];
     NSError *error = nil;
     id object = [NSJSONSerialization
