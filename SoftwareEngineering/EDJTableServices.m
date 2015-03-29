@@ -117,13 +117,13 @@ static EDJTableServices *sharedInstance;
                  JSONObjectWithData:[response dataUsingEncoding:NSUTF8StringEncoding]
                  options:0
                  error:&error];
-    
-    if(error) { NSLog(@"error %@", error); }
     NSLog(@"response %@", response);
+    if(error) { NSLog(@"error %@", error); }
+   // NSLog(@"response %@", response);
     // the originating poster wants to deal with dictionaries;
     // assuming you do too then something like this is the first
     // validation step:
-    if([object isKindOfClass:[NSDictionary class]])
+   else if([object isKindOfClass:[NSDictionary class]])
     {
         NSDictionary *results = object;
         // NSLog(@"There are 28 tables %d", [[results objectForKey:@"USER_SCHEMA"] count]);

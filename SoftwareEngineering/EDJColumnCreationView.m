@@ -12,6 +12,10 @@
 
 - (IBAction)primaryKeyButtonPressed:(UIButton *)sender {
     [self setPrimaryKey:!self.primaryKey];
+    if ([self primaryKey]) {
+        self.notNull=true;
+        self.unique=true;
+    }
     [self updateUI];
 }
 

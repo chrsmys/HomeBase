@@ -99,7 +99,7 @@
 */
 
 - (IBAction)LoginButtonPressed:(id)sender {
-    if([[EDJAccountManager sharedInstance] createUser:@"Dave" pass:@"dave" dbUsername:@"cmays2" dbPassword:@"" connectionString:@"//137.45.192.130/itec2.radford.edu"]){
+    if([[EDJAccountManager sharedInstance] createUser:@"Dave" pass:@"dave" dbUsername:@"cmays2" dbPassword:@"f5288e4e6b" connectionString:@"//137.45.192.130/itec2.radford.edu"]){
         NSLog(@"Created account dave");
     }
     if([[EDJAccountManager sharedInstance] loginUserWithUsername:usernameTextField.text password:passwordTextField.text]){

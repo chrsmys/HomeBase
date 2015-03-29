@@ -9,13 +9,13 @@
 #import <Foundation/Foundation.h>
 
 @interface EDJForeignKey : NSObject
-@property(nonatomic, retain) NSString *deleteRule;
-@property(nonatomic,retain) NSString *columnName;
-@property(nonatomic,retain) NSString *constraintName;
-@property(nonatomic,retain) NSString *referenceTable;
-@property(nonatomic,retain) NSString *referenceColumn;
-@property(nonatomic,retain) NSString *deferrable;
-@property(nonatomic,retain) NSString *deffered;
+@property(nonatomic, retain, readonly) NSString *deleteRule;
+@property(nonatomic,retain, readonly) NSString *columnName;
+@property(nonatomic,retain, readonly) NSString *constraintName;
+@property(nonatomic,retain, readonly) NSString *referenceTable;
+@property(nonatomic,retain, readonly) NSString *referenceColumn;
+@property(nonatomic,retain, readonly) NSString *deferrable;
+@property(nonatomic,retain, readonly) NSString *deffered;
 -(NSString *)previewString;
 -(id)initWithDic:(NSDictionary *)dic;
 @end

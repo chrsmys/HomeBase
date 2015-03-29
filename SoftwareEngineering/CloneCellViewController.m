@@ -9,6 +9,7 @@
 #import "CloneCellViewController.h"
 #import "EDJTable.h"
 #import "FKListViewController.h"
+#import "TableInfoViewController.h"
 @interface CloneCellViewController ()
 
 @end
@@ -38,7 +39,7 @@
 }
 -(void)setTable:(EDJTable *)table{
     _table=table;
-    NSLog(@"set");
+    NSLog(@"set this table");
     if(table){
         NSLog(@"This table is not ni;");
     }
@@ -99,6 +100,8 @@ tableNameLabel.frame=CGRectMake(tableNameLabel.frame.origin.x, tableNameLabel.fr
     _columnsListView.font=[UIFont fontWithName:_columnsListView.font.fontName size:24];
     
     _columnsListView.textAlignment=UITextAlignmentCenter;
+    float maxBound = MAX(self.view.frame.size.height, self.view.frame.size.width);
+    self.containerView.alpha=(maxBound-300)/600.0;
 }
 
 #pragma mark - Navigation
@@ -117,6 +120,12 @@ tableNameLabel.frame=CGRectMake(tableNameLabel.frame.origin.x, tableNameLabel.fr
             dest.fkText=[self.table getForeignKeyText];
             dest.FKTextView.text=[self.table getForeignKeyText];
               NSLog(@"final");
+        }
+    }else if([segue.identifier isEqualToString:@"TableInfoSegue"]){
+        if ([segue.destinationViewController isKindOfClass:[TableInfoViewController class]]) {
+            TableInfoViewController *tableInfo = (TableInfoViewController *)segue.destinationViewController;
+            tableInfo.table=self.table;
+            NSLog(@"doing this %@", self.table);
         }
     }
 }

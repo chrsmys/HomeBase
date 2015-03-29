@@ -199,11 +199,11 @@
             clone.clonedCell.hidden=false;
         }
         clone=[self.storyboard instantiateViewControllerWithIdentifier:@"CloneView"];
+        [clone setTable:[tableList objectAtIndex:pin.view.tag]];
         cloneView=clone.view;
         UILabel *cellLabel=(UILabel *)[pin.view viewWithTag:300];
         clone.tableNameLabel.layer.borderColor=cellLabel.layer.borderColor;
         clone.tableNameLabel.layer.borderWidth=10;
-        [clone setTable:[tableList objectAtIndex:pin.view.tag]];
         NSLog(@"pin tag %d", pin.view.tag);
         clone.tableNameLabel.text=cellLabel.text;
         clone.clonedCell=(UICollectionViewCell *)pin.view;
@@ -229,6 +229,7 @@
              //   cloneView.frame=pin.view.frame;
                 
                 cloneView.frame=[tableCollection convertRect:pin.view.frame toView:self.view];
+                [cloneView layoutIfNeeded];
             } completion:^(BOOL finished){
                [cloneView removeFromSuperview];
                 pin.view.hidden=false;
@@ -247,6 +248,7 @@
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     UICollectionViewCell *cells=[collectionView cellForItemAtIndexPath:indexPath];
     clone=[self.storyboard instantiateViewControllerWithIdentifier:@"CloneView"];
+    [clone setTable:[tableList objectAtIndex:indexPath.row]];
     cloneView=clone.view;
     UILabel *cellLabel=(UILabel *)[cells viewWithTag:300];
     clone.tableNameLabel.layer.borderColor=cellLabel.layer.borderColor;
@@ -260,6 +262,7 @@
     [self.view addSubview:cloneView];
     cells.hidden=true;
     cloneView.frame=cells.frame;
+    
     EDJTable *tab=((EDJTable *)[tableList objectAtIndex:indexPath.row]);
     clone.columnsListView.attributedText=[tab getAllColumnsToString];
     [UIView animateWithDuration:1.0 delay:0.0 usingSpringWithDamping:0.5 initialSpringVelocity:0.1 options:UIViewAnimationOptionCurveEaseOut animations:^(void){
