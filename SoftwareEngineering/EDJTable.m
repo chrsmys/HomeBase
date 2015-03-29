@@ -14,7 +14,7 @@
 
 -(instancetype)initWithTableData:(NSDictionary *)table{
     if(self=[super init]){
-        NSLog(@"Table is %@", table);
+
         self.foriegnKeys=[NSArray arrayWithArray:[table objectForKey:@"TABLE_FOREIGN_KEY"]];
         self.primaryKeys=[NSArray arrayWithArray:[table objectForKey:@"TABLE_PRIMARY_KEY"]];
         name=[table objectForKey:@"TABLE_NAME"];
@@ -22,17 +22,9 @@
         
         columns=[[NSMutableArray alloc] init];
         for(int i=0; i<[col count]; i++){
-           
             EDJColumn *cols=[[EDJColumn alloc] initWithName:((NSString *)[[col objectAtIndex:i] objectForKey:@"COLUMN_NAME"] )withType:@""];
             [columns addObject:cols];
-            NSLog(@"Table %@ has Column: %@", name, cols.name);
-           
         }
-        NSLog(@"============================================");
-        NSLog(@"NEW TABLE");
-
-        NSLog(@"============================================");
-
         
     }
     return self;
@@ -91,6 +83,14 @@
         }
     }
     return false;
+}
+
+-(BOOL)isPrimaryKey:(NSString *)columnName{
+    return [[self primaryKeys] containsObject:columnName];
+}
+
+-(BOOL)isForeignKey:(NSString *)columnName{
+    return [[self primaryKeys] containsObject:columnName];
 }
 
 -(NSUInteger)hash{

@@ -16,4 +16,5 @@
 @property (weak, nonatomic) IBOutlet UITextView *columnsListView;
 @property (strong, nonatomic) EDJTable *table;
 @property (weak, nonatomic) UITextView *foriegnKeysList;
+@property (weak, nonatomic) IBOutlet UIView *containerView;
 @end

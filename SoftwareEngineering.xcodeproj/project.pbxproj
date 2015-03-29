@@ -56,6 +56,8 @@
 		91FF24F31AC6550D0004A38B /* EDJColumnTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 91FF24F21AC6550D0004A38B /* EDJColumnTests.m */; };
 		91FF24F81AC657720004A38B /* AppConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 91FF24F71AC657720004A38B /* AppConstants.m */; };
 		91FF24FC1AC659E60004A38B /* EDJForeignKeyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 91FF24FB1AC659E60004A38B /* EDJForeignKeyTests.m */; };
+		91FF24FF1AC79C1E0004A38B /* TableInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91FF24FE1AC79C1E0004A38B /* TableInfoViewController.m */; };
+		91FF25021AC7A6480004A38B /* ColumnTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 91FF25011AC7A6480004A38B /* ColumnTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -157,6 +159,10 @@
 		91FF24F61AC657720004A38B /* AppConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppConstants.h; sourceTree = "<group>"; };
 		91FF24F71AC657720004A38B /* AppConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppConstants.m; sourceTree = "<group>"; };
 		91FF24FB1AC659E60004A38B /* EDJForeignKeyTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EDJForeignKeyTests.m; path = ../EDJForeignKeyTests.m; sourceTree = "<group>"; };
+		91FF24FD1AC79C1E0004A38B /* TableInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableInfoViewController.h; sourceTree = "<group>"; };
+		91FF24FE1AC79C1E0004A38B /* TableInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableInfoViewController.m; sourceTree = "<group>"; };
+		91FF25001AC7A6480004A38B /* ColumnTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColumnTableViewCell.h; sourceTree = "<group>"; };
+		91FF25011AC7A6480004A38B /* ColumnTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColumnTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -240,6 +246,8 @@
 				916345BF1AB8803C00AAE1FD /* FKListViewController.m */,
 				91FF24F61AC657720004A38B /* AppConstants.h */,
 				91FF24F71AC657720004A38B /* AppConstants.m */,
+				91FF25001AC7A6480004A38B /* ColumnTableViewCell.h */,
+				91FF25011AC7A6480004A38B /* ColumnTableViewCell.m */,
 			);
 			path = SoftwareEngineering;
 			sourceTree = "<group>";
@@ -359,6 +367,8 @@
 				837A1B2E1A1B1E3B009BE6A7 /* EditConnectionViewController.m */,
 				83E525E71A1E52B30040D0E7 /* CloneCellViewController.h */,
 				83E525E81A1E52B30040D0E7 /* CloneCellViewController.m */,
+				91FF24FD1AC79C1E0004A38B /* TableInfoViewController.h */,
+				91FF24FE1AC79C1E0004A38B /* TableInfoViewController.m */,
 			);
 			name = "Authorized User Views";
 			sourceTree = "<group>";
@@ -500,6 +510,7 @@
 				91D994271AB81BB40076F869 /* EDJTableSubmissionViewController.m in Sources */,
 				91D994191AB7D08F0076F869 /* EDJTableCreationRequest.m in Sources */,
 				91FF24F81AC657720004A38B /* AppConstants.m in Sources */,
+				91FF25021AC7A6480004A38B /* ColumnTableViewCell.m in Sources */,
 				9190E5411AB7AD310074CEB8 /* ColumnCreationViewController.m in Sources */,
 				83DB0B5A1A1274D60031DD69 /* EDJColumn.m in Sources */,
 				916345C01AB8803C00AAE1FD /* FKListViewController.m in Sources */,
@@ -509,6 +520,7 @@
 				91D9942A1AB8239F0076F869 /* EDJListTableTableViewController.m in Sources */,
 				83DB0B571A1273F70031DD69 /* EDJTable.m in Sources */,
 				913233381AA7BAAE0069C64F /* UIView+Genie.m in Sources */,
+				91FF24FF1AC79C1E0004A38B /* TableInfoViewController.m in Sources */,
 				918A81E81AA7F60A000966D1 /* NSAttributedString+Constructors.m in Sources */,
 				83DB0B621A128D7E0031DD69 /* EDJWebImageView.m in Sources */,
 				83E525E91A1E52B30040D0E7 /* CloneCellViewController.m in Sources */,
