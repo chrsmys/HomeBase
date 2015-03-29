@@ -45,7 +45,6 @@ static EDJTableServices *sharedInstance;
             if ([object isKindOfClass:[NSArray class]]) {
                 
             }else{
-                NSLog(@"eroor %@", object);
                 NSDictionary *errorDictionary = [object objectForKey:@"error"];
             dispatch_async(dispatch_get_main_queue(), ^{
                 if(errorDictionary!=nil){
@@ -72,14 +71,10 @@ static EDJTableServices *sharedInstance;
     
     NSURLSessionDataTask *task = [[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
         if (!error) {
-            NSLog(@"============================");
-            NSLog(@"%@", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
-            NSLog(@"============================");
-            
             [self performSelectorOnMainThread:@selector(handleNewSchema:) withObject:[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding] waitUntilDone:false];
         }
         else{
-            NSLog(@"Big erroe %@", error);
+            NSLog(@"Error Refreshing Scheme %@", error);
         }
     }];
     [task resume];
@@ -117,20 +112,13 @@ static EDJTableServices *sharedInstance;
                  JSONObjectWithData:[response dataUsingEncoding:NSUTF8StringEncoding]
                  options:0
                  error:&error];
-    NSLog(@"response %@", response);
-    if(error) { NSLog(@"error %@", error); }
-   // NSLog(@"response %@", response);
-    // the originating poster wants to deal with dictionaries;
-    // assuming you do too then something like this is the first
-    // validation step:
-   else if([object isKindOfClass:[NSDictionary class]])
+    if(error) { NSLog(@"error parsing JSON %@", error); }
+    else if([object isKindOfClass:[NSDictionary class]])
     {
         NSDictionary *results = object;
-        // NSLog(@"There are 28 tables %d", [[results objectForKey:@"USER_SCHEMA"] count]);
         NSArray *tables=[results objectForKey:@"USER_SCHEMA"];
         NSMutableArray *tableObjects=[[NSMutableArray alloc] init];
         for(int i=0; i<[tables count]; i++){
-            // NSLog(@"happened");
             EDJTable *tab=[[EDJTable alloc] initWithTableData:[tables objectAtIndex:i]];
             [_tables addObject:tab];
         }
@@ -162,7 +150,6 @@ static EDJTableServices *sharedInstance;
     
     NSURLSessionDataTask *task = [[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
         if (!error) {
-            NSLog(@"response %@", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
             completion(true);
         }
         else{

@@ -70,38 +70,9 @@
 -(void)menuViewToPercentage:(CGFloat *)per{
     CATransform3D tran=CATransform3DIdentity;
     
-    
-    
-}
-#pragma mark EDJConnectionDelegate
--(void)connectionReturnedValidObject:(NSString *)JSON{
-    
-}
--(void)connectionReturnedInValidObject:(NSString *)JSON{
-    
-}
--(void)connectionReturnedError:(NSError *)error WithObject:(NSString *)JSON{
-    
-}
-/*-(CATransform3D)transformWithPercent:(float)percent{
-    CATransform3D  identity=CATransform3DIdentity;
-    identity.m34=-1.0/1000;
-    float angle=(1.0-percent) * -((CGFloat)M_PI_2);
-    CATransform3D rotationTransform=CATransform3DRotate(identity, angle, 0, 1.0, 0.0);
-    
-    CATransform3D translate= CATransform3DMakeTranslation( view.frame.origin.x-leftView.frame.size.width, view.frame.origin.y, 0);
-    
-    
-    return CATransform3DConcat(rotationTransform, translate);
-}*/
 
--(void)connectionReturnedTableList:(NSMutableArray *)tlList{
-    [_activityIndicator setHidesWhenStopped:true];
-    [_activityIndicator stopAnimating];
-    tableList=[[NSMutableArray alloc] initWithArray:tlList];
-    [tableCollection reloadData];
-    NSLog(@"table List");
 }
+
 #pragma mark UICollectionViewDelegate methods
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
     return [tableList count];

@@ -7,14 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "EDJConnection.h"
 #import "MenuViewController.h"
 #import "MenuOverlayViewController.h"
 #import "CloneCellViewController.h"
 #import "UIView+Genie.h"
 #import "EDJTableServices.h"
-@interface ViewController : MenuOverlayViewController<EDJConnectionDelegate,UICollectionViewDataSource,UICollectionViewDelegate, TableServicesDelegate>{
-    EDJConnection *connection;
+@interface ViewController : MenuOverlayViewController<UICollectionViewDataSource,UICollectionViewDelegate, TableServicesDelegate>{
     BOOL menuShowing;
     CloneCellViewController *clone;
     UIView *cloneView;

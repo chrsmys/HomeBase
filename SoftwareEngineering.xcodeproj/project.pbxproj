@@ -21,7 +21,6 @@
 		837A1B241A1AFC00009BE6A7 /* MenuOverlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 837A1B231A1AFC00009BE6A7 /* MenuOverlayViewController.m */; };
 		837A1B2F1A1B1E3B009BE6A7 /* EditConnectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 837A1B2E1A1B1E3B009BE6A7 /* EditConnectionViewController.m */; };
 		837A1B321A1B1FE0009BE6A7 /* CreateAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 837A1B311A1B1FE0009BE6A7 /* CreateAccountViewController.m */; };
-		83DB0B541A126B5C0031DD69 /* EDJConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 83DB0B531A126B5C0031DD69 /* EDJConnection.m */; };
 		83DB0B571A1273F70031DD69 /* EDJTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 83DB0B561A1273F70031DD69 /* EDJTable.m */; };
 		83DB0B5A1A1274D60031DD69 /* EDJColumn.m in Sources */ = {isa = PBXBuildFile; fileRef = 83DB0B591A1274D60031DD69 /* EDJColumn.m */; };
 		83DB0B5D1A1288030031DD69 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83DB0B5C1A1288030031DD69 /* LoginViewController.m */; };
@@ -96,8 +95,6 @@
 		837A1B2E1A1B1E3B009BE6A7 /* EditConnectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditConnectionViewController.m; sourceTree = "<group>"; };
 		837A1B301A1B1FE0009BE6A7 /* CreateAccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateAccountViewController.h; sourceTree = "<group>"; };
 		837A1B311A1B1FE0009BE6A7 /* CreateAccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateAccountViewController.m; sourceTree = "<group>"; };
-		83DB0B521A126B5C0031DD69 /* EDJConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDJConnection.h; sourceTree = "<group>"; };
-		83DB0B531A126B5C0031DD69 /* EDJConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDJConnection.m; sourceTree = "<group>"; };
 		83DB0B551A1273F70031DD69 /* EDJTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDJTable.h; sourceTree = "<group>"; };
 		83DB0B561A1273F70031DD69 /* EDJTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDJTable.m; sourceTree = "<group>"; };
 		83DB0B581A1274D60031DD69 /* EDJColumn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDJColumn.h; sourceTree = "<group>"; };
@@ -291,8 +288,6 @@
 				83DB0B611A128D7E0031DD69 /* EDJWebImageView.m */,
 				83F5ACBC1A16E3B1001E7601 /* EDJSingletonExample.h */,
 				83F5ACBD1A16E3B1001E7601 /* EDJSingletonExample.m */,
-				83DB0B521A126B5C0031DD69 /* EDJConnection.h */,
-				83DB0B531A126B5C0031DD69 /* EDJConnection.m */,
 				83F5ACB61A16E239001E7601 /* NSString+MD5.h */,
 				83F5ACB71A16E239001E7601 /* NSString+MD5.m */,
 				913232E51AA69E6A0069C64F /* EDJTableServices.h */,
@@ -528,7 +523,6 @@
 				9127043A1A300A4400F31B82 /* QTouchposeApplication.m in Sources */,
 				83F5ACBB1A16E37B001E7601 /* EDJAccountManager.m in Sources */,
 				836F98C21A01DA9B00A73F85 /* ViewController.m in Sources */,
-				83DB0B541A126B5C0031DD69 /* EDJConnection.m in Sources */,
 				91D9941C1AB7F0FF0076F869 /* EDJPrimaryKeyFinalViewController.m in Sources */,
 				91D9942D1AB825EE0076F869 /* EDJColumnTableViewController.m in Sources */,
 				9190E53B1AB7A91A0074CEB8 /* EDJColumnCreationView.m in Sources */,

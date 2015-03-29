@@ -113,26 +113,15 @@ static bool isFirstAccess = YES;
     
     
     
-    if([[NSUserDefaults standardUserDefaults] synchronize]){
-        NSLog(@"No Error");
-        NSLog(@"USername %@ password %@ db-username %@ db-password %@",[[array objectForKey:[dic objectForKey:@"username"]] objectForKey:@"username"],[[array objectForKey:[dic objectForKey:@"username"]]  objectForKey:@"password"],[[array objectForKey:[dic objectForKey:@"username"]]  objectForKey:@"db-username"], [[array objectForKey:[dic objectForKey:@"username"]]  objectForKey:@"db-password"]);
-    }
-       NSLog(@"%d",[[[[NSUserDefaults standardUserDefaults] objectForKey:@"Users"] allKeys] count]);
     [[NSUserDefaults standardUserDefaults] synchronize];
-     /* NSLog(@"USername %@ password %@ db-username %@ db-password %@",[[[NSUserDefaults standardUserDefaults] objectForKey:@"Users" ] objectForKey:[dic objectForKey:@"username"] objectForKey:@"username"],[[[NSUserDefaults standardUserDefaults] objectForKey:[dic objectForKey:@"username"]]  objectForKey:@"password"],[[[NSUserDefaults standardUserDefaults] objectForKey:[dic objectForKey:@"username"]]  objectForKey:@"db-username"], [[[NSUserDefaults standardUserDefaults] objectForKey:[dic objectForKey:@"username"]]  objectForKey:@"db-password"]);*/
-    NSLog(@"Users %d currentUsers info %d %@", [[[[NSUserDefaults standardUserDefaults] objectForKey:@"Users"] allKeys] count],[[[[[NSUserDefaults standardUserDefaults] objectForKey:@"Users"] objectForKey:@"Dave"] allKeys] count], [[[[NSUserDefaults standardUserDefaults] objectForKey:@"Users"] objectForKey:@"Dave"] objectForKey:@"db-password"]);
-
 }
 -(void)changeConnectionForCurrentUser:(NSString *)_username password:(NSString *)_password connectionString:(NSString *)conString{
     NSMutableDictionary *currenUserDict=[[NSMutableDictionary alloc] initWithDictionary:[[EDJUser sharedInstance] getDictionaryForUser]];
-    NSLog(@"keys count %d", [[currenUserDict allKeys] count] );
     [currenUserDict setObject:conString forKey:@"connection-string"];
     [currenUserDict setObject:_username forKey:@"db-username"];
     [currenUserDict setObject:_password forKey:@"db-password"];
     [self addUserToDefaults:currenUserDict];
-    NSLog(@"password %@",_password);
     if([[EDJUser sharedInstance] setUserInfo:[[[NSUserDefaults standardUserDefaults] objectForKey:@"Users"] objectForKey:@"Dave"]]){
-        NSLog(@"saved info");
     }
     
     
