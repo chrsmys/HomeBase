@@ -24,4 +24,5 @@
 -(void)refreshSchema;
 + (EDJTableServices *)sharedInstance;
 -(void)addTableWithRequest:(EDJTableCreationRequest *)tRequest withCompletion:(void (^)(BOOL finished))completion withError:(void (^)(NSString *error))errorMethod;
+-(void)dropColumn:(NSString *)column withTableName:(NSString *)table withCompletion:(void (^)(BOOL finished))completion withError:(void (^)(NSString *error))errorMethod;
 @end

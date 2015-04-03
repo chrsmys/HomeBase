@@ -8,7 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "EDJTable.h"
-@interface TableInfoViewController : UIViewController
+#import "TriggerInfoDataSource.h"
+@class  EDJTrigger;
+@interface TableInfoViewController : UIViewController<TriggerInfoDelegate>{
+    EDJTrigger *selectedTrigger;
+}
 @property(nonatomic,strong) EDJTable *table;
 @property (weak, nonatomic) IBOutlet UITextView *foreignKeyInfoTextView;
 @property (weak, nonatomic) IBOutlet UIView *columnTableViewContainer;

@@ -9,6 +9,7 @@
 #import "TableInfoViewController.h"
 #import "EDJColumnTableViewController.h"
 #import "TriggerInfoDataSource.h"
+#import "TriggerDetailViewController.h"
 @interface TableInfoViewController ()
 @property (nonatomic) TriggerInfoDataSource *triggerDataSource;
 @end
@@ -22,10 +23,18 @@
     self.triggerDataSource.table = self.table;
     self.triggerInfoTableView.dataSource=_triggerDataSource;
     self.triggerInfoTableView.delegate=_triggerDataSource;
+    _triggerDataSource.delegate=self;
 }
 
 -(void)viewWillAppear:(BOOL)animated{
     self.foreignKeyInfoTextView.text = [self.table getForeignKeyText];
+}
+
+-(void)selectedTrigger:(EDJTrigger *)trigger{
+    selectedTrigger=trigger;
+    NSLog(@"selected trigger");
+    [self performSegueWithIdentifier:@"ShowTriggerDetail" sender:trigger];
+    NSLog(@"%@", selectedTrigger.body);
 }
 
 - (void)didReceiveMemoryWarning {
@@ -42,6 +51,10 @@
     if ([segue.identifier isEqualToString:@"DisplayTableColumnInfo"]) {
         EDJColumnTableViewController *edj = (EDJColumnTableViewController *)segue.destinationViewController;
         edj.table=self.table;
+    }else if ([segue.identifier isEqualToString:@"ShowTriggerDetail"]){
+        TriggerDetailViewController *edj = (TriggerDetailViewController *)segue.destinationViewController;
+        edj.trigger=(EDJTrigger *)sender;
+        NSLog(@"segue");
     }
 }
 

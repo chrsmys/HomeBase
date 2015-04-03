@@ -106,7 +106,6 @@ static EDJTableServices *sharedInstance;
 }
 
 -(void)handleNewSchema:(NSString *)response{
-    NSLog(@"%@",response);
     [_tables removeAllObjects];
     NSError *error = nil;
     id object = [NSJSONSerialization
@@ -118,7 +117,6 @@ static EDJTableServices *sharedInstance;
     {
         NSDictionary *results = object;
         NSArray *tables=[results objectForKey:@"USER_SCHEMA"];
-        NSMutableArray *tableObjects=[[NSMutableArray alloc] init];
         for(int i=0; i<[tables count]; i++){
             EDJTable *tab=[[EDJTable alloc] initWithTableData:[tables objectAtIndex:i]];
             [_tables addObject:tab];
@@ -159,6 +157,24 @@ static EDJTableServices *sharedInstance;
     }];
     [task resume];
 }
+
+-(void)dropColumn:(NSString *)column withTableName:(NSString *)table withCompletion:(void (^)(BOOL finished))completion withError:(void (^)(NSString *error))errorMethod {
+    EDJUser *user =[EDJUser sharedInstance];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"https://php.radford.edu/~tfreeman3/Homebase/api/user_alter_table_column_put_delete"]];
+    request.HTTPBody = [[self createRequestWithDictionary:@{@"user-name" : [user getDBUsername], @"connection-string" : [user getConnectionString], @"password" : [user getDBPassword], @"table-name" : table, @"column-name" : column }] dataUsingEncoding:NSUTF8StringEncoding];
+    request.HTTPMethod = @"POST";
+    
+    NSURLSessionDataTask *task = [[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+        if (!error) {
+            completion(true);
+        }
+        else{
+            errorMethod(@"Error Connecting");
+        }
+    }];
+    [task resume];
+}
+
 
 
 

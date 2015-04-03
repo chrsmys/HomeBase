@@ -18,6 +18,7 @@
 -(NSAttributedString *)getAllColumnsToString;
 -(NSString *)getForeignKeyText;
 -(NSArray *)getColumns;
+-(void)removeColumnWithIndex:(int)colIndex;
 -(BOOL)isPrimaryKey:(NSString *)columnName;
 @property (nonatomic, retain) NSArray *foriegnKeys;
 @property (nonatomic, retain) NSArray *primaryKeys;

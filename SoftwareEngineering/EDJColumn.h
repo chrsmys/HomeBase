@@ -12,6 +12,12 @@
 @interface EDJColumn : NSObject
 
 -(id)initWithName:(NSString *)_name withType:(NSString *)_type;
+-(id)initWithDictionary:(NSDictionary *)dictionary;
+-(NSString *)formattedType;
 @property(nonatomic, strong, readonly) NSString *name;
 @property(nonatomic, strong, readonly) NSString *type;
+@property(nonatomic, strong, readonly) NSString *length;
+@property(nonatomic, strong, readonly) NSString *precision;
+@property(nonatomic, strong, readonly) NSString *scale;
+
 @end

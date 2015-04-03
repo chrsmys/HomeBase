@@ -10,6 +10,7 @@
 #import "EDJTable.h"
 #import "FKListViewController.h"
 #import "TableInfoViewController.h"
+#import "UIView+Borders.h"
 @interface CloneCellViewController ()
 
 @end
@@ -93,15 +94,15 @@
 
 }
 -(void)viewDidLayoutSubviews{
-    NSLog(@"%f %f", 1.0-((self.view.frame.size.width-300)/100), (self.view.frame.size.width-300)/100);
     //cloneCellView.alpha=1.0-((self.view.frame.size.width-300)/100);
-tableNameLabel.frame=CGRectMake(tableNameLabel.frame.origin.x, tableNameLabel.frame.origin.y, self.view.frame.size.width, tableNameLabel.frame.size.height);
+    //tableNameLabel.frame=CGRectMake(tableNameLabel.frame.origin.x, tableNameLabel.frame.origin.y, self.view.frame.size.width, tableNameLabel.frame.size.height);
     //tableNameLabel.font=((UILabel *)[clonedCell viewWithTag:-5]).font;
-    _columnsListView.font=[UIFont fontWithName:_columnsListView.font.fontName size:24];
+    //_columnsListView.font=[UIFont fontWithName:_columnsListView.font.fontName size:24];
     
-    _columnsListView.textAlignment=UITextAlignmentCenter;
+   // _columnsListView.textAlignment=UITextAlignmentCenter;
     float maxBound = MAX(self.view.frame.size.height, self.view.frame.size.width);
     self.containerView.alpha=(maxBound-300)/600.0;
+    
 }
 
 #pragma mark - Navigation

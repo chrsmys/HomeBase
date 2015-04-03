@@ -30,6 +30,11 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    EDJTrigger *trigger = [[self.table triggers] objectAtIndex:indexPath.row];
+    if ([self.delegate respondsToSelector:@selector(selectedTrigger:)]) {
+        [self.delegate selectedTrigger:trigger];
+    }
+    [self.delegate selectedTrigger:trigger];
 }
 
 @end

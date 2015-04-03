@@ -373,19 +373,19 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CellName" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NqJ-8G-zjA">
-                                            <rect key="frame" x="18" y="22" width="75" height="20.5"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <rect key="frame" x="18" y="22" width="76.5" height="20.5"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MLe-fk-SNV">
                                             <rect key="frame" x="18" y="45" width="26" height="14.5"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <fontDescription key="fontDescription" type="italicSystem" pointSize="12"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PK" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jir-CS-XA2">
-                                            <rect key="frame" x="269" y="22" width="23" height="21"/>
+                                            <rect key="frame" x="269" y="22" width="22.5" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="23" id="Opb-WY-JnT"/>
                                             </constraints>
@@ -433,7 +433,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="884-nU-BTs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6826" y="-1957"/>
+            <point key="canvasLocation" x="6909" y="-2025"/>
         </scene>
         <!--Column Creation View Controller-->
         <scene sceneID="gaP-hn-3xF">
@@ -890,6 +890,43 @@
             </objects>
             <point key="canvasLocation" x="6664" y="-1102"/>
         </scene>
+        <!--Trigger Detail View Controller-->
+        <scene sceneID="BwS-Up-54F">
+            <objects>
+                <viewController id="nl9-Kq-sxq" customClass="TriggerDetailViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="svp-uE-4iI"/>
+                        <viewControllerLayoutGuide type="bottom" id="Rim-rM-eoc"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="2Go-RZ-hio">
+                        <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UN4-xU-MaS">
+                                <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="UN4-xU-MaS" firstAttribute="top" secondItem="svp-uE-4iI" secondAttribute="bottom" id="GDD-mo-9AU"/>
+                            <constraint firstItem="UN4-xU-MaS" firstAttribute="leading" secondItem="2Go-RZ-hio" secondAttribute="leadingMargin" constant="-16" id="V4a-qM-KOO"/>
+                            <constraint firstItem="Rim-rM-eoc" firstAttribute="top" secondItem="UN4-xU-MaS" secondAttribute="bottom" id="XBM-ja-EPi"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="UN4-xU-MaS" secondAttribute="trailing" constant="-16" id="v28-xe-g4k"/>
+                        </constraints>
+                    </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="300" height="300"/>
+                    <connections>
+                        <outlet property="triggerCodeDisplay" destination="UN4-xU-MaS" id="0FG-kI-oY8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gdt-5k-Bkq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1624" y="-2309"/>
+        </scene>
         <!--Table Info View Controller-->
         <scene sceneID="6Di-Gh-W2V">
             <objects>
@@ -1024,11 +1061,12 @@
                         <outlet property="columnTableViewContainer" destination="k4M-vf-Nte" id="ZYL-pe-O0U"/>
                         <outlet property="foreignKeyInfoTextView" destination="qGM-Zw-dEE" id="QfG-QU-Hja"/>
                         <outlet property="triggerInfoTableView" destination="20h-1X-a7P" id="z2T-f2-xaM"/>
+                        <segue destination="nl9-Kq-sxq" kind="presentation" identifier="ShowTriggerDetail" modalPresentationStyle="formSheet" id="V7O-aM-Hmz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X8o-kN-Q6y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1570" y="-1501"/>
+            <point key="canvasLocation" x="1548" y="-1658"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="peX-w1-S7a">

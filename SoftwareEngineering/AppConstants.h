@@ -28,4 +28,10 @@ extern NSString* const TRIGGER_STATUS_ACTIVE;
 extern NSString* const TRIGGER_STATUS_INACTIVE;
 extern NSString* const TRIGGER_BODY;
 
+extern NSString* const COLUMN_NAME;
+extern NSString* const COLUMN_DATA_TYPE;
+extern NSString* const COLUMN_DATA_LENGTH;
+extern NSString* const COLUMN_DATA_PRECISION;
+extern NSString* const COLUMN_DATA_SCALE;
+
 @end

@@ -23,7 +23,7 @@
         
         columns=[[NSMutableArray alloc] init];
         for(int i=0; i<[col count]; i++){
-            EDJColumn *cols=[[EDJColumn alloc] initWithName:((NSString *)[[col objectAtIndex:i] objectForKey:@"COLUMN_NAME"] )withType:@""];
+            EDJColumn *cols=[[EDJColumn alloc] initWithDictionary:[col objectAtIndex:i]];
             [columns addObject:cols];
         }
         [self fillTriggers:[table objectForKey:TABLE_TRIGGERS]];
@@ -105,6 +105,9 @@
 }
 -(NSArray *)getColumns{
     return columns;
+}
+-(void)removeColumnWithIndex:(int)colIndex{
+    [columns removeObjectAtIndex:colIndex];
 }
 
 @end

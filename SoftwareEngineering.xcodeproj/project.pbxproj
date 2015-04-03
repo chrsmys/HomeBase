@@ -46,6 +46,10 @@
 		9190E53B1AB7A91A0074CEB8 /* EDJColumnCreationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9190E53A1AB7A91A0074CEB8 /* EDJColumnCreationView.m */; };
 		9190E53E1AB7AAE10074CEB8 /* EDJColumnAmountSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9190E53D1AB7AAE10074CEB8 /* EDJColumnAmountSelectionViewController.m */; };
 		9190E5411AB7AD310074CEB8 /* ColumnCreationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9190E5401AB7AD310074CEB8 /* ColumnCreationViewController.m */; };
+		91A69ED81ACCD6CA00B88276 /* MGSwipeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 91A69ED51ACCD6CA00B88276 /* MGSwipeButton.m */; };
+		91A69ED91ACCD6CA00B88276 /* MGSwipeTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 91A69ED71ACCD6CA00B88276 /* MGSwipeTableCell.m */; };
+		91A69EDC1ACCDF7200B88276 /* TriggerDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91A69EDB1ACCDF7200B88276 /* TriggerDetailViewController.m */; };
+		91A69EE01ACE302300B88276 /* UIView+Borders.m in Sources */ = {isa = PBXBuildFile; fileRef = 91A69EDF1ACE302300B88276 /* UIView+Borders.m */; };
 		91ABB46A1AC85ED100068876 /* TriggerInfoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 91ABB4691AC85ED100068876 /* TriggerInfoTableViewCell.m */; };
 		91D994191AB7D08F0076F869 /* EDJTableCreationRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 91D994181AB7D08F0076F869 /* EDJTableCreationRequest.m */; };
 		91D9941C1AB7F0FF0076F869 /* EDJPrimaryKeyFinalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91D9941B1AB7F0FF0076F869 /* EDJPrimaryKeyFinalViewController.m */; };
@@ -144,6 +148,14 @@
 		9190E53D1AB7AAE10074CEB8 /* EDJColumnAmountSelectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDJColumnAmountSelectionViewController.m; sourceTree = "<group>"; };
 		9190E53F1AB7AD310074CEB8 /* ColumnCreationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColumnCreationViewController.h; sourceTree = "<group>"; };
 		9190E5401AB7AD310074CEB8 /* ColumnCreationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColumnCreationViewController.m; sourceTree = "<group>"; };
+		91A69ED41ACCD6CA00B88276 /* MGSwipeButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGSwipeButton.h; sourceTree = "<group>"; };
+		91A69ED51ACCD6CA00B88276 /* MGSwipeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGSwipeButton.m; sourceTree = "<group>"; };
+		91A69ED61ACCD6CA00B88276 /* MGSwipeTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGSwipeTableCell.h; sourceTree = "<group>"; };
+		91A69ED71ACCD6CA00B88276 /* MGSwipeTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGSwipeTableCell.m; sourceTree = "<group>"; };
+		91A69EDA1ACCDF7200B88276 /* TriggerDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TriggerDetailViewController.h; sourceTree = "<group>"; };
+		91A69EDB1ACCDF7200B88276 /* TriggerDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TriggerDetailViewController.m; sourceTree = "<group>"; };
+		91A69EDE1ACE300F00B88276 /* UIView+Borders.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+Borders.h"; sourceTree = "<group>"; };
+		91A69EDF1ACE302300B88276 /* UIView+Borders.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Borders.m"; sourceTree = "<group>"; };
 		91ABB4681AC85ED100068876 /* TriggerInfoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TriggerInfoTableViewCell.h; sourceTree = "<group>"; };
 		91ABB4691AC85ED100068876 /* TriggerInfoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TriggerInfoTableViewCell.m; sourceTree = "<group>"; };
 		91D994171AB7D08F0076F869 /* EDJTableCreationRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDJTableCreationRequest.h; sourceTree = "<group>"; };
@@ -219,7 +231,9 @@
 				837A1B271A1B1D4C009BE6A7 /* User and Account Management */,
 				837A1B261A1B1D1C009BE6A7 /* DB Objects */,
 				837A1B251A1B1CE6009BE6A7 /* Helper Classes */,
+				91A69ED31ACCD6CA00B88276 /* MGSwipeTableCell */,
 				836F98BA1A01DA9B00A73F85 /* AppDelegate.h */,
+				91A69EDD1ACE2FE300B88276 /* Dependencies */,
 				836F98BB1A01DA9B00A73F85 /* AppDelegate.m */,
 				836F98C31A01DA9B00A73F85 /* Main.storyboard */,
 				836F98C61A01DA9B00A73F85 /* Images.xcassets */,
@@ -258,6 +272,8 @@
 				9189AD5F1AC856CD00E83BFF /* TriggerInfoDataSource.m */,
 				91ABB4681AC85ED100068876 /* TriggerInfoTableViewCell.h */,
 				91ABB4691AC85ED100068876 /* TriggerInfoTableViewCell.m */,
+				91A69EDA1ACCDF7200B88276 /* TriggerDetailViewController.h */,
+				91A69EDB1ACCDF7200B88276 /* TriggerDetailViewController.m */,
 			);
 			path = SoftwareEngineering;
 			sourceTree = "<group>";
@@ -404,6 +420,26 @@
 			name = "DB Objects ";
 			sourceTree = "<group>";
 		};
+		91A69ED31ACCD6CA00B88276 /* MGSwipeTableCell */ = {
+			isa = PBXGroup;
+			children = (
+				91A69ED41ACCD6CA00B88276 /* MGSwipeButton.h */,
+				91A69ED51ACCD6CA00B88276 /* MGSwipeButton.m */,
+				91A69ED61ACCD6CA00B88276 /* MGSwipeTableCell.h */,
+				91A69ED71ACCD6CA00B88276 /* MGSwipeTableCell.m */,
+			);
+			path = MGSwipeTableCell;
+			sourceTree = "<group>";
+		};
+		91A69EDD1ACE2FE300B88276 /* Dependencies */ = {
+			isa = PBXGroup;
+			children = (
+				91A69EDE1ACE300F00B88276 /* UIView+Borders.h */,
+				91A69EDF1ACE302300B88276 /* UIView+Borders.m */,
+			);
+			name = Dependencies;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -512,6 +548,7 @@
 			files = (
 				83DB0B5D1A1288030031DD69 /* LoginViewController.m in Sources */,
 				837A1B211A1AEE5F009BE6A7 /* LoggedInViewController.m in Sources */,
+				91A69ED81ACCD6CA00B88276 /* MGSwipeButton.m in Sources */,
 				836F98BC1A01DA9B00A73F85 /* AppDelegate.m in Sources */,
 				83F5ACB81A16E239001E7601 /* NSString+MD5.m in Sources */,
 				9189AD5D1AC7CB3800E83BFF /* EDJTrigger.m in Sources */,
@@ -519,10 +556,12 @@
 				837A1B1E1A1AEA57009BE6A7 /* MenuViewController.m in Sources */,
 				918A81EB1AA7FFAA000966D1 /* EDJForeignKey.m in Sources */,
 				91D994271AB81BB40076F869 /* EDJTableSubmissionViewController.m in Sources */,
+				91A69EE01ACE302300B88276 /* UIView+Borders.m in Sources */,
 				91D994191AB7D08F0076F869 /* EDJTableCreationRequest.m in Sources */,
 				91FF24F81AC657720004A38B /* AppConstants.m in Sources */,
 				91FF25021AC7A6480004A38B /* ColumnTableViewCell.m in Sources */,
 				9190E5411AB7AD310074CEB8 /* ColumnCreationViewController.m in Sources */,
+				91A69ED91ACCD6CA00B88276 /* MGSwipeTableCell.m in Sources */,
 				83DB0B5A1A1274D60031DD69 /* EDJColumn.m in Sources */,
 				916345C01AB8803C00AAE1FD /* FKListViewController.m in Sources */,
 				9190E53E1AB7AAE10074CEB8 /* EDJColumnAmountSelectionViewController.m in Sources */,
@@ -542,6 +581,7 @@
 				83F5ACBB1A16E37B001E7601 /* EDJAccountManager.m in Sources */,
 				836F98C21A01DA9B00A73F85 /* ViewController.m in Sources */,
 				91D9941C1AB7F0FF0076F869 /* EDJPrimaryKeyFinalViewController.m in Sources */,
+				91A69EDC1ACCDF7200B88276 /* TriggerDetailViewController.m in Sources */,
 				91D9942D1AB825EE0076F869 /* EDJColumnTableViewController.m in Sources */,
 				9190E53B1AB7A91A0074CEB8 /* EDJColumnCreationView.m in Sources */,
 				913232E71AA69E6A0069C64F /* EDJTableServices.m in Sources */,
