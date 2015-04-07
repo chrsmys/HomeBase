@@ -13,6 +13,7 @@
 }
 -(BOOL)userExists:(NSString *)username;
 -(BOOL)loginUserWithUsername:(NSString *)_username password:(NSString *)_password;
+-(BOOL)loginUser;
 -(BOOL)createUser:(NSString *)username pass:(NSString *)password dbUsername:(NSString *)dbUser dbPassword:(NSString *)dbPassword connectionString:(NSString *)con;
 -(void)logoutCurrentUser;
 -(void)changeConnectionForCurrentUser:(NSString *)username password:(NSString *)password connectionString:(NSString *)conString;

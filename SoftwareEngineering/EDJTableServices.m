@@ -92,7 +92,7 @@ static EDJTableServices *sharedInstance;
     NSString *request=@"";
     for(int i=0; i<[[values allKeys] count]; i++){
         NSString *key = [[values allKeys] objectAtIndex:i];
-        NSString *value = [values objectForKey:key];
+        NSString *value = [NSString stringWithFormat:@"%@", [values objectForKey:key]];
         
         request=[request stringByAppendingString:key];
         request=[request stringByAppendingString:@"="];
@@ -185,5 +185,130 @@ static EDJTableServices *sharedInstance;
     return sharedInstance;
 }
 
+-(void)addColumnWithTableName:(NSString *)tableName columnName:(NSString *)columnName columnType:(NSString *)columnType columnLength:(int)length notNull:(BOOL)notNull isUnique:(BOOL)isUnique withCompletion:(void (^)(BOOL finished))completion withError:(void (^)(NSString *error))errorMethod{
+    EDJUser *user =[EDJUser sharedInstance];
+    NSMutableDictionary *requestDictionary = [[NSMutableDictionary alloc] initWithDictionary:@{@"user-name" : [user getDBUsername], @"connection-string" : [user getConnectionString], @"password" : [user getDBPassword], @"table-name" : tableName, @"column-name" :columnName, @"column-type" : columnType}];
+    
+    if (length>0) {
+        [requestDictionary setObject:[NSNumber numberWithInt:length] forKey:@"column-size"];
+    }
+    if(notNull){
+        [requestDictionary setObject:@true forKey:@"not-null"];
+    }
+    if(isUnique){
+        [requestDictionary setObject:@true forKey:@"unique"];
+    }
+    
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"https://php.radford.edu/~tfreeman3/Homebase/api/user_alter_table_column"]];
+    request.HTTPBody = [[self createRequestWithDictionary:requestDictionary] dataUsingEncoding:NSUTF8StringEncoding];
+    request.HTTPMethod = @"POST";
+    
+    NSURLSessionDataTask *task = [[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+        if (!error) {
+            NSString *request = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+            completion(true);
+        }
+        else{
+            errorMethod(@"Error Connecting");
+        }
+    }];
+    [task resume];
+}
+
+-(void)editColumnWithTableName:(NSString *)tableName columnName:(NSString *)columnName columnType:(NSString *)columnType columnLength:(NSString *)length withCompletion:(void (^)(BOOL finished))completion withError:(void (^)(NSString *error))errorMethod{
+    EDJUser *user =[EDJUser sharedInstance];
+    NSMutableDictionary *requestDictionary = [[NSMutableDictionary alloc] initWithDictionary:@{@"user-name" : [user getDBUsername], @"connection-string" : [user getConnectionString], @"password" : [user getDBPassword], @"table-name" : tableName, @"column-name" :columnName, @"new-column-type" : columnType}];
+    
+    if (length>0) {
+        [requestDictionary setObject:length forKey:@"new-column-size"];
+    }
+    
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://php.radford.edu/~tfreeman3/Homebase/api/user_alter_table_column_put_delete?%@",[self createRequestWithDictionary:requestDictionary]]]];
+   // request.HTTPBody = [[self createRequestWithDictionary:requestDictionary] dataUsingEncoding:NSUTF8StringEncoding];
+    request.HTTPMethod = @"GET";
+    
+    NSURLSessionDataTask *task = [[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+        if (!error) {
+            NSString *request = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+            if([self isError:data]){
+                errorMethod([[self getError:data] objectForKey:@"message"]);
+
+            }else{
+                completion(true);
+            }
+        }
+        else{
+            errorMethod(@"Error Connecting ");
+        }
+    }];
+    [task resume];
+}
+
+-(void)changeTableName:(NSString *)oldName newName:(NSString *)newName withCompletion:(void (^)(BOOL finished))completion withError:(void (^)(NSString *error))errorMethod{
+    EDJUser *user =[EDJUser sharedInstance];
+    NSMutableDictionary *requestDictionary = [[NSMutableDictionary alloc] initWithDictionary:@{@"user-name" : [user getDBUsername], @"connection-string" : [user getConnectionString], @"password" : [user getDBPassword], @"table-name" : oldName, @"new-table-name" :newName}];
+   
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"https://php.radford.edu/~tfreeman3/Homebase/api/user_alter_table_name"]];
+    request.HTTPBody = [[self createRequestWithDictionary:requestDictionary] dataUsingEncoding:NSUTF8StringEncoding];
+    request.HTTPMethod = @"POST";
+    
+    NSURLSessionDataTask *task = [[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+        if (!error) {
+            NSString *request = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+            
+            id object = [NSJSONSerialization
+                         JSONObjectWithData:data
+                         options:0
+                         error:&error];
+            if ([object isKindOfClass:[NSMutableDictionary class]]) {
+                NSMutableDictionary *file = (NSMutableDictionary *)object;
+                if ([file objectForKey:@"error"]!=nil) {
+                    errorMethod(@"Error Connecting");
+                }else{
+                    completion(true);
+                }
+            }else{
+                completion(true);
+            }
+        }
+        else{
+            errorMethod(@"Error Connecting");
+        }
+    }];
+    [task resume];
+}
+-(BOOL)isError:(NSData *)data{
+    id object = [NSJSONSerialization
+                 JSONObjectWithData:data
+                 options:0
+                 error:nil];
+    if ([object isKindOfClass:[NSMutableDictionary class]]) {
+        NSMutableDictionary *file = (NSMutableDictionary *)object;
+        if ([file objectForKey:@"error"]!=nil) {
+            return true;
+        }else{
+            return false;
+        }
+    }else{
+        return false;
+    }
+}
+
+-(NSMutableDictionary *)getError:(NSData *)data{
+    id object = [NSJSONSerialization
+                 JSONObjectWithData:data
+                 options:0
+                 error:nil];
+    if ([object isKindOfClass:[NSMutableDictionary class]]) {
+        NSMutableDictionary *file = (NSMutableDictionary *)object;
+        if ([file objectForKey:@"error"]!=nil) {
+            return [file objectForKey:@"error"];
+        }else{
+            return nil;
+        }
+    }else{
+        return nil;
+    }
+}
 
 @end

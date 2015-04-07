@@ -11,6 +11,7 @@
 #import "EDJTable.h"
 #import "EDJUser.h"
 #import "EDJTableServices.h"
+#import "EDJAccountManager.h"
 @interface ViewController ()
 
 @end
@@ -28,10 +29,7 @@
 @synthesize viewTitleLabel;
 - (void)viewDidLoad {
     [super viewDidLoad];
-    /*[[EDJTableServices sharedInstance] refreshSchema];
-    [[EDJTableServices sharedInstance] setDelegate:self];
-    NSLog(@"dbpass %@",[[EDJUser sharedInstance] getDBPassword]);
-    tableList=[[NSMutableArray alloc] init];*/
+   
     tableCollection.backgroundColor=[UIColor colorWithRed:0.871 green:0.933 blue:0.988 alpha:1];
     self.view.backgroundColor=[UIColor colorWithRed:0.125 green:0.42 blue:0.608 alpha:1];
     viewTitleLabel.textColor=[UIColor whiteColor];
@@ -42,20 +40,22 @@
                                                object:nil];
     UIPinchGestureRecognizer *pinch=[[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(pinch:)];
     [tableCollection addGestureRecognizer:pinch];
-   // [_activityIndicator startAnimating];
+
+}
+-(void)viewDidAppear:(BOOL)animated{
     [self refresh];
-   // MenuViewController *menu=[self.storyboard instantiateViewControllerWithIdentifier:@"MenuID"];
-   // self.contain
-    // Do any additional setup after loading the view, typically from a nib.
 }
 -(void)pinch:(UIPinchGestureRecognizer *)pinch{
    
 }
 -(void)refresh{
-    [_activityIndicator startAnimating];
-    [[EDJTableServices sharedInstance] refreshSchema];
-    [[EDJTableServices sharedInstance] setDelegate:self];
-    NSLog(@"dbpass %@",[[EDJUser sharedInstance] getDBPassword]);
+    if ([[EDJUser sharedInstance] getDBUsername]) {
+        [_activityIndicator startAnimating];
+        [[EDJTableServices sharedInstance] refreshSchema];
+        [[EDJTableServices sharedInstance] setDelegate:self];
+    }else{
+        [self.activityIndicator stopAnimating];
+    }
     tableList=[[NSMutableArray alloc] init];
     [tableCollection reloadData];
     tableCollection.backgroundColor=[UIColor colorWithRed:0.871 green:0.933 blue:0.988 alpha:1];
@@ -264,9 +264,7 @@
 }
 
 - (IBAction)menuButtonPressed:(id)sender {
-   /*
-    
-    */
+
     [self.delegate menuButtonWasPressed];
 }
 

@@ -26,6 +26,7 @@ static bool isFirstAccess = YES;
     
     return SINGLETON;
 }
+
 -(BOOL)setUserInfo:(NSMutableDictionary *)userInfo{
     if([userInfo objectForKey:@"username"]!=nil){
         username=[userInfo objectForKey:@"username"];
@@ -62,11 +63,11 @@ static bool isFirstAccess = YES;
 }
 -(NSMutableDictionary *)getDictionaryForUser{
     NSMutableDictionary *user=[[NSMutableDictionary alloc] init];
-    [user setObject:password forKey:@"password"];
-    [user setObject:username forKey:@"username"];
-    [user setObject:connectionString forKey:@"connection-string"];
-    [user setObject:dbUsername forKey:@"db-username"];
-    [user setObject:dbPassword forKey:@"db-password"];
+    [user setObject:((password!=nil) ? password : @"") forKey:@"password"];
+    [user setObject:((username!=nil) ? username : @"") forKey:@"username"];
+    [user setObject:((connectionString!=nil) ? connectionString : @"") forKey:@"connection-string"];
+    [user setObject:((dbUsername!=nil) ? dbUsername : @"") forKey:@"db-username"];
+    [user setObject:((dbPassword!=nil) ? dbPassword : @"") forKey:@"db-password"];
     
     NSLog(@"%d",[[user allKeys] count]);
 

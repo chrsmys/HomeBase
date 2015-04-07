@@ -31,4 +31,5 @@
 - (IBAction)uniqueButtonPressed:(UIButton *)sender;
 
 +(instancetype)getView;
++(instancetype)getViewWithOutFKAddition;
 @end

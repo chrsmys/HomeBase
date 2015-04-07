@@ -8,9 +8,10 @@
 
 #import "CloneCellViewController.h"
 #import "EDJTable.h"
-#import "FKListViewController.h"
+#import "EditTableNameViewController.h"
 #import "TableInfoViewController.h"
 #import "UIView+Borders.h"
+#import "UIColor+EDJSystemColors.h"
 @interface CloneCellViewController ()
 
 @end
@@ -97,9 +98,9 @@
     //cloneCellView.alpha=1.0-((self.view.frame.size.width-300)/100);
     //tableNameLabel.frame=CGRectMake(tableNameLabel.frame.origin.x, tableNameLabel.frame.origin.y, self.view.frame.size.width, tableNameLabel.frame.size.height);
     //tableNameLabel.font=((UILabel *)[clonedCell viewWithTag:-5]).font;
-    //_columnsListView.font=[UIFont fontWithName:_columnsListView.font.fontName size:24];
+    _columnsListView.font=[UIFont fontWithName:_columnsListView.font.fontName size:24];
     
-   // _columnsListView.textAlignment=UITextAlignmentCenter;
+    _columnsListView.textAlignment=UITextAlignmentCenter;
     float maxBound = MAX(self.view.frame.size.height, self.view.frame.size.width);
     self.containerView.alpha=(maxBound-300)/600.0;
     
@@ -109,23 +110,22 @@
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@"ShowFK"]) {
+    if ([segue.identifier isEqualToString:@"showEditTableName"]) {
         NSLog(@"key is right");
         UIViewController *destination = segue.destinationViewController;
         if ([destination isKindOfClass:[UINavigationController class]]) {
             destination = [[((UINavigationController *)destination) viewControllers] firstObject];
             NSLog(@"nav");
         }
-        if ([destination isKindOfClass:[FKListViewController class]]) {
-            FKListViewController *dest = (FKListViewController *)destination;
-            dest.fkText=[self.table getForeignKeyText];
-            dest.FKTextView.text=[self.table getForeignKeyText];
-              NSLog(@"final");
+        if ([destination isKindOfClass:[EditTableNameViewController class]]) {
+            EditTableNameViewController *dest = (EditTableNameViewController *)destination;
+            [dest setTableName:[self.table getName]];
         }
     }else if([segue.identifier isEqualToString:@"TableInfoSegue"]){
         if ([segue.destinationViewController isKindOfClass:[TableInfoViewController class]]) {
             TableInfoViewController *tableInfo = (TableInfoViewController *)segue.destinationViewController;
             tableInfo.table=self.table;
+            tableInfo.view.backgroundColor = [UIColor systemOrange];
             NSLog(@"doing this %@", self.table);
         }
     }

@@ -25,4 +25,8 @@
 + (EDJTableServices *)sharedInstance;
 -(void)addTableWithRequest:(EDJTableCreationRequest *)tRequest withCompletion:(void (^)(BOOL finished))completion withError:(void (^)(NSString *error))errorMethod;
 -(void)dropColumn:(NSString *)column withTableName:(NSString *)table withCompletion:(void (^)(BOOL finished))completion withError:(void (^)(NSString *error))errorMethod;
+-(void)addColumnWithTableName:(NSString *)tableName columnName:(NSString *)columnName columnType:(NSString *)columnType columnLength:(int)length notNull:(BOOL)notNull isUnique:(BOOL)isUnique withCompletion:(void (^)(BOOL finished))completion withError:(void (^)(NSString *error))errorMethod;
+-(void)changeTableName:(NSString *)oldName newName:(NSString *)newName withCompletion:(void (^)(BOOL finished))completion withError:(void (^)(NSString *error))errorMethod;
+-(void)editColumnWithTableName:(NSString *)tableName columnName:(NSString *)columnName columnType:(NSString *)columnType columnLength:(NSString *)length withCompletion:(void (^)(BOOL finished))completion withError:(void (^)(NSString *error))errorMethod;
+
 @end

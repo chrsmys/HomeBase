@@ -10,4 +10,7 @@
 @class EDJTableCreationRequest;
 @interface EDJTableSubmissionViewController : UIViewController
 @property (nonatomic) EDJTableCreationRequest *tableRequest;
+
+-(void)performAction:(void (^)(UIViewController *currentView))action;
+
 @end

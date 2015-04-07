@@ -58,6 +58,16 @@ static bool isFirstAccess = YES;
     }
     return false;
 }
+
+-(BOOL)loginUser{
+    users=[[NSMutableDictionary alloc]  initWithDictionary:[[NSUserDefaults standardUserDefaults] objectForKey:@"Users"]];
+    if([users count]!=0){
+           return [[EDJUser sharedInstance] setUserInfo:[[users allValues] objectAtIndex:0]];
+    }else{
+            return false;
+    }
+}
+
 #pragma mark - Life Cycle
 
 + (id) allocWithZone:(NSZone *)zone

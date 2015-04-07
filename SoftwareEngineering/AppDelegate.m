@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-
+#import "EDJAccountManager.h"
 @interface AppDelegate ()
 
 @end
@@ -16,8 +16,11 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    [[EDJAccountManager sharedInstance] loginUser];
     // Override point for customization after application launch.
-    return YES;
+   /* [[EDJAccountManager sharedInstance] createUser:@"Dave" pass:@"dave" dbUsername:@"cmays2" dbPassword:@"f5288e4e6b" connectionString:@"//137.45.192.130/itec2.radford.edu"];
+    [[EDJAccountManager sharedInstance] loginUserWithUsername:@"Dave" password:@"dave"];
+    */return YES;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

@@ -241,7 +241,7 @@
 
 -(UIView*)getViewBackedOneSidedBorderWithFrame:(CGRect)frame andColor:(UIColor*)color
 {
-    UIView *border = [[UIView alloc]initWithFrame:frame];
+    UIView *border = [[UIView alloc] initWithFrame:frame];
     [border setBackgroundColor:color];
     return border;
 }

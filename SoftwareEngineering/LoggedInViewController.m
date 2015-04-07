@@ -22,6 +22,7 @@
 @synthesize menuContainer;
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     mainView=[self.storyboard instantiateViewControllerWithIdentifier:@"tableViewer"];
     [self addChildViewController:mainView];
     menuShowing=false;

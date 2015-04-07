@@ -44,4 +44,14 @@
     return typeString;
 }
 
+-(NSString *)formattedSize{
+    NSMutableString *typeString=[NSMutableString stringWithFormat:@""];
+    if(_precision != nil && _scale != nil){
+        [typeString appendFormat:@"%@,%@",_precision,_scale];
+    }else{
+        [typeString appendFormat:@"%@",_length];
+    }
+    return typeString;
+}
+
 @end

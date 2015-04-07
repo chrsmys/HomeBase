@@ -57,4 +57,17 @@
     return view;
 }
 
++(instancetype)getViewWithOutFKAddition{
+    EDJColumnCreationView *view=[[[NSBundle mainBundle] loadNibNamed:@"EDJColumnCreationView" owner:self options:nil] firstObject];
+    [view setUnique:false];
+    [view setForeignKey:false];
+    [view setPrimaryKey:false];
+    [view setNotNull:false];
+    [view updateUI];
+    [[view foreignKeyButton] setHidden:true];
+    [[view primaryKeyButton] setHidden:true];
+
+    return view;
+}
+
 @end

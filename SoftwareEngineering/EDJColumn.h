@@ -14,6 +14,7 @@
 -(id)initWithName:(NSString *)_name withType:(NSString *)_type;
 -(id)initWithDictionary:(NSDictionary *)dictionary;
 -(NSString *)formattedType;
+-(NSString *)formattedSize;
 @property(nonatomic, strong, readonly) NSString *name;
 @property(nonatomic, strong, readonly) NSString *type;
 @property(nonatomic, strong, readonly) NSString *length;

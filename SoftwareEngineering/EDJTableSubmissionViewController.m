@@ -20,16 +20,23 @@
     // Do any additional setup after loading the view.
 }
 -(void)viewDidAppear:(BOOL)animated{
-    [[EDJTableServices sharedInstance] addTableWithRequest:self.tableRequest withCompletion:^(BOOL finished){
-         dispatch_async(dispatch_get_main_queue(), ^{
-             [self dismissViewControllerAnimated:YES completion:nil];
-         });
+    if(self.tableRequest){
+        [[EDJTableServices sharedInstance] addTableWithRequest:self.tableRequest withCompletion:^(BOOL finished){
+             dispatch_async(dispatch_get_main_queue(), ^{
+                 [self dismissViewControllerAnimated:YES completion:nil];
+             });
+        }
+        withError:^(NSString *error){
+            [self.navigationController popViewControllerAnimated:YES];
+            
+        }];
     }
-    withError:^(NSString *error){
-        [self.navigationController popViewControllerAnimated:YES];
-        
-    }];
 }
+
+-(void)performAction:(void (^)(UIViewController *currentView))action{
+    action(self);
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

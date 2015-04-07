@@ -50,6 +50,7 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"DisplayTableColumnInfo"]) {
         EDJColumnTableViewController *edj = (EDJColumnTableViewController *)segue.destinationViewController;
+        edj.editableTable=true;
         edj.table=self.table;
     }else if ([segue.identifier isEqualToString:@"ShowTriggerDetail"]){
         TriggerDetailViewController *edj = (TriggerDetailViewController *)segue.destinationViewController;
