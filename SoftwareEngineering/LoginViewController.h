@@ -8,13 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "EDJWebImageView.h"
-@interface LoginViewController : UIViewController{
-    EDJWebImageView *imagev;
+@interface LoginViewController : UIViewController {
+    EDJWebImageView* imagev;
 }
-@property (weak, nonatomic) IBOutlet UIButton *loginButton;
-@property (weak, nonatomic) IBOutlet EDJWebImageView *Company_Logo;
-@property (weak, nonatomic) IBOutlet UITextField *usernameTextField;
-@property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
+@property (weak, nonatomic) IBOutlet UIButton* loginButton;
+@property (weak, nonatomic) IBOutlet EDJWebImageView* Company_Logo;
+@property (weak, nonatomic) IBOutlet UITextField* usernameTextField;
+@property (weak, nonatomic) IBOutlet UITextField* passwordTextField;
 - (IBAction)LoginButtonPressed:(id)sender;
 
 @end

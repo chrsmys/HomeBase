@@ -9,8 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "MGSwipeTableCell.h"
 @interface ColumnTableViewCell : MGSwipeTableCell
-@property (weak, nonatomic) IBOutlet UILabel *columnNameLabel;
-@property (weak, nonatomic) IBOutlet UILabel *typeLabel;
-@property (weak, nonatomic) IBOutlet UILabel *constraintLabel;
+@property (weak, nonatomic) IBOutlet UILabel* columnNameLabel;
+@property (weak, nonatomic) IBOutlet UILabel* typeLabel;
+@property (weak, nonatomic) IBOutlet UILabel* constraintLabel;
 
 @end

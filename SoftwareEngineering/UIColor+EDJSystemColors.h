@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface UIColor (EDJSystemColors)
-+(UIColor *)systemOrange;
++ (UIColor*)systemOrange;
 @end

@@ -16,46 +16,44 @@
 
 @implementation EDJColumnAmountSelectionViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];  
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
     // Do any additional setup after loading the view.
 }
 
-- (void)didReceiveMemoryWarning {
+- (void)didReceiveMemoryWarning
+{
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
--(int)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
+- (int)numberOfComponentsInPickerView:(UIPickerView*)pickerView
+{
     return 1;
 }
--(int)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component{
+- (int)pickerView:(UIPickerView*)pickerView numberOfRowsInComponent:(NSInteger)component
+{
     return 50;
 }
--(NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
-    return [NSString stringWithFormat:@"%d", row+1];
+- (NSString*)pickerView:(UIPickerView*)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
+{
+    return [NSString stringWithFormat:@"%d", row + 1];
 }
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+- (void)prepareForSegue:(UIStoryboardSegue*)segue sender:(id)sender
+{
     if ([segue.identifier isEqualToString:@"moveToColumnCreation"]) {
         if ([segue.destinationViewController isKindOfClass:[ColumnCreationViewController class]]) {
-            EDJTableCreationRequest *request = [[EDJTableCreationRequest alloc] init];
+            EDJTableCreationRequest* request = [[EDJTableCreationRequest alloc] init];
             [request setTableName:self.tableNameTextField.text];
-            [request setExpectedColumnCount:[self.picketView selectedRowInComponent:0]+1];
-            ColumnCreationViewController *creationView = (ColumnCreationViewController *)segue.destinationViewController;
+            [request setExpectedColumnCount:[self.picketView selectedRowInComponent:0] + 1];
+            ColumnCreationViewController* creationView = (ColumnCreationViewController*)segue.destinationViewController;
             [creationView setTableRequest:request];
         }
     }
 }
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
-- (IBAction)cancelButtonPress:(id)sender {
+- (IBAction)cancelButtonPress:(id)sender
+{
     [self dismissViewControllerAnimated:true completion:(id)0];
 }
 @end

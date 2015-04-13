@@ -8,10 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface EDJWebImageView : UIImageView <NSURLConnectionDataDelegate,NSURLConnectionDelegate>
-{
-    NSMutableData *imageData;
+@interface EDJWebImageView : UIImageView <NSURLConnectionDataDelegate, NSURLConnectionDelegate> {
+    NSMutableData* imageData;
 }
--(void)setImageWithURL:(NSURL *)url;
--(void)setImageWithURL:(NSURL *)url chacheImageToDefaultsKey:(NSString *)key;
+- (void)setImageWithURL:(NSURL*)url;
+- (void)setImageWithURL:(NSURL*)url chacheImageToDefaultsKey:(NSString*)key;
 @end

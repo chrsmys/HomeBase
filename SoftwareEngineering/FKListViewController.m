@@ -14,16 +14,19 @@
 
 @implementation FKListViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
-    self.FKTextView.text=self.fkText;
+    self.FKTextView.text = self.fkText;
 }
 
-- (void)didReceiveMemoryWarning {
+- (void)didReceiveMemoryWarning
+{
     [super didReceiveMemoryWarning];
 }
 
-- (IBAction)doneButtonPressed:(id)sender {
+- (IBAction)doneButtonPressed:(id)sender
+{
     [self dismissViewControllerAnimated:true completion:nil];
 }
 @end

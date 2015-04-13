@@ -10,8 +10,9 @@
 
 @implementation EDJFKConstraint
 
-+(instancetype)getView{
-    EDJFKConstraint *view=[[[NSBundle mainBundle] loadNibNamed:@"EDJFKConstraint" owner:self options:nil] firstObject];
++ (instancetype)getView
+{
+    EDJFKConstraint* view = [[[NSBundle mainBundle] loadNibNamed:@"EDJFKConstraint" owner:self options:nil] firstObject];
     return view;
 }
 
@@ -23,10 +24,12 @@
 }
 */
 
-- (IBAction)deferableDidSwitch:(UISwitch *)sender {
+- (IBAction)deferableDidSwitch:(UISwitch*)sender
+{
 }
 
-- (IBAction)selectTablePressed:(UIButton *)sender {
+- (IBAction)selectTablePressed:(UIButton*)sender
+{
     [self.delegate didSelectTableViewWithConstraint:self];
 }
 @end

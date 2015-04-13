@@ -20,39 +20,42 @@
 @synthesize cloneCellView;
 @synthesize tableNameLabel;
 @synthesize clonedCell;
--(id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
+- (id)initWithNibName:(NSString*)nibNameOrNil bundle:(NSBundle*)nibBundleOrNil
+{
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     return self;
 }
-- (void)viewDidLoad {
-    UIPinchGestureRecognizer *pinch=[[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(pinched:)];
-    UITapGestureRecognizer *tap=[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapped:)];
-    tap.numberOfTapsRequired=2;
+- (void)viewDidLoad
+{
+    UIPinchGestureRecognizer* pinch = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(pinched:)];
+    UITapGestureRecognizer* tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapped:)];
+    tap.numberOfTapsRequired = 2;
     [self.view addGestureRecognizer:tap];
     [self.view addGestureRecognizer:pinch];
-    self.foriegnKeysList.text=[self.table getForeignKeyText];
+    self.foriegnKeysList.text = [self.table getForeignKeyText];
     if (self.table) {
-        NSLog(@"table exists here");
-    }else{
-        NSLog(@"didn't");
+    }
+    else {
     }
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 }
--(void)setTable:(EDJTable *)table{
-    _table=table;
-    NSLog(@"set this table");
-    if(table){
-        NSLog(@"This table is not ni;");
+- (void)setTable:(EDJTable*)table
+{
+    _table = table;
+
+    if (table) {
     }
-    self.foriegnKeysList.text=[self.table getForeignKeyText];
+    self.foriegnKeysList.text = [self.table getForeignKeyText];
 }
-- (void)didReceiveMemoryWarning {
+- (void)didReceiveMemoryWarning
+{
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
--(void)tapped:(UITapGestureRecognizer *)tp{
-        [UIView animateWithDuration:1.0 delay:0.0 usingSpringWithDamping:0.5 initialSpringVelocity:0.1 options:UIViewAnimationOptionCurveEaseOut animations:^(void){
+- (void)tapped:(UITapGestureRecognizer*)tp
+{
+    [UIView animateWithDuration:1.0 delay:0.0 usingSpringWithDamping:0.5 initialSpringVelocity:0.1 options:UIViewAnimationOptionCurveEaseOut animations:^(void) {
             [self.view layoutIfNeeded];
             self.view.frame=[clonedCell.superview convertRect:clonedCell.frame toView:self.view.superview];
             [self.view layoutIfNeeded];
@@ -62,69 +65,71 @@
                     [vii layoutIfNeeded];
                 }
             }
-    } completion:^(BOOL fin){
+    } completion:^(BOOL fin) {
         [clonedCell setHidden:false];
         [self.view removeFromSuperview];
-        
+
     }];
 }
--(void)pinched:(UIPinchGestureRecognizer *)pin{
-    self.view.frame=CGRectMake(0,0,self.view.superview.frame.size.height*pin.scale, self.view.superview.frame.size.height*pin.scale);
-    self.view.center=CGPointMake([pin locationInView:self.view.superview].x, [pin locationInView:self.view.superview].y);
+- (void)pinched:(UIPinchGestureRecognizer*)pin
+{
+    self.view.frame = CGRectMake(0, 0, self.view.superview.frame.size.height * pin.scale, self.view.superview.frame.size.height * pin.scale);
+    self.view.center = CGPointMake([pin locationInView:self.view.superview].x, [pin locationInView:self.view.superview].y);
     NSLog(@"pin loc %f %f", [pin locationInView:self.parentViewController.view].x, [pin locationInView:self.parentViewController.view].y);
-    if([pin state]==UIGestureRecognizerStateEnded){
-        if(pin.scale <0.75){
-            [UIView animateWithDuration:0.2 animations:^(void){
+    if ([pin state] == UIGestureRecognizerStateEnded) {
+        if (pin.scale < 0.75) {
+            [UIView animateWithDuration:0.2 animations:^(void) {
                 self.view.frame=[clonedCell.superview convertRect:clonedCell.frame toView:self.view.superview];
-            } completion:^(BOOL fin){
+            } completion:^(BOOL fin) {
                 [clonedCell setHidden:false];
                 [self.view removeFromSuperview];
-                
+
             }];
-        }else{
-            [UIView animateWithDuration:0.2 animations:^(void){
+        }
+        else {
+            [UIView animateWithDuration:0.2 animations:^(void) {
                 self.view.frame=clonedCell.frame;
                 self.view.frame=CGRectMake(0,0,self.view.superview.frame.size.width, self.view.superview.frame.size.height);
             }];
         }
-        
     }
-    
-    
-    
-
 }
--(void)viewDidLayoutSubviews{
-    //cloneCellView.alpha=1.0-((self.view.frame.size.width-300)/100);
-    //tableNameLabel.frame=CGRectMake(tableNameLabel.frame.origin.x, tableNameLabel.frame.origin.y, self.view.frame.size.width, tableNameLabel.frame.size.height);
-    //tableNameLabel.font=((UILabel *)[clonedCell viewWithTag:-5]).font;
-    _columnsListView.font=[UIFont fontWithName:_columnsListView.font.fontName size:24];
-    
-    _columnsListView.textAlignment=UITextAlignmentCenter;
+- (void)viewDidLayoutSubviews
+{
+    _columnsListView.font = [UIFont fontWithName:_columnsListView.font.fontName size:24];
+
+    _columnsListView.textAlignment = UITextAlignmentCenter;
     float maxBound = MAX(self.view.frame.size.height, self.view.frame.size.width);
-    self.containerView.alpha=(maxBound-300)/600.0;
-    
+    self.containerView.alpha = (maxBound - 300) / 600;
+    if (self.view.superview.frame.size.width - 40 < self.view.frame.size.width) {
+        self.containerView.alpha = 1;
+    }
 }
 
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+// In a storyboard-based application, you will often want to do a little
+// preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue*)segue sender:(id)sender
+{
     if ([segue.identifier isEqualToString:@"showEditTableName"]) {
         NSLog(@"key is right");
-        UIViewController *destination = segue.destinationViewController;
+        UIViewController* destination = segue.destinationViewController;
         if ([destination isKindOfClass:[UINavigationController class]]) {
-            destination = [[((UINavigationController *)destination) viewControllers] firstObject];
+            destination = [
+                [((UINavigationController*)destination)viewControllers] firstObject];
             NSLog(@"nav");
         }
         if ([destination isKindOfClass:[EditTableNameViewController class]]) {
-            EditTableNameViewController *dest = (EditTableNameViewController *)destination;
+            EditTableNameViewController* dest = (EditTableNameViewController*)destination;
             [dest setTableName:[self.table getName]];
         }
-    }else if([segue.identifier isEqualToString:@"TableInfoSegue"]){
-        if ([segue.destinationViewController isKindOfClass:[TableInfoViewController class]]) {
-            TableInfoViewController *tableInfo = (TableInfoViewController *)segue.destinationViewController;
-            tableInfo.table=self.table;
+    }
+    else if ([segue.identifier isEqualToString:@"TableInfoSegue"]) {
+        if ([segue.destinationViewController
+                isKindOfClass:[TableInfoViewController class]]) {
+            TableInfoViewController* tableInfo = (TableInfoViewController*)segue.destinationViewController;
+            tableInfo.table = self.table;
             tableInfo.view.backgroundColor = [UIColor systemOrange];
             NSLog(@"doing this %@", self.table);
         }

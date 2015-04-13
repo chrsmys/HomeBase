@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface TriggerInfoTableViewCell : UITableViewCell
-@property (weak, nonatomic) IBOutlet UILabel *triggerNameLabel;
+@property (weak, nonatomic) IBOutlet UILabel* triggerNameLabel;
 @property (nonatomic, getter=isActive) BOOL active;
 @end

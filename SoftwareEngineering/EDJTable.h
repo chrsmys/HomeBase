@@ -23,4 +23,6 @@
 @property (nonatomic, retain) NSArray *foriegnKeys;
 @property (nonatomic, retain) NSArray *primaryKeys;
 @property (nonatomic, retain) NSMutableArray *triggers;
+@property (nonatomic, retain) NSMutableArray *constraints;
+
 @end

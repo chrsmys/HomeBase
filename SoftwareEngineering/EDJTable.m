@@ -11,6 +11,7 @@
 #import "EDJForeignKey.h"
 #import "EDJTrigger.h"
 #import "NSAttributedString+Constructors.h"
+#import "EDJConstraint.h"
 @implementation EDJTable
 
 -(instancetype)initWithTableData:(NSDictionary *)table{
@@ -18,14 +19,22 @@
 
         self.foriegnKeys=[NSArray arrayWithArray:[table objectForKey:@"TABLE_FOREIGN_KEY"]];
         self.primaryKeys=[NSArray arrayWithArray:[table objectForKey:@"TABLE_PRIMARY_KEY"]];
+        self.constraints = [[NSMutableArray alloc] init];
         name=[table objectForKey:@"TABLE_NAME"];
         NSArray *col=[table objectForKey:@"TABLE_COLS"];
+        NSArray *TABLE_CONSTRAINTS=[table objectForKey:@"TABLE_CONSTRAINTS"];
         
         columns=[[NSMutableArray alloc] init];
         for(int i=0; i<[col count]; i++){
             EDJColumn *cols=[[EDJColumn alloc] initWithDictionary:[col objectAtIndex:i]];
             [columns addObject:cols];
         }
+        
+        for (NSDictionary *constraintData in TABLE_CONSTRAINTS) {
+            EDJConstraint *cons = [[EDJConstraint alloc] initWithDictionary:constraintData];
+            [self.constraints addObject:cons];
+        }
+        
         [self fillTriggers:[table objectForKey:TABLE_TRIGGERS]];
     }
     return self;

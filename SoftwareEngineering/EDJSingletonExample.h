@@ -13,5 +13,5 @@
  * @return singleton
  */
 + (EDJSingletonExample*)sharedInstance;
-@property(nonatomic, strong) NSMutableArray *array;
+@property (nonatomic, strong) NSMutableArray* array;
 @end

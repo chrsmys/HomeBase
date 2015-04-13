@@ -9,20 +9,18 @@
 #import <Foundation/Foundation.h>
 
 @interface EDJTableCreationRequest : NSObject
-@property (nonatomic) NSString *tableName;
-@property (nonatomic) NSMutableArray *columns;
-@property (nonatomic) NSMutableDictionary *primaryKey;
-@property (nonatomic) NSMutableArray *foriegnKeys;
+@property (nonatomic) NSString* tableName;
+@property (nonatomic) NSMutableArray* columns;
+@property (nonatomic) NSMutableDictionary* primaryKey;
+@property (nonatomic) NSMutableArray* foriegnKeys;
 @property (nonatomic) NSUInteger expectedColumnCount;
 
+@property (nonatomic) NSMutableArray* listOfPossibleFKNames;
+@property (nonatomic) NSMutableArray* listOfPrimaryKeys;
 
-@property (nonatomic) NSMutableArray *listOfPossibleFKNames;
-@property (nonatomic) NSMutableArray *listOfPrimaryKeys;
-
-
--(void)addColumnWithName:(NSString *)columnName type:(NSString *)type size:(int)size notNull:(BOOL)notNull unique:(BOOL)unique;
--(void)addPrimaryKeyWithConstraintName:(NSString *)constraintName withColumns:(NSArray *)columns;
--(void)addForiegnKeyWithConstraintName:(NSString *)constraintName tableColumn:(NSString *)tColumn refTable:(NSString *)referencingTable refCol:(NSString *)referencingColumn deferable:(BOOL)deferable;
--(NSString *)getNetworkJSONRequest;
+- (void)addColumnWithName:(NSString*)columnName type:(NSString*)type size:(int)size notNull:(BOOL)notNull unique:(BOOL)unique;
+- (void)addPrimaryKeyWithConstraintName:(NSString*)constraintName withColumns:(NSArray*)columns;
+- (void)addForiegnKeyWithConstraintName:(NSString*)constraintName tableColumn:(NSString*)tColumn refTable:(NSString*)referencingTable refCol:(NSString*)referencingColumn deferable:(BOOL)deferable;
+- (NSString*)getNetworkJSONRequest;
 
 @end

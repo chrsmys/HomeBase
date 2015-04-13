@@ -14,52 +14,54 @@
 
 @end
 
-@implementation LoggedInViewController{
-     MenuOverlayViewController *mainView;
-    MenuViewController *menuView;
+@implementation LoggedInViewController {
+    MenuOverlayViewController* mainView;
+    MenuViewController* menuView;
 }
 @synthesize topContainer;
 @synthesize menuContainer;
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
-    
-    mainView=[self.storyboard instantiateViewControllerWithIdentifier:@"tableViewer"];
+
+    mainView = [self.storyboard instantiateViewControllerWithIdentifier:@"tableViewer"];
     [self addChildViewController:mainView];
-    menuShowing=false;
+    menuShowing = false;
     [topContainer addSubview:mainView.view];
-    mainView.delegate=self;
-    
-    menuView=[self.storyboard instantiateViewControllerWithIdentifier:@"MenuID"];
+    mainView.delegate = self;
+
+    menuView = [self.storyboard instantiateViewControllerWithIdentifier:@"MenuID"];
     [self addChildViewController:menuView];
     [menuContainer addSubview:menuView.view];
-    menuView.delegate=self;
-    
-    menuContainer.layer.transform=[self transformWithPercent:0.0];
-    menuContainer.layer.anchorPoint=CGPointMake(1.0, 0.5);
-    UIPanGestureRecognizer *rec=[[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panning:)];
+    menuView.delegate = self;
+
+    menuContainer.layer.transform = [self transformWithPercent:0.0];
+    menuContainer.layer.anchorPoint = CGPointMake(1.0, 0.5);
+    UIPanGestureRecognizer* rec = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panning:)];
     [mainView.menuButton addGestureRecognizer:rec];
-    
-    
+
     // Do any additional setup after loading the view.
 }
--(void)panning:(UIPanGestureRecognizer *)pan{
+- (void)panning:(UIPanGestureRecognizer*)pan
+{
     NSLog(@"pan");
-    CGPoint point=[pan translationInView:self.view];
-    if(point.x<0){
-        point=CGPointMake(MAX(300+point.x,0), point.y);
+    CGPoint point = [pan translationInView:self.view];
+    if (point.x < 0) {
+        point = CGPointMake(MAX(300 + point.x, 0), point.y);
     }
-    topContainer.frame=CGRectMake(MAX(0, MIN(point.x,300)), 0, topContainer.frame.size.width, topContainer.frame.size.height);
-    menuContainer.layer.transform=[self transformWithPercent:MAX(0, MIN(point.x/300.0,1))];
-    menuContainer.alpha=MAX(MAX(0, MIN(point.x/300.0,1))*1.0,0.5);
-    if([pan state]==UIGestureRecognizerStateEnded){
-        if(MAX(0, MIN(point.x/300.0,1))>0.5){
-            [UIView animateWithDuration:1.0-MAX(0, MIN(point.x/300.0,1)) animations:^(void){
+    topContainer.frame = CGRectMake(MAX(0, MIN(point.x, 300)), 0, topContainer.frame.size.width, topContainer.frame.size.height);
+    menuContainer.layer.transform = [self transformWithPercent:MAX(0, MIN(point.x / 300.0, 1))];
+    menuContainer.alpha = MAX(MAX(0, MIN(point.x / 300.0, 1)) * 1.0, 0.5);
+    if ([pan state] == UIGestureRecognizerStateEnded) {
+        if (MAX(0, MIN(point.x / 300.0, 1)) > 0.5) {
+            [UIView animateWithDuration:1.0 - MAX(0, MIN(point.x / 300.0, 1)) animations:^(void) {
                 topContainer.frame=CGRectMake(300, 0, topContainer.frame.size.width, topContainer.frame.size.height);
                 menuContainer.layer.transform=[self transformWithPercent:1.0];
                 menuContainer.alpha=1.0;
             }];
-        }else{
-            [UIView animateWithDuration:MAX(0, MIN(point.x/300.0,1)) animations:^(void){
+        }
+        else {
+            [UIView animateWithDuration:MAX(0, MIN(point.x / 300.0, 1)) animations:^(void) {
                 topContainer.frame=CGRectMake(0, 0, topContainer.frame.size.width, topContainer.frame.size.height);
                 menuContainer.layer.transform=[self transformWithPercent:0.0];
                 menuContainer.alpha=0.5;
@@ -69,63 +71,75 @@
     }
 }
 
-- (void)didReceiveMemoryWarning {
+- (void)didReceiveMemoryWarning
+{
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
--(void)menuButtonWasPressed{
-  
-    if(topContainer.frame.origin.x==0){
-        [UIView animateWithDuration:1.0 animations:^(void){
+- (void)menuButtonWasPressed
+{
+
+    if (topContainer.frame.origin.x == 0) {
+        [UIView animateWithDuration:1.0 animations:^(void) {
             topContainer.frame=CGRectMake(300, 0, topContainer.frame.size.width,topContainer.frame.size.height);
             menuContainer.layer.transform=[self transformWithPercent:1.0];
             menuContainer.alpha=1.0;
         }];
-        menuShowing=true;
-    }else{
-        [UIView animateWithDuration:1.0 animations:^(void){
+        menuShowing = true;
+    }
+    else {
+        [UIView animateWithDuration:1.0 animations:^(void) {
             topContainer.frame=CGRectMake(0, 0, topContainer.frame.size.width,topContainer.frame.size.height);
             menuContainer.layer.transform=[self transformWithPercent:0.0];
             menuContainer.alpha=0.4;
         }];
-        menuShowing=false;
+        menuShowing = false;
     }
 }
--(void)viewDidLayoutSubviews{
+- (void)viewDidLayoutSubviews
+{
     NSLog(@"layout");
     NSLog(@"%f ", mainView.view.frame.size.width);
-    mainView.view.frame=topContainer.frame;
-    menuContainer.frame=CGRectMake(-150, 0, 300, self.view.frame.size.height);
-    menuContainer.layer.transform=[self transformWithPercent:0.0];
+    mainView.view.frame = topContainer.frame;
+    menuContainer.frame = CGRectMake(-150, 0, 300, self.view.frame.size.height);
+    menuContainer.layer.transform = [self transformWithPercent:0.0];
 }
 
--(void)doPercentageWorkHere{
-    
+- (void)doPercentageWorkHere
+{
 }
 
--(CATransform3D)transformWithPercent:(float)percent{
-    CATransform3D  identity=CATransform3DIdentity;
-    identity.m34=-1.0/1000;
-    float angle=(1.0-percent) * -((CGFloat)M_PI_2);
-    CATransform3D rotationTransform=CATransform3DRotate(identity, angle, 0, 1.0, 0.0);
-    
-    CATransform3D translate= CATransform3DMakeTranslation( topContainer.frame.origin.x-150, topContainer.frame.origin.y, 0);
-    
-    NSLog(@"%f %f %f", topContainer.frame.origin.x,menuContainer.frame.size.width,topContainer.frame.origin.x-menuContainer.frame.size.width);
+- (CATransform3D)transformWithPercent:(float)percent
+{
+    CATransform3D identity = CATransform3DIdentity;
+    identity.m34 = -1.0 / 1000;
+    float angle = (1.0 - percent) * -((CGFloat)M_PI_2);
+    CATransform3D rotationTransform = CATransform3DRotate(identity, angle, 0, 1.0, 0.0);
+
+    CATransform3D translate = CATransform3DMakeTranslation(topContainer.frame.origin.x - 150, topContainer.frame.origin.y, 0);
+
+    NSLog(@"%f %f %f", topContainer.frame.origin.x, menuContainer.frame.size.width, topContainer.frame.origin.x - menuContainer.frame.size.width);
     return CATransform3DConcat(rotationTransform, translate);
 }
 
-
 #pragma mark MenuDelegateMethods
--(void)logoutButtonPressed{
+- (void)logoutButtonPressed
+{
     [[EDJAccountManager sharedInstance] logoutCurrentUser];
     [self performSegueWithIdentifier:@"logout" sender:nil];
 }
--(void)editConnectionButtonPressed{
+- (void)editConnectionButtonPressed
+{
     //[mainView editConnectionButtonPressed];
     [self menuButtonWasPressed];
     [self performSegueWithIdentifier:@"editConnection" sender:nil];
 }
+- (void)refreshButtonPressed
+{
+    [self menuButtonWasPressed];
+    [mainView viewDidAppear:true];
+}
+
 /*
 #pragma mark - Navigation
 

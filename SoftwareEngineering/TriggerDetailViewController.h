@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "EDJTrigger.h"
 @interface TriggerDetailViewController : UIViewController
-@property (weak, nonatomic) IBOutlet UITextView *triggerCodeDisplay;
-@property(nonatomic) EDJTrigger *trigger;
+@property (weak, nonatomic) IBOutlet UITextView* triggerCodeDisplay;
+@property (nonatomic) EDJTrigger* trigger;
+- (IBAction)doneButtonPressed:(id)sender;
 @end

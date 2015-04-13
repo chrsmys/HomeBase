@@ -10,7 +10,7 @@
 #import "EDJListTableTableViewController.h"
 @class EDJTable;
 @interface EDJColumnTableViewController : UITableViewController
-@property (nonatomic) EDJTable *table;
+@property (nonatomic) EDJTable* table;
 @property (nonatomic) id<TableSelectionDelegate> delegate;
 @property (nonatomic) BOOL editableTable;
 @end

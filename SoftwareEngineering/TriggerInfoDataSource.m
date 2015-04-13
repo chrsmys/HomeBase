@@ -13,24 +13,28 @@
 
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+- (NSInteger)numberOfSectionsInTableView:(UITableView*)tableView
+{
     return 1;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+- (NSInteger)tableView:(UITableView*)tableView numberOfRowsInSection:(NSInteger)section
+{
     return [[self.table triggers] count];
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    EDJTrigger *trigger = [[self.table triggers] objectAtIndex:indexPath.row];
-    TriggerInfoTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
-    cell.triggerNameLabel.text=[trigger name];
+- (UITableViewCell*)tableView:(UITableView*)tableView cellForRowAtIndexPath:(NSIndexPath*)indexPath
+{
+    EDJTrigger* trigger = [[self.table triggers] objectAtIndex:indexPath.row];
+    TriggerInfoTableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+    cell.triggerNameLabel.text = [trigger name];
     [cell setActive:[trigger isActive]];
     return cell;
 }
 
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    EDJTrigger *trigger = [[self.table triggers] objectAtIndex:indexPath.row];
+- (void)tableView:(UITableView*)tableView didSelectRowAtIndexPath:(NSIndexPath*)indexPath
+{
+    EDJTrigger* trigger = [[self.table triggers] objectAtIndex:indexPath.row];
     if ([self.delegate respondsToSelector:@selector(selectedTrigger:)]) {
         [self.delegate selectedTrigger:trigger];
     }

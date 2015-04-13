@@ -11,7 +11,7 @@
 #import "EDJTable.h"
 #import "EDJColumn.h"
 @interface AddNewColumnViewController : UIViewController
-@property(nonatomic, retain) EDJColumnCreationView *columnCreationView;
-@property(nonatomic, retain) EDJTable *table;
-@property(nonatomic,retain)  EDJColumn *column;
+@property (nonatomic, retain) EDJColumnCreationView* columnCreationView;
+@property (nonatomic, retain) EDJTable* table;
+@property (nonatomic, retain) EDJColumn* column;
 @end

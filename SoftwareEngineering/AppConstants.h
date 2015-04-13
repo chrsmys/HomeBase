@@ -17,7 +17,6 @@ extern NSString* const FORIEGN_KEY_REFERENCE_COLUMN;
 extern NSString* const FORIEGN_KEY_DEFERRABLE;
 extern NSString* const FORIEGN_KEY_DEFERRED;
 
-
 extern NSString* const TABLE_TRIGGERS;
 
 extern NSString* const TRIGGER_NAME;

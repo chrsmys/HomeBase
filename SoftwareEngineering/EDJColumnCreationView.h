@@ -10,26 +10,25 @@
 
 @interface EDJColumnCreationView : UIView
 
-@property (weak, nonatomic) IBOutlet UITextField *columnNameTextField;
-@property (weak, nonatomic) IBOutlet UITextField *columnSizeTextField;
-@property (weak, nonatomic) IBOutlet UITextField *columnTypeTextField;
+@property (weak, nonatomic) IBOutlet UITextField* columnNameTextField;
+@property (weak, nonatomic) IBOutlet UITextField* columnSizeTextField;
+@property (weak, nonatomic) IBOutlet UITextField* columnTypeTextField;
 
-@property (weak, nonatomic) IBOutlet UIButton *primaryKeyButton;
-@property (weak, nonatomic) IBOutlet UIButton *foreignKeyButton;
-@property (weak, nonatomic) IBOutlet UIButton *notNullButton;
-@property (weak, nonatomic) IBOutlet UIButton *uniqueButton;
-
+@property (weak, nonatomic) IBOutlet UIButton* primaryKeyButton;
+@property (weak, nonatomic) IBOutlet UIButton* foreignKeyButton;
+@property (weak, nonatomic) IBOutlet UIButton* notNullButton;
+@property (weak, nonatomic) IBOutlet UIButton* uniqueButton;
 
 @property (nonatomic) BOOL primaryKey;
 @property (nonatomic) BOOL foreignKey;
 @property (nonatomic) BOOL notNull;
 @property (nonatomic) BOOL unique;
 
-- (IBAction)primaryKeyButtonPressed:(UIButton *)sender;
-- (IBAction)foreignKeyButtonPressed:(UIButton *)sender;
-- (IBAction)notNullButtonPressed:(UIButton *)sender;
-- (IBAction)uniqueButtonPressed:(UIButton *)sender;
+- (IBAction)primaryKeyButtonPressed:(UIButton*)sender;
+- (IBAction)foreignKeyButtonPressed:(UIButton*)sender;
+- (IBAction)notNullButtonPressed:(UIButton*)sender;
+- (IBAction)uniqueButtonPressed:(UIButton*)sender;
 
-+(instancetype)getView;
-+(instancetype)getViewWithOutFKAddition;
++ (instancetype)getView;
++ (instancetype)getViewWithOutFKAddition;
 @end

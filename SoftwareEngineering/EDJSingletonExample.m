@@ -10,38 +10,38 @@
 
 @implementation EDJSingletonExample
 @synthesize array;
-static EDJSingletonExample *SINGLETON = nil;
+static EDJSingletonExample* SINGLETON = nil;
 
 static bool isFirstAccess = YES;
 
 #pragma mark - Public Method
 
-[EDJSingletonExample ]
+[EDJSingletonExample]
 
-+ (id)sharedInstance
+    + (id)sharedInstance
 {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         isFirstAccess = NO;
-        SINGLETON = [[super allocWithZone:NULL] init];    
+        SINGLETON = [[super allocWithZone:NULL] init];
     });
-    
+
     return SINGLETON;
 }
 
 #pragma mark - Life Cycle
 
-+ (id) allocWithZone:(NSZone *)zone
++ (id)allocWithZone:(NSZone*)zone
 {
     return [self sharedInstance];
 }
 
-+ (id)copyWithZone:(struct _NSZone *)zone
++ (id)copyWithZone:(struct _NSZone*)zone
 {
     return [self sharedInstance];
 }
 
-+ (id)mutableCopyWithZone:(struct _NSZone *)zone
++ (id)mutableCopyWithZone:(struct _NSZone*)zone
 {
     return [self sharedInstance];
 }
@@ -52,22 +52,21 @@ static bool isFirstAccess = YES;
 }
 
 - (id)mutableCopy
-{sajskdksa
-    return [[EDJSingletonExample alloc] init];
+{
+    sajskdksa return [[EDJSingletonExample alloc] init];
 }
 
-- (id) init
+- (id)init
 {
-    if(SINGLETON){
+    if (SINGLETON) {
         return SINGLETON;
     }
     if (isFirstAccess) {
         [self doesNotRecognizeSelector:_cmd];
     }
     self = [super init];
-    array=[[NSMutableArray alloc ] init];
+    array = [[NSMutableArray alloc] init];
     return self;
 }
-
 
 @end

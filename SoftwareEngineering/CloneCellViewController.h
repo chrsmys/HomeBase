@@ -9,12 +9,12 @@
 #import <UIKit/UIKit.h>
 #import "EDJTable.h"
 @interface CloneCellViewController : UIViewController
-@property (weak, nonatomic) IBOutlet UIView *tableInfoContainer;
-@property (strong, nonatomic) IBOutlet UIView *cloneCellView;
-@property (weak, nonatomic) IBOutlet UILabel *tableNameLabel;
-@property (weak,nonatomic) UICollectionViewCell *clonedCell;
-@property (weak, nonatomic) IBOutlet UITextView *columnsListView;
-@property (strong, nonatomic) EDJTable *table;
-@property (weak, nonatomic) UITextView *foriegnKeysList;
-@property (weak, nonatomic) IBOutlet UIView *containerView;
+@property (weak, nonatomic) IBOutlet UIView* tableInfoContainer;
+@property (strong, nonatomic) IBOutlet UIView* cloneCellView;
+@property (weak, nonatomic) IBOutlet UILabel* tableNameLabel;
+@property (weak, nonatomic) UICollectionViewCell* clonedCell;
+@property (weak, nonatomic) IBOutlet UITextView* columnsListView;
+@property (strong, nonatomic) EDJTable* table;
+@property (weak, nonatomic) UITextView* foriegnKeysList;
+@property (weak, nonatomic) IBOutlet UIView* containerView;
 @end

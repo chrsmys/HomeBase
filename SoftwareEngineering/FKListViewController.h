@@ -10,6 +10,6 @@
 
 @interface FKListViewController : UIViewController
 - (IBAction)doneButtonPressed:(id)sender;
-@property (weak, nonatomic) IBOutlet UITextView *FKTextView;
-@property (nonatomic) NSString *fkText;
+@property (weak, nonatomic) IBOutlet UITextView* FKTextView;
+@property (nonatomic) NSString* fkText;
 @end

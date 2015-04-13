@@ -9,10 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface EditConnectionViewController : UIViewController
-@property (weak, nonatomic) IBOutlet UITextField *dbUsernameTextField;
-@property (weak, nonatomic) IBOutlet UITextField *dbPasswordTextField;
-@property (weak, nonatomic) IBOutlet UINavigationBar *editConnectionNavigation;
-@property (weak, nonatomic) IBOutlet UITextField *dbConnectionStringTextField;
+@property (weak, nonatomic) IBOutlet UITextField* dbUsernameTextField;
+@property (weak, nonatomic) IBOutlet UITextField* dbPasswordTextField;
+@property (weak, nonatomic) IBOutlet UINavigationBar* editConnectionNavigation;
+@property (weak, nonatomic) IBOutlet UITextField* dbConnectionStringTextField;
 - (IBAction)cancelButtonPressed:(id)sender;
 - (IBAction)saveButtonPressed:(id)sender;
 

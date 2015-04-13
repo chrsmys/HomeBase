@@ -10,45 +10,51 @@
 
 @implementation EDJColumnCreationView
 
-- (IBAction)primaryKeyButtonPressed:(UIButton *)sender {
+- (IBAction)primaryKeyButtonPressed:(UIButton*)sender
+{
     [self setPrimaryKey:!self.primaryKey];
     if ([self primaryKey]) {
-        self.notNull=true;
-        self.unique=true;
+        self.notNull = true;
+        self.unique = true;
     }
     [self updateUI];
 }
 
-- (IBAction)foreignKeyButtonPressed:(UIButton *)sender {
+- (IBAction)foreignKeyButtonPressed:(UIButton*)sender
+{
     [self setForeignKey:!self.foreignKey];
     [self updateUI];
 }
 
-- (IBAction)notNullButtonPressed:(UIButton *)sender {
+- (IBAction)notNullButtonPressed:(UIButton*)sender
+{
     [self setNotNull:!self.notNull];
     [self updateUI];
 }
 
-- (IBAction)uniqueButtonPressed:(UIButton *)sender {
+- (IBAction)uniqueButtonPressed:(UIButton*)sender
+{
     [self setUnique:!self.unique];
     [self updateUI];
 }
 
--(void)updateUI{
-    
-    NSString *primaryKeyText=[NSString stringWithFormat:@"%@ Primary Key", (self.primaryKey ? @"\uf046" : @"\uf096")];
-    NSString *foreignKeyText=[NSString stringWithFormat:@"%@ Foreign Key", (self.foreignKey ? @"\uf046" : @"\uf096")];
-    NSString *notNullText=[NSString stringWithFormat:@"%@ Not Null", (self.notNull ? @"\uf046" : @"\uf096")];
-    NSString *uniqueText=[NSString stringWithFormat:@"%@ Unique", (self.unique ? @"\uf046" : @"\uf096")];
-    
+- (void)updateUI
+{
+
+    NSString* primaryKeyText = [NSString stringWithFormat:@"%@ Primary Key", (self.primaryKey ? @"\uf046" : @"\uf096")];
+    NSString* foreignKeyText = [NSString stringWithFormat:@"%@ Foreign Key", (self.foreignKey ? @"\uf046" : @"\uf096")];
+    NSString* notNullText = [NSString stringWithFormat:@"%@ Not Null", (self.notNull ? @"\uf046" : @"\uf096")];
+    NSString* uniqueText = [NSString stringWithFormat:@"%@ Unique", (self.unique ? @"\uf046" : @"\uf096")];
+
     [self.primaryKeyButton setTitle:primaryKeyText forState:UIControlStateNormal];
     [self.foreignKeyButton setTitle:foreignKeyText forState:UIControlStateNormal];
     [self.notNullButton setTitle:notNullText forState:UIControlStateNormal];
     [self.uniqueButton setTitle:uniqueText forState:UIControlStateNormal];
 }
 
-+(instancetype)getView{
-    EDJColumnCreationView *view=[[[NSBundle mainBundle] loadNibNamed:@"EDJColumnCreationView" owner:self options:nil] firstObject];
++ (instancetype)getView
+{
+    EDJColumnCreationView* view = [[[NSBundle mainBundle] loadNibNamed:@"EDJColumnCreationView" owner:self options:nil] firstObject];
     [view setUnique:false];
     [view setForeignKey:false];
     [view setPrimaryKey:false];
@@ -57,8 +63,9 @@
     return view;
 }
 
-+(instancetype)getViewWithOutFKAddition{
-    EDJColumnCreationView *view=[[[NSBundle mainBundle] loadNibNamed:@"EDJColumnCreationView" owner:self options:nil] firstObject];
++ (instancetype)getViewWithOutFKAddition
+{
+    EDJColumnCreationView* view = [[[NSBundle mainBundle] loadNibNamed:@"EDJColumnCreationView" owner:self options:nil] firstObject];
     [view setUnique:false];
     [view setForeignKey:false];
     [view setPrimaryKey:false];

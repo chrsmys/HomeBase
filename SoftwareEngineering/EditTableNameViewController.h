@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface EditTableNameViewController : UIViewController
-@property (weak, nonatomic) IBOutlet UITextField *tableNameTextField;
-@property (weak, nonatomic) NSString *tableName;
+@property (weak, nonatomic) IBOutlet UITextField* tableNameTextField;
+@property (weak, nonatomic) NSString* tableName;
 @end

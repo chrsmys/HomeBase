@@ -8,10 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "ViewController.h"
-@interface LoggedInViewController : UIViewController<MenuButtonDelegate,MenuDelegate>{
+@interface LoggedInViewController : UIViewController <MenuButtonDelegate, MenuDelegate> {
     BOOL menuShowing;
 }
-@property (weak, nonatomic) IBOutlet UIView *topContainer;
-@property (weak, nonatomic) IBOutlet UIView *menuContainer;
+@property (weak, nonatomic) IBOutlet UIView* topContainer;
+@property (weak, nonatomic) IBOutlet UIView* menuContainer;
 
 @end

@@ -33,6 +33,9 @@
 		83F5ACC41A17012A001E7601 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83F5ACC31A17012A001E7601 /* Security.framework */; };
 		912704371A2FF66600F31B82 /* image00.png in Resources */ = {isa = PBXBuildFile; fileRef = 912704361A2FF66600F31B82 /* image00.png */; };
 		9127043A1A300A4400F31B82 /* QTouchposeApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 912704391A300A4400F31B82 /* QTouchposeApplication.m */; };
+		912EC05C1AD3868B0083A913 /* EDJConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 912EC05B1AD3868B0083A913 /* EDJConstraint.m */; };
+		912EC05F1AD3FF5E0083A913 /* ConstraintDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 912EC05E1AD3FF5E0083A913 /* ConstraintDataSource.m */; };
+		912EC0621AD403EE0083A913 /* ConstraintTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 912EC0611AD403EE0083A913 /* ConstraintTableViewCell.m */; };
 		913232E41AA69C950069C64F /* fontawesome-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 913232E31AA69B240069C64F /* fontawesome-webfont.ttf */; };
 		913232E71AA69E6A0069C64F /* EDJTableServices.m in Sources */ = {isa = PBXBuildFile; fileRef = 913232E61AA69E6A0069C64F /* EDJTableServices.m */; };
 		913233381AA7BAAE0069C64F /* UIView+Genie.m in Sources */ = {isa = PBXBuildFile; fileRef = 913233371AA7BAAE0069C64F /* UIView+Genie.m */; };
@@ -128,6 +131,12 @@
 		912704361A2FF66600F31B82 /* image00.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image00.png; sourceTree = "<group>"; };
 		912704381A300A4400F31B82 /* QTouchposeApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QTouchposeApplication.h; sourceTree = "<group>"; };
 		912704391A300A4400F31B82 /* QTouchposeApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QTouchposeApplication.m; sourceTree = "<group>"; };
+		912EC05A1AD3868B0083A913 /* EDJConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDJConstraint.h; sourceTree = "<group>"; };
+		912EC05B1AD3868B0083A913 /* EDJConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDJConstraint.m; sourceTree = "<group>"; };
+		912EC05D1AD3FF5E0083A913 /* ConstraintDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConstraintDataSource.h; sourceTree = "<group>"; };
+		912EC05E1AD3FF5E0083A913 /* ConstraintDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConstraintDataSource.m; sourceTree = "<group>"; };
+		912EC0601AD403EE0083A913 /* ConstraintTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConstraintTableViewCell.h; sourceTree = "<group>"; };
+		912EC0611AD403EE0083A913 /* ConstraintTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConstraintTableViewCell.m; sourceTree = "<group>"; };
 		913232E31AA69B240069C64F /* fontawesome-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "fontawesome-webfont.ttf"; sourceTree = "<group>"; };
 		913232E51AA69E6A0069C64F /* EDJTableServices.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDJTableServices.h; sourceTree = "<group>"; };
 		913232E61AA69E6A0069C64F /* EDJTableServices.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDJTableServices.m; sourceTree = "<group>"; };
@@ -241,54 +250,17 @@
 				837A1B261A1B1D1C009BE6A7 /* DB Objects */,
 				837A1B251A1B1CE6009BE6A7 /* Helper Classes */,
 				91A69ED31ACCD6CA00B88276 /* MGSwipeTableCell */,
-				836F98BA1A01DA9B00A73F85 /* AppDelegate.h */,
 				91A69EDD1ACE2FE300B88276 /* Dependencies */,
-				836F98BB1A01DA9B00A73F85 /* AppDelegate.m */,
+				9187100B1AD6BB3A009218DF /* DataSources */,
 				836F98C31A01DA9B00A73F85 /* Main.storyboard */,
 				836F98C61A01DA9B00A73F85 /* Images.xcassets */,
 				836F98C81A01DA9B00A73F85 /* LaunchScreen.xib */,
 				836F98BD1A01DA9B00A73F85 /* SoftwareEngineering.xcdatamodeld */,
+				9187100C1AD6BBA1009218DF /* Table Creation */,
+				9187100F1AD6BE6B009218DF /* ReusableViews */,
 				836F98B61A01DA9B00A73F85 /* Supporting Files */,
-				9190E5371AB7A7FD0074CEB8 /* EDJColumnCreationView.xib */,
-				9190E5391AB7A91A0074CEB8 /* EDJColumnCreationView.h */,
-				9190E53A1AB7A91A0074CEB8 /* EDJColumnCreationView.m */,
-				9190E53C1AB7AAE10074CEB8 /* EDJColumnAmountSelectionViewController.h */,
-				9190E53D1AB7AAE10074CEB8 /* EDJColumnAmountSelectionViewController.m */,
-				9190E53F1AB7AD310074CEB8 /* ColumnCreationViewController.h */,
-				9190E5401AB7AD310074CEB8 /* ColumnCreationViewController.m */,
-				91D994171AB7D08F0076F869 /* EDJTableCreationRequest.h */,
-				91D994181AB7D08F0076F869 /* EDJTableCreationRequest.m */,
-				91D9941A1AB7F0FF0076F869 /* EDJPrimaryKeyFinalViewController.h */,
-				91D9941B1AB7F0FF0076F869 /* EDJPrimaryKeyFinalViewController.m */,
-				91D9941D1AB800560076F869 /* ForeignKeyFinalViewController.h */,
-				91D9941E1AB800560076F869 /* ForeignKeyFinalViewController.m */,
-				91D994251AB81BB40076F869 /* EDJTableSubmissionViewController.h */,
-				91D994261AB81BB40076F869 /* EDJTableSubmissionViewController.m */,
-				91D994201AB8104F0076F869 /* EDJFKConstraint.h */,
-				91D994211AB8104F0076F869 /* EDJFKConstraint.m */,
-				91D994281AB8239F0076F869 /* EDJListTableTableViewController.h */,
-				91D994291AB8239F0076F869 /* EDJListTableTableViewController.m */,
-				91D9942B1AB825EE0076F869 /* EDJColumnTableViewController.h */,
-				91D9942C1AB825EE0076F869 /* EDJColumnTableViewController.m */,
-				91D994231AB810770076F869 /* EDJFKConstraint.xib */,
-				916345BE1AB8803C00AAE1FD /* FKListViewController.h */,
-				916345BF1AB8803C00AAE1FD /* FKListViewController.m */,
-				91FF24F61AC657720004A38B /* AppConstants.h */,
-				91FF24F71AC657720004A38B /* AppConstants.m */,
-				91FF25001AC7A6480004A38B /* ColumnTableViewCell.h */,
-				91FF25011AC7A6480004A38B /* ColumnTableViewCell.m */,
-				9189AD5E1AC856CD00E83BFF /* TriggerInfoDataSource.h */,
-				9189AD5F1AC856CD00E83BFF /* TriggerInfoDataSource.m */,
-				91ABB4681AC85ED100068876 /* TriggerInfoTableViewCell.h */,
-				91ABB4691AC85ED100068876 /* TriggerInfoTableViewCell.m */,
-				91A69EDA1ACCDF7200B88276 /* TriggerDetailViewController.h */,
-				91A69EDB1ACCDF7200B88276 /* TriggerDetailViewController.m */,
-				9141E8C71ACE423600BA0478 /* UIColor+EDJSystemColors.h */,
-				9141E8C81ACE423600BA0478 /* UIColor+EDJSystemColors.m */,
-				918E438F1AD2254A00001A51 /* AddNewColumnViewController.h */,
-				918E43901AD2254A00001A51 /* AddNewColumnViewController.m */,
-				918E43921AD35A0E00001A51 /* EditTableNameViewController.h */,
-				918E43931AD35A0E00001A51 /* EditTableNameViewController.m */,
+				918710101AD6BEBB009218DF /* App Utilities */,
+				918710111AD6BEDE009218DF /* Table Details */,
 			);
 			path = SoftwareEngineering;
 			sourceTree = "<group>";
@@ -353,6 +325,8 @@
 				918A81EA1AA7FFAA000966D1 /* EDJForeignKey.m */,
 				9189AD5B1AC7CB3800E83BFF /* EDJTrigger.h */,
 				9189AD5C1AC7CB3800E83BFF /* EDJTrigger.m */,
+				912EC05A1AD3868B0083A913 /* EDJConstraint.h */,
+				912EC05B1AD3868B0083A913 /* EDJConstraint.m */,
 			);
 			name = "DB Objects";
 			sourceTree = "<group>";
@@ -433,6 +407,103 @@
 				91FF24F21AC6550D0004A38B /* EDJColumnTests.m */,
 			);
 			name = "DB Objects ";
+			sourceTree = "<group>";
+		};
+		9187100B1AD6BB3A009218DF /* DataSources */ = {
+			isa = PBXGroup;
+			children = (
+				9189AD5E1AC856CD00E83BFF /* TriggerInfoDataSource.h */,
+				9189AD5F1AC856CD00E83BFF /* TriggerInfoDataSource.m */,
+				912EC05D1AD3FF5E0083A913 /* ConstraintDataSource.h */,
+				912EC05E1AD3FF5E0083A913 /* ConstraintDataSource.m */,
+			);
+			name = DataSources;
+			sourceTree = "<group>";
+		};
+		9187100C1AD6BBA1009218DF /* Table Creation */ = {
+			isa = PBXGroup;
+			children = (
+				91D994171AB7D08F0076F869 /* EDJTableCreationRequest.h */,
+				91D994181AB7D08F0076F869 /* EDJTableCreationRequest.m */,
+				9187100D1AD6BD95009218DF /* Column Naming */,
+				9190E53C1AB7AAE10074CEB8 /* EDJColumnAmountSelectionViewController.h */,
+				9190E53D1AB7AAE10074CEB8 /* EDJColumnAmountSelectionViewController.m */,
+				91D9941A1AB7F0FF0076F869 /* EDJPrimaryKeyFinalViewController.h */,
+				91D9941B1AB7F0FF0076F869 /* EDJPrimaryKeyFinalViewController.m */,
+				9187100E1AD6BE12009218DF /* FK Creation */,
+				91D994251AB81BB40076F869 /* EDJTableSubmissionViewController.h */,
+				91D994261AB81BB40076F869 /* EDJTableSubmissionViewController.m */,
+			);
+			name = "Table Creation";
+			sourceTree = "<group>";
+		};
+		9187100D1AD6BD95009218DF /* Column Naming */ = {
+			isa = PBXGroup;
+			children = (
+				9190E53F1AB7AD310074CEB8 /* ColumnCreationViewController.h */,
+				9190E5401AB7AD310074CEB8 /* ColumnCreationViewController.m */,
+				9190E5371AB7A7FD0074CEB8 /* EDJColumnCreationView.xib */,
+				9190E5391AB7A91A0074CEB8 /* EDJColumnCreationView.h */,
+				9190E53A1AB7A91A0074CEB8 /* EDJColumnCreationView.m */,
+			);
+			name = "Column Naming";
+			sourceTree = "<group>";
+		};
+		9187100E1AD6BE12009218DF /* FK Creation */ = {
+			isa = PBXGroup;
+			children = (
+				91D994231AB810770076F869 /* EDJFKConstraint.xib */,
+				916345BE1AB8803C00AAE1FD /* FKListViewController.h */,
+				916345BF1AB8803C00AAE1FD /* FKListViewController.m */,
+				91D994201AB8104F0076F869 /* EDJFKConstraint.h */,
+				91D994211AB8104F0076F869 /* EDJFKConstraint.m */,
+				91D9941D1AB800560076F869 /* ForeignKeyFinalViewController.h */,
+				91D9941E1AB800560076F869 /* ForeignKeyFinalViewController.m */,
+			);
+			name = "FK Creation";
+			sourceTree = "<group>";
+		};
+		9187100F1AD6BE6B009218DF /* ReusableViews */ = {
+			isa = PBXGroup;
+			children = (
+				912EC0601AD403EE0083A913 /* ConstraintTableViewCell.h */,
+				912EC0611AD403EE0083A913 /* ConstraintTableViewCell.m */,
+				91D994281AB8239F0076F869 /* EDJListTableTableViewController.h */,
+				91D994291AB8239F0076F869 /* EDJListTableTableViewController.m */,
+				91D9942B1AB825EE0076F869 /* EDJColumnTableViewController.h */,
+				91D9942C1AB825EE0076F869 /* EDJColumnTableViewController.m */,
+				91FF25001AC7A6480004A38B /* ColumnTableViewCell.h */,
+				91FF25011AC7A6480004A38B /* ColumnTableViewCell.m */,
+				91ABB4681AC85ED100068876 /* TriggerInfoTableViewCell.h */,
+				91ABB4691AC85ED100068876 /* TriggerInfoTableViewCell.m */,
+			);
+			name = ReusableViews;
+			sourceTree = "<group>";
+		};
+		918710101AD6BEBB009218DF /* App Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				836F98BA1A01DA9B00A73F85 /* AppDelegate.h */,
+				836F98BB1A01DA9B00A73F85 /* AppDelegate.m */,
+				91FF24F61AC657720004A38B /* AppConstants.h */,
+				91FF24F71AC657720004A38B /* AppConstants.m */,
+				9141E8C71ACE423600BA0478 /* UIColor+EDJSystemColors.h */,
+				9141E8C81ACE423600BA0478 /* UIColor+EDJSystemColors.m */,
+			);
+			name = "App Utilities";
+			sourceTree = "<group>";
+		};
+		918710111AD6BEDE009218DF /* Table Details */ = {
+			isa = PBXGroup;
+			children = (
+				91A69EDA1ACCDF7200B88276 /* TriggerDetailViewController.h */,
+				91A69EDB1ACCDF7200B88276 /* TriggerDetailViewController.m */,
+				918E438F1AD2254A00001A51 /* AddNewColumnViewController.h */,
+				918E43901AD2254A00001A51 /* AddNewColumnViewController.m */,
+				918E43921AD35A0E00001A51 /* EditTableNameViewController.h */,
+				918E43931AD35A0E00001A51 /* EditTableNameViewController.m */,
+			);
+			name = "Table Details";
 			sourceTree = "<group>";
 		};
 		91A69ED31ACCD6CA00B88276 /* MGSwipeTableCell */ = {
@@ -578,11 +649,14 @@
 				9190E5411AB7AD310074CEB8 /* ColumnCreationViewController.m in Sources */,
 				91A69ED91ACCD6CA00B88276 /* MGSwipeTableCell.m in Sources */,
 				83DB0B5A1A1274D60031DD69 /* EDJColumn.m in Sources */,
+				912EC05F1AD3FF5E0083A913 /* ConstraintDataSource.m in Sources */,
 				916345C01AB8803C00AAE1FD /* FKListViewController.m in Sources */,
 				9141E8C91ACE423600BA0478 /* UIColor+EDJSystemColors.m in Sources */,
 				9190E53E1AB7AAE10074CEB8 /* EDJColumnAmountSelectionViewController.m in Sources */,
 				91D9941F1AB800560076F869 /* ForeignKeyFinalViewController.m in Sources */,
+				912EC0621AD403EE0083A913 /* ConstraintTableViewCell.m in Sources */,
 				837A1B241A1AFC00009BE6A7 /* MenuOverlayViewController.m in Sources */,
+				912EC05C1AD3868B0083A913 /* EDJConstraint.m in Sources */,
 				918E43911AD2254A00001A51 /* AddNewColumnViewController.m in Sources */,
 				91D9942A1AB8239F0076F869 /* EDJListTableTableViewController.m in Sources */,
 				83DB0B571A1273F70031DD69 /* EDJTable.m in Sources */,

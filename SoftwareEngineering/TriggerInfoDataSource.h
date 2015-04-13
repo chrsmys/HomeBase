@@ -11,9 +11,9 @@
 #import "EDJTable.h"
 @class EDJTrigger;
 @protocol TriggerInfoDelegate
--(void)selectedTrigger:(EDJTrigger *)trigger;
+- (void)selectedTrigger:(EDJTrigger*)trigger;
 @end
-@interface TriggerInfoDataSource : NSObject<UITableViewDataSource, UITableViewDelegate>
-@property (nonatomic) EDJTable *table;
+@interface TriggerInfoDataSource : NSObject <UITableViewDataSource, UITableViewDelegate>
+@property (nonatomic) EDJTable* table;
 @property (nonatomic, weak) NSObject<TriggerInfoDelegate>* delegate;
 @end

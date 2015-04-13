@@ -9,8 +9,8 @@
 #import <UIKit/UIKit.h>
 @class EDJTableCreationRequest;
 @interface EDJTableSubmissionViewController : UIViewController
-@property (nonatomic) EDJTableCreationRequest *tableRequest;
+@property (nonatomic) EDJTableCreationRequest* tableRequest;
 
--(void)performAction:(void (^)(UIViewController *currentView))action;
+- (void)performAction:(void (^)(UIViewController* currentView))action;
 
 @end

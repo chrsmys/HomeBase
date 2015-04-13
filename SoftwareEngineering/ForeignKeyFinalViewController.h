@@ -11,8 +11,8 @@
 #import "EDJListTableTableViewController.h"
 @class EDJTableCreationRequest;
 @class EDJFKConstraint;
-@interface ForeignKeyFinalViewController : UIViewController<EDJFKConstraintDelegate, TableSelectionDelegate>
-@property (weak, nonatomic) IBOutlet UIScrollView *fkConstraintsScrollView;
-@property (nonatomic) EDJTableCreationRequest *tableRequest;
-@property (nonatomic) EDJFKConstraint *lastTouched;
+@interface ForeignKeyFinalViewController : UIViewController <EDJFKConstraintDelegate, TableSelectionDelegate>
+@property (weak, nonatomic) IBOutlet UIScrollView* fkConstraintsScrollView;
+@property (nonatomic) EDJTableCreationRequest* tableRequest;
+@property (nonatomic) EDJFKConstraint* lastTouched;
 @end

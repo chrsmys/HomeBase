@@ -8,10 +8,10 @@
 
 #import <UIKit/UIKit.h>
 @class EDJTableCreationRequest;
-@interface EDJColumnAmountSelectionViewController : UIViewController<UIPickerViewDataSource, UIPickerViewDelegate>
-@property (nonatomic) EDJTableCreationRequest *tableRequest;
-@property (weak, nonatomic) IBOutlet UIPickerView *picketView;
+@interface EDJColumnAmountSelectionViewController : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate>
+@property (nonatomic) EDJTableCreationRequest* tableRequest;
+@property (weak, nonatomic) IBOutlet UIPickerView* picketView;
 - (IBAction)cancelButtonPress:(id)sender;
-@property (weak, nonatomic) IBOutlet UITextField *tableNameTextField;
+@property (weak, nonatomic) IBOutlet UITextField* tableNameTextField;
 
 @end

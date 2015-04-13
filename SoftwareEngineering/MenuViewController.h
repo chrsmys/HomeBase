@@ -9,11 +9,12 @@
 #import <UIKit/UIKit.h>
 #import "ViewController.h"
 @protocol MenuDelegate
--(void)editConnectionButtonPressed;
--(void)logoutButtonPressed;
+- (void)editConnectionButtonPressed;
+- (void)refreshButtonPressed;
+- (void)logoutButtonPressed;
 @end
-@interface MenuViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>{
-    NSMutableArray *menuItems;
+@interface MenuViewController : UIViewController <UITableViewDataSource, UITableViewDelegate> {
+    NSMutableArray* menuItems;
 }
-@property (weak,nonatomic) id delegate;
+@property (weak, nonatomic) id delegate;
 @end

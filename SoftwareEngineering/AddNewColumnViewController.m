@@ -17,8 +17,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-  
-    // Do any additional setup after loading the view.
 }
 -(void)viewDidAppear:(BOOL)animated{
     _columnCreationView = [EDJColumnCreationView getViewWithOutFKAddition];
@@ -43,7 +41,6 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (IBAction)cancelButtonPressed:(id)sender {
@@ -59,33 +56,86 @@
         if ([segue.destinationViewController isKindOfClass:[EDJTableSubmissionViewController class]]) {
             EDJTableSubmissionViewController *destin = (EDJTableSubmissionViewController *)segue.destinationViewController;
             if (self.column==nil) {
-                [destin performAction:^(UIViewController *controller){
-                    [[EDJTableServices sharedInstance] addColumnWithTableName:[self.table getName] columnName:_columnCreationView.columnNameTextField.text columnType:_columnCreationView.columnTypeTextField.text columnLength:[_columnCreationView.columnSizeTextField.text intValue] notNull:_columnCreationView.notNull isUnique:_columnCreationView.unique withCompletion:^(BOOL complete){
-                        
-                        [controller dismissViewControllerAnimated:true completion:nil];
-                        
-                    }withError:^(NSString *error){
-                        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"error" message:@"error" delegate:nil cancelButtonTitle:@"Done" otherButtonTitles: nil];
-                        [alert show];
-                    }];
-                }];
+                [self performCreateColumnAction:destin];
             }else{
-                [destin performAction:^(UIViewController *controller){
-                    [[EDJTableServices sharedInstance] editColumnWithTableName:[self.table getName] columnName:_columnCreationView.columnNameTextField.text columnType:_columnCreationView.columnTypeTextField.text columnLength:_columnCreationView.columnSizeTextField.text withCompletion:^(BOOL complete){
-                        
-                        [controller dismissViewControllerAnimated:true completion:nil];
-                        
-                    }withError:^(NSString *error){
-                        [[NSOperationQueue mainQueue] addOperationWithBlock:^ {
-                            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"error" message:[NSString stringWithFormat:@"error %@", error] delegate:nil cancelButtonTitle:@"Done" otherButtonTitles: nil];
-                            [alert show];
-                            [controller.navigationController popViewControllerAnimated:YES];
-                        }];
-                    }];
-                }];
-            }
+                if (![[self.column name] isEqualToString:self.columnCreationView.columnNameTextField.text]) {
+                    [self performActionChangeColumnNameAndAttributes:destin];
+                }else{
+                    [self performAction:destin];
         }
     }
+
+    
 }
+    }
+}
+
+-(void)performCreateColumnAction:(EDJTableSubmissionViewController *)tableSubmissionView{
+    [tableSubmissionView performAction:^(UIViewController *controller){
+        [[EDJTableServices sharedInstance] addColumnWithTableName:[self.table getName] columnName:_columnCreationView.columnNameTextField.text columnType:_columnCreationView.columnTypeTextField.text columnLength:[_columnCreationView.columnSizeTextField.text intValue] notNull:_columnCreationView.notNull isUnique:_columnCreationView.unique withCompletion:^(BOOL complete){
+            
+            [controller dismissViewControllerAnimated:true completion:nil];
+            
+        }withError:^(NSString *error){
+           [[NSOperationQueue mainQueue] addOperationWithBlock:^ {
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"error" message:error delegate:nil cancelButtonTitle:@"Done" otherButtonTitles: nil];
+                [alert show];
+                [controller.navigationController popToRootViewControllerAnimated:YES];
+           }];
+        }];
+    }];
+
+}
+
+-(void)performActionChangeColumnNameAndAttributes:(EDJTableSubmissionViewController *)tableSubmissionView{
+    [tableSubmissionView performAction:^(UIViewController *controller){
+        
+        [[EDJTableServices sharedInstance] renameColumninTable:[self.table getName] oldColumnName:[self.column name] newColumnName:self.columnCreationView.columnNameTextField.text withCompletion:^(BOOL complete){
+        
+                [[EDJTableServices sharedInstance] editColumnWithTableName:[self.table getName] columnName:_columnCreationView.columnNameTextField.text columnType:_columnCreationView.columnTypeTextField.text columnLength:_columnCreationView.columnSizeTextField.text withCompletion:^(BOOL complete){
+                    
+                    [controller dismissViewControllerAnimated:true completion:nil];
+                    
+                } withError:^(NSString *error){
+                    [[NSOperationQueue mainQueue] addOperationWithBlock:^ {
+                        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"error" message:[NSString stringWithFormat:@"error %@", error] delegate:nil cancelButtonTitle:@"Done" otherButtonTitles: nil];
+                        [alert show];
+                        [controller.navigationController popViewControllerAnimated:YES];
+                    }];
+                }];
+        
+        
+        } withError:^(NSString *error){
+            [[NSOperationQueue mainQueue] addOperationWithBlock:^ {
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"error" message:[NSString stringWithFormat:@"error %@", error] delegate:nil cancelButtonTitle:@"Done" otherButtonTitles: nil];
+                [alert show];
+                [controller.navigationController popViewControllerAnimated:YES];
+            }];
+        }];
+        
+        
+        
+        
+        
+        
+    }];
+}
+
+-(void)performAction:(EDJTableSubmissionViewController *)tableSubmissionView{
+    [tableSubmissionView performAction:^(UIViewController *controller){
+        [[EDJTableServices sharedInstance] editColumnWithTableName:[self.table getName] columnName:_columnCreationView.columnNameTextField.text columnType:_columnCreationView.columnTypeTextField.text columnLength:_columnCreationView.columnSizeTextField.text withCompletion:^(BOOL complete){
+            
+            [controller dismissViewControllerAnimated:true completion:nil];
+            
+        }withError:^(NSString *error){
+            [[NSOperationQueue mainQueue] addOperationWithBlock:^ {
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"error" message:[NSString stringWithFormat:@"error %@", error] delegate:nil cancelButtonTitle:@"Done" otherButtonTitles: nil];
+                [alert show];
+                [controller.navigationController popViewControllerAnimated:YES];
+            }];
+        }];
+    }];
+}
+
 
 @end

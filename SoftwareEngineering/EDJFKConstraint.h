@@ -10,7 +10,7 @@
 @class EDJFKConstraint;
 @protocol EDJFKConstraintDelegate <NSObject>
 
--(void)didSelectTableViewWithConstraint:(EDJFKConstraint *)constraint;
+- (void)didSelectTableViewWithConstraint:(EDJFKConstraint*)constraint;
 
 @end
 
@@ -18,17 +18,16 @@
 
 @property (nonatomic) id<EDJFKConstraintDelegate> delegate;
 
-@property (weak, nonatomic) IBOutlet UILabel *fkColumnName;
-@property (weak, nonatomic) IBOutlet UITextField *constraintNameTextField;
-@property (weak, nonatomic) IBOutlet UIButton *selectTableButton;
-@property (weak, nonatomic) IBOutlet UISwitch *deferableSwitch;
-@property (nonatomic) NSString *refrencingTableName;
-@property (nonatomic) NSString *refrencingColumnName;
+@property (weak, nonatomic) IBOutlet UILabel* fkColumnName;
+@property (weak, nonatomic) IBOutlet UITextField* constraintNameTextField;
+@property (weak, nonatomic) IBOutlet UIButton* selectTableButton;
+@property (weak, nonatomic) IBOutlet UISwitch* deferableSwitch;
+@property (nonatomic) NSString* refrencingTableName;
+@property (nonatomic) NSString* refrencingColumnName;
 
+- (IBAction)deferableDidSwitch:(UISwitch*)sender;
+- (IBAction)selectTablePressed:(UIButton*)sender;
 
-- (IBAction)deferableDidSwitch:(UISwitch *)sender;
-- (IBAction)selectTablePressed:(UIButton *)sender;
-
-+(instancetype)getView;
++ (instancetype)getView;
 
 @end

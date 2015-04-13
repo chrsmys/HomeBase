@@ -14,22 +14,26 @@
 
 @implementation TriggerDetailViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 }
--(void)viewDidAppear:(BOOL)animated{
-    self.triggerCodeDisplay.text=[_trigger body];
+- (void)viewDidAppear:(BOOL)animated
+{
+    self.triggerCodeDisplay.text = [_trigger body];
 }
 
-- (void)didReceiveMemoryWarning {
+- (void)didReceiveMemoryWarning
+{
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
--(void)setTrigger:(EDJTrigger *)trigger{
-    self.triggerCodeDisplay.text=[trigger body];
-    _trigger=trigger;
+- (void)setTrigger:(EDJTrigger*)trigger
+{
+    self.triggerCodeDisplay.text = [trigger body];
+    _trigger = trigger;
 }
 /*
 #pragma mark - Navigation
@@ -41,4 +45,8 @@
 }
 */
 
+- (IBAction)doneButtonPressed:(id)sender
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 @end

@@ -10,6 +10,6 @@
 @class EDJTableCreationRequest;
 
 @interface ColumnCreationViewController : UIViewController
-@property (weak, nonatomic) IBOutlet UIScrollView *columnListScrollView;
-@property (nonatomic) EDJTableCreationRequest *tableRequest;
+@property (weak, nonatomic) IBOutlet UIScrollView* columnListScrollView;
+@property (nonatomic) EDJTableCreationRequest* tableRequest;
 @end

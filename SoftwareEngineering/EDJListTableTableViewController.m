@@ -16,42 +16,46 @@
 
 @implementation EDJListTableTableViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
 }
 
-- (void)didReceiveMemoryWarning {
+- (void)didReceiveMemoryWarning
+{
     [super didReceiveMemoryWarning];
 }
 
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+- (NSInteger)numberOfSectionsInTableView:(UITableView*)tableView
+{
     return 1;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+- (NSInteger)tableView:(UITableView*)tableView numberOfRowsInSection:(NSInteger)section
+{
     return [[[EDJTableServices sharedInstance] tables] count];
 }
 
+- (UITableViewCell*)tableView:(UITableView*)tableView cellForRowAtIndexPath:(NSIndexPath*)indexPath
+{
+    UITableViewCell* cell = [self.tableView dequeueReusableCellWithIdentifier:@"Cell"];
+    cell.textLabel.text = [(EDJTable*)[[[EDJTableServices sharedInstance] tables] objectAtIndex:indexPath.row] getName];
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"Cell"];
-    cell.textLabel.text = [(EDJTable *)[[[EDJTableServices sharedInstance] tables] objectAtIndex:indexPath.row] getName];
-    
     return cell;
 }
 
 #pragma mark - Navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if([segue.identifier isEqualToString:@"goToColumnList"]){
+- (void)prepareForSegue:(UIStoryboardSegue*)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"goToColumnList"]) {
         if ([segue.destinationViewController isKindOfClass:[EDJColumnTableViewController class]]) {
-            EDJColumnTableViewController *col = segue.destinationViewController;
-            col.table=[[[EDJTableServices sharedInstance] tables] objectAtIndex:[self.tableView indexPathForSelectedRow].row];
-            col.delegate=self.delegate;
+            EDJColumnTableViewController* col = segue.destinationViewController;
+            col.table = [[[EDJTableServices sharedInstance] tables] objectAtIndex:[self.tableView indexPathForSelectedRow].row];
+            col.delegate = self.delegate;
         }
     }
 }
-
 
 @end
