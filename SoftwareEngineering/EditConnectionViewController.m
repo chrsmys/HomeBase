@@ -9,6 +9,7 @@
 #import "EditConnectionViewController.h"
 #import "EDJUser.h"
 #import "EDJAccountManager.h"
+#import "EDJTableServices.h"
 @interface EditConnectionViewController ()
 
 @end
@@ -43,9 +44,47 @@
 
 - (IBAction)saveButtonPressed:(id)sender
 {
-    [[EDJAccountManager sharedInstance] changeConnectionForCurrentUser:dbUsernameTextField.text password:dbPasswordTextField.text connectionString:dbConnectionStringTextField.text];
+    /*[[EDJAccountManager sharedInstance] changeConnectionForCurrentUser:dbUsernameTextField.text password:dbPasswordTextField.text connectionString:dbConnectionStringTextField.text];
+    [[EDJAccountManager sharedInstance] addSchemaToDefaults:@{@"Username" : dbUsernameTextField.text,
+                                                              @"Password" : dbPasswordTextField.text,
+                                                              @"ConnectionString" : dbConnectionStringTextField.text
+                                                              }];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"refresh" object:nil];
     NSLog(@"saved %@", [[EDJUser sharedInstance] getDBPassword]);
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self dismissViewControllerAnimated:YES completion:nil];*/
+    
+    
+    
+    [self.activityIndicator startAnimating];
+    self.dbUsernameTextField.hidden=true;
+    self.dbPasswordTextField.hidden=true;
+    self.dbConnectionStringTextField.hidden=true;
+    
+    [[EDJTableServices sharedInstance] loginValidator:self.dbUsernameTextField.text password:self.dbPasswordTextField.text connectionString:self.dbConnectionStringTextField.text withCompletion:^(BOOL completion){
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^ {
+            [self.activityIndicator stopAnimating];
+            [[EDJAccountManager sharedInstance] addSchemaToDefaults:@{
+                                                                      @"Username" : self.dbUsernameTextField.text,
+                                                                      @"Password" : self.dbPasswordTextField.text,
+                                                                      @"ConnectionString" : self.dbConnectionStringTextField.text
+                                                                      }];
+            
+            [[EDJAccountManager sharedInstance] changeConnectionForCurrentUser:self.dbUsernameTextField.text password:self.dbPasswordTextField.text connectionString:self.dbConnectionStringTextField.text];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"refresh" object:nil];
+            [self dismissViewControllerAnimated:YES completion:nil];
+            
+        }];
+        
+    } withError:^(NSString *error){
+        self.dbUsernameTextField.hidden=false;
+        self.dbPasswordTextField.hidden=false;
+        self.dbConnectionStringTextField.hidden=false;
+        [self.activityIndicator stopAnimating];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error Logging In" message:@"Please make sure you have your username, password, and connection string are correct" delegate:nil cancelButtonTitle:@"OK!" otherButtonTitles: nil];
+        [alert show];
+    }];
+    
+    
+    
 }
 @end

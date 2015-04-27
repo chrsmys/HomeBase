@@ -23,7 +23,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    
     mainView = [self.storyboard instantiateViewControllerWithIdentifier:@"tableViewer"];
     [self addChildViewController:mainView];
     menuShowing = false;
@@ -39,8 +39,22 @@
     menuContainer.layer.anchorPoint = CGPointMake(1.0, 0.5);
     UIPanGestureRecognizer* rec = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panning:)];
     [mainView.menuButton addGestureRecognizer:rec];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refresh) name:@"refreshSchema" object:nil];
 
     // Do any additional setup after loading the view.
+}
+
+-(void)viewDidAppear:(BOOL)animated{
+    if(([[[EDJAccountManager sharedInstance] getUserNameList] count]==0)) {
+        UIStoryboard *story = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        UINavigationController *nav = [story instantiateViewControllerWithIdentifier:@"Onboarding"];
+        [self presentViewController:nav animated:true completion:nil];
+        
+    }
+}
+
+-(void)refresh{
+    [mainView viewDidAppear:true];
 }
 - (void)panning:(UIPanGestureRecognizer*)pan
 {
@@ -69,6 +83,7 @@
             }];
         }
     }
+    [menuView viewDidAppear:true];
 }
 
 - (void)didReceiveMemoryWarning

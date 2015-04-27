@@ -13,6 +13,7 @@
 #import "EDJTableServices.h"
 #import "MGSwipeButton.h"
 #import "AddNewColumnViewController.h"
+#import "ContstaintCreationTypeTableViewController.h"
 @interface EDJColumnTableViewController ()
 
 @end
@@ -79,7 +80,10 @@
         cell.typeLabel.text = [column formattedType];
         cell.constraintLabel.text = @"";
         if (self.editableTable) {
-            cell.leftButtons = @[ [MGSwipeButton buttonWithTitle:@" Constraint " backgroundColor:[UIColor colorWithRed:0.125 green:0.42 blue:0.608 alpha:1]], [MGSwipeButton buttonWithTitle:@"edit" backgroundColor:[UIColor orangeColor] callback:^BOOL(MGSwipeTableCell* sender) {
+            cell.leftButtons = @[ [MGSwipeButton buttonWithTitle:@" Constraint " backgroundColor:[UIColor colorWithRed:0.125 green:0.42 blue:0.608 alpha:1] callback:^BOOL(MGSwipeTableCell* sender){
+                [self performSegueWithIdentifier:@"AddConstraint" sender:[NSNumber numberWithInt:indexPath.row]];
+                return true;
+            }], [MGSwipeButton buttonWithTitle:@"edit" backgroundColor:[UIColor orangeColor] callback:^BOOL(MGSwipeTableCell* sender) {
                 [self performSegueWithIdentifier:@"AddNewColumn" sender:[NSNumber numberWithInt:indexPath.row]];
                 return true;
             }] ];
@@ -135,6 +139,19 @@
                 EDJColumn* column = [[self.table getColumns] objectAtIndex:[sender intValue]];
                 columnView.column = column;
             }
+        }
+    }
+    if ([segue.identifier isEqualToString:@"AddConstraint"]) {
+        UIViewController* destination = segue.destinationViewController;
+        if ([destination isKindOfClass:[UINavigationController class]]) {
+            destination = [[((UINavigationController*)destination)viewControllers] objectAtIndex:0];
+        }
+        if ([destination isKindOfClass:[ContstaintCreationTypeTableViewController class]]) {
+            
+            ContstaintCreationTypeTableViewController* columnView = (ContstaintCreationTypeTableViewController*)destination;
+            columnView.table = self.table;
+             EDJColumn* column = [[self.table getColumns] objectAtIndex:[sender intValue]];
+            columnView.actionColumn = [column name];
         }
     }
 }

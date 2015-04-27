@@ -20,6 +20,7 @@
 -(NSArray *)getColumns;
 -(void)removeColumnWithIndex:(int)colIndex;
 -(BOOL)isPrimaryKey:(NSString *)columnName;
+-(NSArray *)columnNames;
 @property (nonatomic, retain) NSArray *foriegnKeys;
 @property (nonatomic, retain) NSArray *primaryKeys;
 @property (nonatomic, retain) NSMutableArray *triggers;

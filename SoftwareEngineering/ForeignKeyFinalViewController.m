@@ -108,6 +108,7 @@
                                     [EDJListTableTableViewController class]]) {
             EDJListTableTableViewController* dest = (EDJListTableTableViewController*)currentDestination;
             dest.delegate = self;
+            dest.shouldGoToColumns = true;
         }
     }
 }

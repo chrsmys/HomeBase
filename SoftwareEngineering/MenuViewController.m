@@ -7,7 +7,7 @@
 //
 
 #import "MenuViewController.h"
-
+#import "EDJAccountManager.h"
 @interface MenuViewController ()
 
 @end
@@ -16,7 +16,7 @@
     ViewController* mainView;
 }
 @synthesize delegate;
-NSString* const EDIT_CONNECTION_TEXT = @"My Connections";
+NSString* const EDIT_CONNECTION_TEXT = @"Add Schema";
 NSString* const REFRESH_TEXT = @"Refresh";
 NSString* const LOGOUT_TEXT = @"Logout";
 
@@ -24,12 +24,17 @@ NSString* const LOGOUT_TEXT = @"Logout";
 {
     [super viewDidLoad];
     menuItems = [[NSMutableArray alloc] init];
+    [menuItems addObjectsFromArray:[[EDJAccountManager sharedInstance] getUserNameList]];
     [menuItems addObject:EDIT_CONNECTION_TEXT];
-    [menuItems addObject:REFRESH_TEXT];
 
     // Do any additional setup after loading the view.
 }
-
+-(void)viewDidAppear:(BOOL)animated{
+    [self.tableView reloadData];
+    [menuItems removeAllObjects];
+    [menuItems addObjectsFromArray:[[EDJAccountManager sharedInstance] getUserNameList]];
+    [menuItems addObject:EDIT_CONNECTION_TEXT];
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -61,6 +66,10 @@ NSString* const LOGOUT_TEXT = @"Logout";
     else if ([[menuItems objectAtIndex:indexPath.row] isEqualToString:REFRESH_TEXT]) {
         [delegate refreshButtonPressed];
         [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    }else{
+        NSDictionary *dictionary = [[EDJAccountManager sharedInstance] getUserInfoForUsername:[menuItems objectAtIndex:indexPath.row]];
+        [[EDJAccountManager sharedInstance] changeConnectionForCurrentUser:[dictionary objectForKey:@"Username"] password:[dictionary objectForKey:@"Password"] connectionString:[dictionary objectForKey:@"ConnectionString"]];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"refresh" object:nil];
     }
 }
 - (CGFloat)tableView:(UITableView*)tableView heightForRowAtIndexPath:(NSIndexPath*)indexPath

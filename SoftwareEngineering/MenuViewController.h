@@ -17,4 +17,5 @@
     NSMutableArray* menuItems;
 }
 @property (weak, nonatomic) id delegate;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 @end

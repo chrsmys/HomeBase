@@ -12,8 +12,9 @@
 #import "TableInfoViewController.h"
 #import "UIView+Borders.h"
 #import "UIColor+EDJSystemColors.h"
+#import "RZSquaresLoading.h"
 @interface CloneCellViewController ()
-
+@property (nonatomic) RZSquaresLoading *squareLoading;
 @end
 
 @implementation CloneCellViewController
@@ -37,6 +38,7 @@
     }
     else {
     }
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refresh) name:@"refreshSchema" object:nil];
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 }
@@ -104,6 +106,12 @@
     if (self.view.superview.frame.size.width - 40 < self.view.frame.size.width) {
         self.containerView.alpha = 1;
     }
+    
+    if([self.squareLoading superview]){
+        [self.squareLoading.superview bringSubviewToFront:self.squareLoading];
+    }
+    
+    
 }
 
 #pragma mark - Navigation
@@ -134,6 +142,13 @@
             NSLog(@"doing this %@", self.table);
         }
     }
+}
+
+-(void)refresh{
+    NSLog(@"CalleD");
+    self.squareLoading = [[RZSquaresLoading alloc] initWithFrame:CGRectMake(self.view.frame.size.width/2, self.view.frame.size.height/2, 100, 100)];
+    [self.squareLoading setColor:[UIColor redColor]];
+    [self.containerView addSubview:self.squareLoading];
 }
 
 @end

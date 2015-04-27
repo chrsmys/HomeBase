@@ -28,20 +28,9 @@ static bool isFirstAccess = YES;
 }
 
 -(BOOL)setUserInfo:(NSMutableDictionary *)userInfo{
-    if([userInfo objectForKey:@"username"]!=nil){
-        username=[userInfo objectForKey:@"username"];
-    }else{
-        [self clearUserInfo];
-        return false;
-    }
+   
     if([userInfo objectForKey:@"connection-string"]!=nil){
         connectionString=[userInfo objectForKey:@"connection-string"];
-    }else{
-        [self clearUserInfo];
-        return false;
-    }
-    if([userInfo objectForKey:@"password"]!=nil){
-        password=[userInfo objectForKey:@"password"];
     }else{
         [self clearUserInfo];
         return false;

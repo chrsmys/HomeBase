@@ -23,6 +23,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *viewTitleLabel;
 @property (weak, nonatomic) IBOutlet UICollectionView *tableCollection;
 @property (weak, nonatomic) IBOutlet UILabel *trashcan;
+@property (weak, nonatomic) IBOutlet UILabel *usernameLabel;
 
 @property (weak, nonatomic) IBOutlet UITextField *username;
 @property (weak, nonatomic) IBOutlet UIButton *menuButton;

@@ -131,11 +131,49 @@ static bool isFirstAccess = YES;
     [currenUserDict setObject:_username forKey:@"db-username"];
     [currenUserDict setObject:_password forKey:@"db-password"];
     [self addUserToDefaults:currenUserDict];
-    if([[EDJUser sharedInstance] setUserInfo:[[[NSUserDefaults standardUserDefaults] objectForKey:@"Users"] objectForKey:@"Dave"]]){
+    if([[EDJUser sharedInstance] setUserInfo:currenUserDict]){
     }
     
     
 }
+
+
+#pragma mark - SCHEMA CREATION
+
+-(void)addSchemaToDefaults:(NSDictionary *)dictionary{
+    if (![[NSUserDefaults standardUserDefaults] objectForKey:@"UserSchemas"]) {
+        [[NSUserDefaults standardUserDefaults] setObject:[[NSMutableArray alloc] init] forKey:@"UserSchemas"];
+    }
+    NSMutableArray *UserSchemas = [[NSMutableArray alloc] initWithArray:[[NSUserDefaults standardUserDefaults] objectForKey:@"UserSchemas"]];
+    if ([self validateSchemaDictionary:dictionary] && ![[self getUserNameList] containsObject:[dictionary objectForKey:@"Username"]]) {
+        [UserSchemas addObject:dictionary];
+    }
+    [[NSUserDefaults standardUserDefaults] setObject:UserSchemas forKey:@"UserSchemas"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+-(BOOL)validateSchemaDictionary:(NSDictionary *)dictionary{
+        return [dictionary objectForKey:@"Username"] && [dictionary objectForKey:@"Password"] && [dictionary objectForKey:@"ConnectionString"];
+    
+}
+
+-(NSMutableArray *)getUserNameList{
+    NSMutableArray *usernames = [[NSMutableArray alloc] init];
+    for (NSDictionary *user in [[NSUserDefaults standardUserDefaults] objectForKey:@"UserSchemas"]) {
+        [usernames addObject:[user objectForKey:@"Username"]];
+    }
+    return usernames;
+}
+
+-(NSDictionary *)getUserInfoForUsername:(NSString *)username{
+    for (NSDictionary *user in [[NSUserDefaults standardUserDefaults] objectForKey:@"UserSchemas"]) {
+        if ([username isEqualToString:[user objectForKey:@"Username"]]) {
+            return user;
+        };
+    }
+    return nil;
+}
+
 -(void)logoutCurrentUser{
     [[EDJUser sharedInstance] logout];
     

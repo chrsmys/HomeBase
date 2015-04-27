@@ -32,16 +32,32 @@
 		83F5ACC21A16E804001E7601 /* EDJUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F5ACC11A16E804001E7601 /* EDJUser.m */; };
 		83F5ACC41A17012A001E7601 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83F5ACC31A17012A001E7601 /* Security.framework */; };
 		912704371A2FF66600F31B82 /* image00.png in Resources */ = {isa = PBXBuildFile; fileRef = 912704361A2FF66600F31B82 /* image00.png */; };
-		9127043A1A300A4400F31B82 /* QTouchposeApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 912704391A300A4400F31B82 /* QTouchposeApplication.m */; };
 		912EC05C1AD3868B0083A913 /* EDJConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 912EC05B1AD3868B0083A913 /* EDJConstraint.m */; };
 		912EC05F1AD3FF5E0083A913 /* ConstraintDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 912EC05E1AD3FF5E0083A913 /* ConstraintDataSource.m */; };
 		912EC0621AD403EE0083A913 /* ConstraintTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 912EC0611AD403EE0083A913 /* ConstraintTableViewCell.m */; };
 		913232E41AA69C950069C64F /* fontawesome-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 913232E31AA69B240069C64F /* fontawesome-webfont.ttf */; };
 		913232E71AA69E6A0069C64F /* EDJTableServices.m in Sources */ = {isa = PBXBuildFile; fileRef = 913232E61AA69E6A0069C64F /* EDJTableServices.m */; };
 		913233381AA7BAAE0069C64F /* UIView+Genie.m in Sources */ = {isa = PBXBuildFile; fileRef = 913233371AA7BAAE0069C64F /* UIView+Genie.m */; };
+		91353AA61AE6B9F800586593 /* UIScrollView+SVInfiniteScrolling.m in Sources */ = {isa = PBXBuildFile; fileRef = 91353AA31AE6B9F800586593 /* UIScrollView+SVInfiniteScrolling.m */; };
+		91353AA71AE6B9F800586593 /* UIScrollView+SVPullToRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 91353AA51AE6B9F800586593 /* UIScrollView+SVPullToRefresh.m */; };
 		9141E8C91ACE423600BA0478 /* UIColor+EDJSystemColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 9141E8C81ACE423600BA0478 /* UIColor+EDJSystemColors.m */; };
+		914ED6211AEC251D0012C9C6 /* UKCreationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 914ED6201AEC251D0012C9C6 /* UKCreationViewController.m */; };
+		914ED6241AEC25580012C9C6 /* EDJKeySelectionDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 914ED6231AEC25580012C9C6 /* EDJKeySelectionDataSource.m */; };
+		914ED6271AEC2CE80012C9C6 /* ContstaintCreationTypeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 914ED6261AEC2CE80012C9C6 /* ContstaintCreationTypeTableViewController.m */; };
+		914ED62A1AEC3C600012C9C6 /* CheckCreationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 914ED6291AEC3C600012C9C6 /* CheckCreationViewController.m */; };
+		914ED62D1AEC43280012C9C6 /* NotNullCreationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 914ED62C1AEC43280012C9C6 /* NotNullCreationViewController.m */; };
+		914ED6311AED4E700012C9C6 /* FKCreationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 914ED6301AED4E700012C9C6 /* FKCreationViewController.m */; };
+		914ED6391AED50710012C9C6 /* JVFloatLabeledTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 914ED6341AED50710012C9C6 /* JVFloatLabeledTextField.m */; };
+		914ED63A1AED50710012C9C6 /* JVFloatLabeledTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 914ED6361AED50710012C9C6 /* JVFloatLabeledTextView.m */; };
+		914ED63B1AED50710012C9C6 /* NSString+TextDirectionality.m in Sources */ = {isa = PBXBuildFile; fileRef = 914ED6381AED50710012C9C6 /* NSString+TextDirectionality.m */; };
+		914ED63E1AED8FBD0012C9C6 /* EDJFKKeySelectionDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 914ED63D1AED8FBD0012C9C6 /* EDJFKKeySelectionDataSource.m */; };
+		914ED6411AEDC4F30012C9C6 /* PrimaryKeyCreationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 914ED6401AEDC4F30012C9C6 /* PrimaryKeyCreationViewController.m */; };
+		914ED6441AEDD32D0012C9C6 /* RZSquaresLoading.m in Sources */ = {isa = PBXBuildFile; fileRef = 914ED6431AEDD32D0012C9C6 /* RZSquaresLoading.m */; };
 		916345C01AB8803C00AAE1FD /* FKListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 916345BF1AB8803C00AAE1FD /* FKListViewController.m */; };
 		9179A3D21ABF7F0700C1B7E4 /* EDJTableTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9179A3D11ABF7F0700C1B7E4 /* EDJTableTests.m */; };
+		918940821AEEB409004F0842 /* EDJOnboardingIntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 918940811AEEB409004F0842 /* EDJOnboardingIntroViewController.m */; };
+		918940851AEEB42E004F0842 /* EDJOnboardingExplanationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 918940841AEEB42E004F0842 /* EDJOnboardingExplanationViewController.m */; };
+		918940881AEEB447004F0842 /* EDJOnboardingLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 918940871AEEB447004F0842 /* EDJOnboardingLoginViewController.m */; };
 		9189AD5D1AC7CB3800E83BFF /* EDJTrigger.m in Sources */ = {isa = PBXBuildFile; fileRef = 9189AD5C1AC7CB3800E83BFF /* EDJTrigger.m */; };
 		9189AD601AC856CD00E83BFF /* TriggerInfoDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 9189AD5F1AC856CD00E83BFF /* TriggerInfoDataSource.m */; };
 		918A81E81AA7F60A000966D1 /* NSAttributedString+Constructors.m in Sources */ = {isa = PBXBuildFile; fileRef = 918A81E71AA7F60A000966D1 /* NSAttributedString+Constructors.m */; };
@@ -129,8 +145,6 @@
 		83F5ACC11A16E804001E7601 /* EDJUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EDJUser.m; path = ../EDJUser.m; sourceTree = "<group>"; };
 		83F5ACC31A17012A001E7601 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		912704361A2FF66600F31B82 /* image00.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image00.png; sourceTree = "<group>"; };
-		912704381A300A4400F31B82 /* QTouchposeApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QTouchposeApplication.h; sourceTree = "<group>"; };
-		912704391A300A4400F31B82 /* QTouchposeApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QTouchposeApplication.m; sourceTree = "<group>"; };
 		912EC05A1AD3868B0083A913 /* EDJConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDJConstraint.h; sourceTree = "<group>"; };
 		912EC05B1AD3868B0083A913 /* EDJConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDJConstraint.m; sourceTree = "<group>"; };
 		912EC05D1AD3FF5E0083A913 /* ConstraintDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConstraintDataSource.h; sourceTree = "<group>"; };
@@ -142,11 +156,46 @@
 		913232E61AA69E6A0069C64F /* EDJTableServices.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDJTableServices.m; sourceTree = "<group>"; };
 		913233361AA7BAAE0069C64F /* UIView+Genie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Genie.h"; sourceTree = "<group>"; };
 		913233371AA7BAAE0069C64F /* UIView+Genie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Genie.m"; sourceTree = "<group>"; };
+		91353AA11AE6B9F800586593 /* SVPullToRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVPullToRefresh.h; sourceTree = "<group>"; };
+		91353AA21AE6B9F800586593 /* UIScrollView+SVInfiniteScrolling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+SVInfiniteScrolling.h"; sourceTree = "<group>"; };
+		91353AA31AE6B9F800586593 /* UIScrollView+SVInfiniteScrolling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+SVInfiniteScrolling.m"; sourceTree = "<group>"; };
+		91353AA41AE6B9F800586593 /* UIScrollView+SVPullToRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+SVPullToRefresh.h"; sourceTree = "<group>"; };
+		91353AA51AE6B9F800586593 /* UIScrollView+SVPullToRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+SVPullToRefresh.m"; sourceTree = "<group>"; };
 		9141E8C71ACE423600BA0478 /* UIColor+EDJSystemColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+EDJSystemColors.h"; sourceTree = "<group>"; };
 		9141E8C81ACE423600BA0478 /* UIColor+EDJSystemColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+EDJSystemColors.m"; sourceTree = "<group>"; };
+		914ED61F1AEC251D0012C9C6 /* UKCreationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UKCreationViewController.h; sourceTree = "<group>"; };
+		914ED6201AEC251D0012C9C6 /* UKCreationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UKCreationViewController.m; sourceTree = "<group>"; };
+		914ED6221AEC25580012C9C6 /* EDJKeySelectionDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDJKeySelectionDataSource.h; sourceTree = "<group>"; };
+		914ED6231AEC25580012C9C6 /* EDJKeySelectionDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDJKeySelectionDataSource.m; sourceTree = "<group>"; };
+		914ED6251AEC2CE80012C9C6 /* ContstaintCreationTypeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContstaintCreationTypeTableViewController.h; sourceTree = "<group>"; };
+		914ED6261AEC2CE80012C9C6 /* ContstaintCreationTypeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContstaintCreationTypeTableViewController.m; sourceTree = "<group>"; };
+		914ED6281AEC3C600012C9C6 /* CheckCreationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckCreationViewController.h; sourceTree = "<group>"; };
+		914ED6291AEC3C600012C9C6 /* CheckCreationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckCreationViewController.m; sourceTree = "<group>"; };
+		914ED62B1AEC43280012C9C6 /* NotNullCreationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotNullCreationViewController.h; sourceTree = "<group>"; };
+		914ED62C1AEC43280012C9C6 /* NotNullCreationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotNullCreationViewController.m; sourceTree = "<group>"; };
+		914ED62F1AED4E700012C9C6 /* FKCreationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FKCreationViewController.h; sourceTree = "<group>"; };
+		914ED6301AED4E700012C9C6 /* FKCreationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FKCreationViewController.m; sourceTree = "<group>"; };
+		914ED6331AED50710012C9C6 /* JVFloatLabeledTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JVFloatLabeledTextField.h; sourceTree = "<group>"; };
+		914ED6341AED50710012C9C6 /* JVFloatLabeledTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JVFloatLabeledTextField.m; sourceTree = "<group>"; };
+		914ED6351AED50710012C9C6 /* JVFloatLabeledTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JVFloatLabeledTextView.h; sourceTree = "<group>"; };
+		914ED6361AED50710012C9C6 /* JVFloatLabeledTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JVFloatLabeledTextView.m; sourceTree = "<group>"; };
+		914ED6371AED50710012C9C6 /* NSString+TextDirectionality.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+TextDirectionality.h"; sourceTree = "<group>"; };
+		914ED6381AED50710012C9C6 /* NSString+TextDirectionality.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+TextDirectionality.m"; sourceTree = "<group>"; };
+		914ED63C1AED8FBD0012C9C6 /* EDJFKKeySelectionDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDJFKKeySelectionDataSource.h; sourceTree = "<group>"; };
+		914ED63D1AED8FBD0012C9C6 /* EDJFKKeySelectionDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDJFKKeySelectionDataSource.m; sourceTree = "<group>"; };
+		914ED63F1AEDC4F30012C9C6 /* PrimaryKeyCreationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrimaryKeyCreationViewController.h; sourceTree = "<group>"; };
+		914ED6401AEDC4F30012C9C6 /* PrimaryKeyCreationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrimaryKeyCreationViewController.m; sourceTree = "<group>"; };
+		914ED6421AEDD32D0012C9C6 /* RZSquaresLoading.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RZSquaresLoading.h; sourceTree = "<group>"; };
+		914ED6431AEDD32D0012C9C6 /* RZSquaresLoading.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RZSquaresLoading.m; sourceTree = "<group>"; };
 		916345BE1AB8803C00AAE1FD /* FKListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FKListViewController.h; sourceTree = "<group>"; };
 		916345BF1AB8803C00AAE1FD /* FKListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FKListViewController.m; sourceTree = "<group>"; };
 		9179A3D11ABF7F0700C1B7E4 /* EDJTableTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDJTableTests.m; sourceTree = "<group>"; };
+		918940801AEEB409004F0842 /* EDJOnboardingIntroViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDJOnboardingIntroViewController.h; sourceTree = "<group>"; };
+		918940811AEEB409004F0842 /* EDJOnboardingIntroViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDJOnboardingIntroViewController.m; sourceTree = "<group>"; };
+		918940831AEEB42E004F0842 /* EDJOnboardingExplanationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDJOnboardingExplanationViewController.h; sourceTree = "<group>"; };
+		918940841AEEB42E004F0842 /* EDJOnboardingExplanationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDJOnboardingExplanationViewController.m; sourceTree = "<group>"; };
+		918940861AEEB447004F0842 /* EDJOnboardingLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDJOnboardingLoginViewController.h; sourceTree = "<group>"; };
+		918940871AEEB447004F0842 /* EDJOnboardingLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDJOnboardingLoginViewController.m; sourceTree = "<group>"; };
 		9189AD5B1AC7CB3800E83BFF /* EDJTrigger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDJTrigger.h; sourceTree = "<group>"; };
 		9189AD5C1AC7CB3800E83BFF /* EDJTrigger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDJTrigger.m; sourceTree = "<group>"; };
 		9189AD5E1AC856CD00E83BFF /* TriggerInfoDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TriggerInfoDataSource.h; sourceTree = "<group>"; };
@@ -242,6 +291,8 @@
 		836F98B51A01DA9B00A73F85 /* SoftwareEngineering */ = {
 			isa = PBXGroup;
 			children = (
+				9189407F1AEEB3EE004F0842 /* OnBoarding */,
+				914ED61E1AEC24E70012C9C6 /* Add Constraints */,
 				837A1B2B1A1B1DD4009BE6A7 /* Authorized User Views */,
 				837A1B2A1A1B1DB3009BE6A7 /* Unauthorized User Views */,
 				837A1B291A1B1D9F009BE6A7 /* Images */,
@@ -298,8 +349,6 @@
 			children = (
 				913233361AA7BAAE0069C64F /* UIView+Genie.h */,
 				913233371AA7BAAE0069C64F /* UIView+Genie.m */,
-				912704381A300A4400F31B82 /* QTouchposeApplication.h */,
-				912704391A300A4400F31B82 /* QTouchposeApplication.m */,
 				83DB0B601A128D7E0031DD69 /* EDJWebImageView.h */,
 				83DB0B611A128D7E0031DD69 /* EDJWebImageView.m */,
 				83F5ACBC1A16E3B1001E7601 /* EDJSingletonExample.h */,
@@ -397,6 +446,50 @@
 				837A1B1D1A1AEA57009BE6A7 /* MenuViewController.m */,
 			);
 			name = "Container Views";
+			sourceTree = "<group>";
+		};
+		914ED61E1AEC24E70012C9C6 /* Add Constraints */ = {
+			isa = PBXGroup;
+			children = (
+				914ED6251AEC2CE80012C9C6 /* ContstaintCreationTypeTableViewController.h */,
+				914ED6261AEC2CE80012C9C6 /* ContstaintCreationTypeTableViewController.m */,
+				914ED62E1AED4E600012C9C6 /* New Group */,
+				914ED61F1AEC251D0012C9C6 /* UKCreationViewController.h */,
+				914ED6201AEC251D0012C9C6 /* UKCreationViewController.m */,
+				914ED6221AEC25580012C9C6 /* EDJKeySelectionDataSource.h */,
+				914ED6231AEC25580012C9C6 /* EDJKeySelectionDataSource.m */,
+				914ED6281AEC3C600012C9C6 /* CheckCreationViewController.h */,
+				914ED6291AEC3C600012C9C6 /* CheckCreationViewController.m */,
+				914ED62B1AEC43280012C9C6 /* NotNullCreationViewController.h */,
+				914ED62C1AEC43280012C9C6 /* NotNullCreationViewController.m */,
+				914ED62F1AED4E700012C9C6 /* FKCreationViewController.h */,
+				914ED6301AED4E700012C9C6 /* FKCreationViewController.m */,
+				914ED63C1AED8FBD0012C9C6 /* EDJFKKeySelectionDataSource.h */,
+				914ED63D1AED8FBD0012C9C6 /* EDJFKKeySelectionDataSource.m */,
+				914ED63F1AEDC4F30012C9C6 /* PrimaryKeyCreationViewController.h */,
+				914ED6401AEDC4F30012C9C6 /* PrimaryKeyCreationViewController.m */,
+			);
+			name = "Add Constraints";
+			sourceTree = "<group>";
+		};
+		914ED62E1AED4E600012C9C6 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "New Group";
+			sourceTree = "<group>";
+		};
+		914ED6321AED50500012C9C6 /* JVFloatable */ = {
+			isa = PBXGroup;
+			children = (
+				914ED6331AED50710012C9C6 /* JVFloatLabeledTextField.h */,
+				914ED6341AED50710012C9C6 /* JVFloatLabeledTextField.m */,
+				914ED6351AED50710012C9C6 /* JVFloatLabeledTextView.h */,
+				914ED6361AED50710012C9C6 /* JVFloatLabeledTextView.m */,
+				914ED6371AED50710012C9C6 /* NSString+TextDirectionality.h */,
+				914ED6381AED50710012C9C6 /* NSString+TextDirectionality.m */,
+			);
+			name = JVFloatable;
 			sourceTree = "<group>";
 		};
 		9179A3D01ABF7EE000C1B7E4 /* DB Objects  */ = {
@@ -506,6 +599,19 @@
 			name = "Table Details";
 			sourceTree = "<group>";
 		};
+		9189407F1AEEB3EE004F0842 /* OnBoarding */ = {
+			isa = PBXGroup;
+			children = (
+				918940801AEEB409004F0842 /* EDJOnboardingIntroViewController.h */,
+				918940811AEEB409004F0842 /* EDJOnboardingIntroViewController.m */,
+				918940831AEEB42E004F0842 /* EDJOnboardingExplanationViewController.h */,
+				918940841AEEB42E004F0842 /* EDJOnboardingExplanationViewController.m */,
+				918940861AEEB447004F0842 /* EDJOnboardingLoginViewController.h */,
+				918940871AEEB447004F0842 /* EDJOnboardingLoginViewController.m */,
+			);
+			name = OnBoarding;
+			sourceTree = "<group>";
+		};
 		91A69ED31ACCD6CA00B88276 /* MGSwipeTableCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -520,8 +626,16 @@
 		91A69EDD1ACE2FE300B88276 /* Dependencies */ = {
 			isa = PBXGroup;
 			children = (
+				914ED6321AED50500012C9C6 /* JVFloatable */,
+				91353AA11AE6B9F800586593 /* SVPullToRefresh.h */,
+				91353AA21AE6B9F800586593 /* UIScrollView+SVInfiniteScrolling.h */,
+				91353AA31AE6B9F800586593 /* UIScrollView+SVInfiniteScrolling.m */,
+				91353AA41AE6B9F800586593 /* UIScrollView+SVPullToRefresh.h */,
+				91353AA51AE6B9F800586593 /* UIScrollView+SVPullToRefresh.m */,
 				91A69EDE1ACE300F00B88276 /* UIView+Borders.h */,
 				91A69EDF1ACE302300B88276 /* UIView+Borders.m */,
+				914ED6421AEDD32D0012C9C6 /* RZSquaresLoading.h */,
+				914ED6431AEDD32D0012C9C6 /* RZSquaresLoading.m */,
 			);
 			name = Dependencies;
 			sourceTree = "<group>";
@@ -633,11 +747,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				83DB0B5D1A1288030031DD69 /* LoginViewController.m in Sources */,
+				914ED6311AED4E700012C9C6 /* FKCreationViewController.m in Sources */,
 				837A1B211A1AEE5F009BE6A7 /* LoggedInViewController.m in Sources */,
 				91A69ED81ACCD6CA00B88276 /* MGSwipeButton.m in Sources */,
 				836F98BC1A01DA9B00A73F85 /* AppDelegate.m in Sources */,
 				83F5ACB81A16E239001E7601 /* NSString+MD5.m in Sources */,
+				914ED63A1AED50710012C9C6 /* JVFloatLabeledTextView.m in Sources */,
 				9189AD5D1AC7CB3800E83BFF /* EDJTrigger.m in Sources */,
+				914ED63B1AED50710012C9C6 /* NSString+TextDirectionality.m in Sources */,
 				836F98BF1A01DA9B00A73F85 /* SoftwareEngineering.xcdatamodeld in Sources */,
 				837A1B1E1A1AEA57009BE6A7 /* MenuViewController.m in Sources */,
 				918A81EB1AA7FFAA000966D1 /* EDJForeignKey.m in Sources */,
@@ -646,8 +763,15 @@
 				91D994191AB7D08F0076F869 /* EDJTableCreationRequest.m in Sources */,
 				91FF24F81AC657720004A38B /* AppConstants.m in Sources */,
 				91FF25021AC7A6480004A38B /* ColumnTableViewCell.m in Sources */,
+				914ED63E1AED8FBD0012C9C6 /* EDJFKKeySelectionDataSource.m in Sources */,
+				91353AA71AE6B9F800586593 /* UIScrollView+SVPullToRefresh.m in Sources */,
+				918940881AEEB447004F0842 /* EDJOnboardingLoginViewController.m in Sources */,
 				9190E5411AB7AD310074CEB8 /* ColumnCreationViewController.m in Sources */,
 				91A69ED91ACCD6CA00B88276 /* MGSwipeTableCell.m in Sources */,
+				914ED62A1AEC3C600012C9C6 /* CheckCreationViewController.m in Sources */,
+				918940821AEEB409004F0842 /* EDJOnboardingIntroViewController.m in Sources */,
+				914ED62D1AEC43280012C9C6 /* NotNullCreationViewController.m in Sources */,
+				918940851AEEB42E004F0842 /* EDJOnboardingExplanationViewController.m in Sources */,
 				83DB0B5A1A1274D60031DD69 /* EDJColumn.m in Sources */,
 				912EC05F1AD3FF5E0083A913 /* ConstraintDataSource.m in Sources */,
 				916345C01AB8803C00AAE1FD /* FKListViewController.m in Sources */,
@@ -655,9 +779,12 @@
 				9190E53E1AB7AAE10074CEB8 /* EDJColumnAmountSelectionViewController.m in Sources */,
 				91D9941F1AB800560076F869 /* ForeignKeyFinalViewController.m in Sources */,
 				912EC0621AD403EE0083A913 /* ConstraintTableViewCell.m in Sources */,
+				914ED6241AEC25580012C9C6 /* EDJKeySelectionDataSource.m in Sources */,
 				837A1B241A1AFC00009BE6A7 /* MenuOverlayViewController.m in Sources */,
+				914ED6211AEC251D0012C9C6 /* UKCreationViewController.m in Sources */,
 				912EC05C1AD3868B0083A913 /* EDJConstraint.m in Sources */,
 				918E43911AD2254A00001A51 /* AddNewColumnViewController.m in Sources */,
+				914ED6391AED50710012C9C6 /* JVFloatLabeledTextField.m in Sources */,
 				91D9942A1AB8239F0076F869 /* EDJListTableTableViewController.m in Sources */,
 				83DB0B571A1273F70031DD69 /* EDJTable.m in Sources */,
 				913233381AA7BAAE0069C64F /* UIView+Genie.m in Sources */,
@@ -666,7 +793,7 @@
 				83DB0B621A128D7E0031DD69 /* EDJWebImageView.m in Sources */,
 				83E525E91A1E52B30040D0E7 /* CloneCellViewController.m in Sources */,
 				837A1B321A1B1FE0009BE6A7 /* CreateAccountViewController.m in Sources */,
-				9127043A1A300A4400F31B82 /* QTouchposeApplication.m in Sources */,
+				914ED6271AEC2CE80012C9C6 /* ContstaintCreationTypeTableViewController.m in Sources */,
 				9189AD601AC856CD00E83BFF /* TriggerInfoDataSource.m in Sources */,
 				91ABB46A1AC85ED100068876 /* TriggerInfoTableViewCell.m in Sources */,
 				83F5ACBB1A16E37B001E7601 /* EDJAccountManager.m in Sources */,
@@ -675,7 +802,10 @@
 				91A69EDC1ACCDF7200B88276 /* TriggerDetailViewController.m in Sources */,
 				91D9942D1AB825EE0076F869 /* EDJColumnTableViewController.m in Sources */,
 				9190E53B1AB7A91A0074CEB8 /* EDJColumnCreationView.m in Sources */,
+				914ED6441AEDD32D0012C9C6 /* RZSquaresLoading.m in Sources */,
 				913232E71AA69E6A0069C64F /* EDJTableServices.m in Sources */,
+				91353AA61AE6B9F800586593 /* UIScrollView+SVInfiniteScrolling.m in Sources */,
+				914ED6411AEDC4F30012C9C6 /* PrimaryKeyCreationViewController.m in Sources */,
 				83F5ACC21A16E804001E7601 /* EDJUser.m in Sources */,
 				918E43941AD35A0E00001A51 /* EditTableNameViewController.m in Sources */,
 				91D994221AB8104F0076F869 /* EDJFKConstraint.m in Sources */,

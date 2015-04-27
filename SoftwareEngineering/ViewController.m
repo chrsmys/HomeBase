@@ -12,6 +12,8 @@
 #import "EDJUser.h"
 #import "EDJTableServices.h"
 #import "EDJAccountManager.h"
+#import "SVPullToRefresh.h"
+
 @interface ViewController ()
 
 @end
@@ -26,6 +28,16 @@
 @synthesize username;
 
 @synthesize viewTitleLabel;
+- (void)awakeFromNib
+{
+}
+
+- (instancetype)initWithCoder:(NSCoder*)aDecoder
+{
+    self = [super initWithCoder:aDecoder];
+    return self;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -40,10 +52,18 @@
                                                object:nil];
     UIPinchGestureRecognizer* pinch = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(pinch:)];
     [tableCollection addGestureRecognizer:pinch];
+    [tableCollection addPullToRefreshWithActionHandler:^(void) {
+        [self refresh];
+    }];
+    // [[NSNotificationCenter defaultCenter]removeObserver:self];
 }
 - (void)viewDidAppear:(BOOL)animated
 {
     [self refresh];
+}
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 - (void)pinch:(UIPinchGestureRecognizer*)pinch
 {
@@ -54,6 +74,7 @@
         [_activityIndicator startAnimating];
         [[EDJTableServices sharedInstance] refreshSchema];
         [[EDJTableServices sharedInstance] setDelegate:self];
+        [self.usernameLabel setText:[[EDJUser sharedInstance] getDBUsername]];
     }
     else {
         [self.activityIndicator stopAnimating];
@@ -243,7 +264,6 @@
         [clone.tableInfoContainer layoutIfNeeded];
 
     } completion:nil];
-   
 }
 
 - (void)didReceiveMemoryWarning
@@ -261,11 +281,46 @@
 #pragma MARK - TableServices Delegate
 - (void)tableSchemaUpdated
 {
-    [_activityIndicator setHidesWhenStopped:true];
-    [_activityIndicator stopAnimating];
-    tableList = [[NSMutableArray alloc] initWithArray:[[EDJTableServices sharedInstance] tables]];
-    [tableCollection reloadData];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [_activityIndicator setHidesWhenStopped:true];
+        [_activityIndicator stopAnimating];
+        [tableCollection.pullToRefreshView stopAnimating];
+        tableList = [[NSMutableArray alloc] initWithArray:[[EDJTableServices sharedInstance] tables]];
+        [tableCollection reloadData];
+        
+        if (clone!=nil && clone.view.superview!=nil ) {
+            EDJTable *table = [[EDJTableServices sharedInstance] getTableObjectWithName:[clone.table getName]];
+            [self deployUpdatedCloneWithTable:table];
+        }
+    });
 }
+
+- (void)deployUpdatedCloneWithTable:(EDJTable*)table
+{
+    UICollectionViewCell* cells = clone.clonedCell;
+    [clone.view removeFromSuperview];
+    clone = nil;
+
+    clone = [self.storyboard instantiateViewControllerWithIdentifier:@"CloneView"];
+    [clone setTable:table];
+    cloneView = clone.view;
+    UILabel* cellLabel = (UILabel*)[cells viewWithTag:300];
+    clone.tableNameLabel.layer.borderColor = cellLabel.layer.borderColor;
+    clone.tableNameLabel.layer.borderWidth = 10;
+
+    clone.tableNameLabel.text = [table getName];
+    clone.clonedCell = cells;
+    [cloneView setBackgroundColor:[UIColor whiteColor]];
+    [cloneView.layer setBorderWidth:10];
+    [cloneView.layer setBorderColor:[UIColor colorWithRed:0.953 green:0.533 blue:0.388 alpha:1].CGColor];
+    [self.view addSubview:cloneView];
+    cloneView.frame = cells.frame;
+    clone.columnsListView.attributedText = [table getAllColumnsToString];
+    cloneView.frame = self.view.frame;
+    [cloneView layoutIfNeeded];
+    [clone.tableInfoContainer layoutIfNeeded];
+}
+
 - (void)failedToDropTable:(NSString*)tableName withError:(NSDictionary*)error
 {
     UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"error" message:[error objectForKey:@"message"] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];

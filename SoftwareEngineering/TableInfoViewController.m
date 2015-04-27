@@ -11,6 +11,7 @@
 #import "TriggerInfoDataSource.h"
 #import "TriggerDetailViewController.h"
 #import "ConstraintDataSource.h"
+#import "RZSquaresLoading.h"
 @interface TableInfoViewController ()
 @property (nonatomic) TriggerInfoDataSource* triggerDataSource;
 @property (nonatomic) ConstraintDataSource* constraintDataSource;
@@ -41,6 +42,14 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     self.foreignKeyInfoTextView.text = [self.table getForeignKeyText];
+}
+-(void)dealloc{
+    
+}
+
+-(void)refreshTable{
+    RZSquaresLoading *loading = [[RZSquaresLoading alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
+    [self.view addSubview:loading];
 }
 
 - (void)selectedTrigger:(EDJTrigger*)trigger

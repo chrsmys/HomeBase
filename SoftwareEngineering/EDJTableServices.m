@@ -170,6 +170,7 @@ static EDJTableServices* sharedInstance;
                 
             }else{
                 completion(true);
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"refreshSchema" object:nil];
             }
         }
         else{
@@ -372,6 +373,7 @@ static EDJTableServices* sharedInstance;
                 
             }else{
                 completion(true);
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"refreshSchema" object:nil];
             }
         }
         else{
@@ -380,6 +382,118 @@ static EDJTableServices* sharedInstance;
     }];
     [task resume];
 }
+
+
+-(void)reloadTableWithName:(NSString *)name withCompletion:(void (^)(EDJTable *table))completion withError:(void (^)(NSString* error))errorMethod{
+    EDJUser* user = [EDJUser sharedInstance];
+    NSMutableDictionary* requestDictionary = [[NSMutableDictionary alloc] initWithDictionary:@{ @"user-name" : [user getDBUsername],
+                                                                                                @"connection-string" : [user getConnectionString],
+                                                                                                @"password" : [user getDBPassword],
+                                                                                                @"table-name" : name}];
+    
+    NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"https://php.radford.edu/~tfreeman3/Homebase/api/user_table_info"]];
+    request.HTTPBody = [[self createRequestWithDictionary:requestDictionary] dataUsingEncoding:NSUTF8StringEncoding];
+    request.HTTPMethod = @"POST";
+
+    NSURLSessionDataTask* task = [[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData* data, NSURLResponse* response, NSError* error) {
+        if (!error) {
+            if([self isError:data]){
+                errorMethod([[self getError:data] objectForKey:@"message"]);
+                
+            }else{
+                NSDictionary *dictionary = [NSJSONSerialization
+                                            JSONObjectWithData:data
+                                            options:0
+                                            error:&error];
+                EDJTable *table = [[EDJTable alloc] initWithTableData:dictionary];
+                completion(table);
+            }
+        }
+        else{
+            errorMethod(@"Error Connecting");
+        }
+    }];
+    [task resume];
+}
+
+#pragma mark - AddConstraints
+
+- (void)addUniqueKeyWithName:(NSString*)name table:(NSString*)tableName columnsInKey:(NSArray*)columnsInKey withCompletion:(void (^)(BOOL finished))completion withError:(void (^)(NSString* error))errorMethod
+{
+    NSDictionary* dictionary = @{ @"constraintName" : name,
+        @"cols" : columnsInKey
+    };
+    NSString* consObject = [self dictionaryToJSON:dictionary];
+    [self addConstraintWithType:@"U" inTable:tableName constriantObject:consObject withCompletion:completion withError:errorMethod];
+}
+- (void)addCheckConstraintWithName:(NSString*)name table:(NSString*)tableName condition:(NSString*)condition withCompletion:(void (^)(BOOL finished))completion withError:(void (^)(NSString* error))errorMethod
+{
+    NSDictionary* dictionary = @{ @"constraintName" : name,
+        @"checkCondition" : condition
+    };
+    NSString* consObject = [self dictionaryToJSON:dictionary];
+    [self addConstraintWithType:@"C" inTable:tableName constriantObject:consObject withCompletion:completion withError:errorMethod];
+}
+
+- (void)addNotNullConstraintWithName:(NSString*)name table:(NSString*)tableName columnName:(NSString*)columnName withCompletion:(void (^)(BOOL finished))completion withError:(void (^)(NSString* error))errorMethod
+{
+    NSDictionary* dictionary = @{ @"constraintName" : name,
+        @"columnName" : columnName
+    };
+    NSString* consObject = [self dictionaryToJSON:dictionary];
+    [self addConstraintWithType:@"N" inTable:tableName constriantObject:consObject withCompletion:completion withError:errorMethod];
+}
+
+- (void)addFKConstraintWithName:(NSString*)name table:(NSString*)tableName cons: (NSString *)cons withCompletion:(void (^)(BOOL finished))completion withError:(void (^)(NSString* error))errorMethod
+{
+   
+    [self addConstraintWithType:@"F" inTable:tableName constriantObject:cons withCompletion:completion withError:errorMethod];
+}
+
+- (void)addPKConstraintWithName:(NSString*)name table:(NSString*)tableName cols: (NSArray *)cols withCompletion:(void (^)(BOOL finished))completion withError:(void (^)(NSString* error))errorMethod
+{
+    NSDictionary* dictionary = @{ @"constraintName" : name,
+                                  @"cols" : cols
+                                  };
+    NSString* consObject = [self dictionaryToJSON:dictionary];
+    [self addConstraintWithType:@"P" inTable:tableName constriantObject:consObject withCompletion:completion withError:errorMethod];
+}
+
+- (void)addConstraintWithType:(NSString*)type inTable:(NSString*)tablename constriantObject:(NSString*)cons withCompletion:(void (^)(BOOL finished))completion withError:(void (^)(NSString* error))errorMethod
+{
+
+    EDJUser* user = [EDJUser sharedInstance];
+    NSMutableDictionary* requestDictionary = [[NSMutableDictionary alloc] initWithDictionary:@{ @"user-name" : [user getDBUsername],
+        @"connection-string" : [user getConnectionString],
+        @"password" : [user getDBPassword],
+        @"table-name" : tablename,
+        @"constraint-type" : type,
+        @"cons" : cons }];
+
+    NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"https://php.radford.edu/~tfreeman3/Homebase/api/user_alter_table_constraint"]];
+    request.HTTPBody = [[self createRequestWithDictionary:requestDictionary] dataUsingEncoding:NSUTF8StringEncoding];
+    request.HTTPMethod = @"POST";
+
+    NSURLSessionDataTask* task = [[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData* data, NSURLResponse* response, NSError* error) {
+        if (!error) {
+            if([self isError:data]){
+                errorMethod([[self getError:data] objectForKey:@"message"]);
+                
+            }else{
+                NSString *string = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+                completion(true);
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"refreshSchema" object:nil];
+            }
+        }
+        else{
+            errorMethod(@"Error Connecting");
+        }
+    }];
+    [task resume];
+}
+
+#pragma mark - ErrorHandling
+
 
 - (BOOL)isError:(NSData*)data
 {
@@ -420,5 +534,40 @@ static EDJTableServices* sharedInstance;
         return nil;
     }
 }
+
+
+
+-(void)loginValidator:(NSString *)username password:(NSString *)password connectionString:(NSString *)connectionString withCompletion:(void (^)(BOOL finished))completion withError:(void (^)(NSString* error))errorMethod{
+    
+    
+    EDJUser* user = [EDJUser sharedInstance];
+    NSMutableDictionary* requestDictionary = [[NSMutableDictionary alloc] initWithDictionary:@{ @"user-name" : username,
+                                                                                                @"connection-string" : connectionString,
+                                                                                                @"password" : password}];
+    
+    NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"https://php.radford.edu/~tfreeman3/Homebase/api/validate_user"]];
+    request.HTTPBody = [[self createRequestWithDictionary:requestDictionary] dataUsingEncoding:NSUTF8StringEncoding];
+    request.HTTPMethod = @"POST";
+    
+    NSURLSessionDataTask* task = [[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData* data, NSURLResponse* response, NSError* error) {
+        if (!error) {
+            if([self isError:data]){
+                errorMethod([[self getError:data] objectForKey:@"message"]);
+                
+            }else{
+                NSString *string = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+                completion(true);
+            }
+        }
+        else{
+            errorMethod(@"Error Connecting");
+        }
+    }];
+    [task resume];
+    
+}
+
+
+
 
 @end

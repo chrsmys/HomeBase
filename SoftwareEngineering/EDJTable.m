@@ -115,6 +115,13 @@
 -(NSArray *)getColumns{
     return columns;
 }
+-(NSArray *)columnNames{
+    NSMutableArray *arrayColumnNames =[[NSMutableArray alloc] init];
+    for (EDJColumn *column in columns) {
+        [arrayColumnNames addObject:[column name]];
+    }
+    return arrayColumnNames;
+}
 -(void)removeColumnWithIndex:(int)colIndex{
     [columns removeObjectAtIndex:colIndex];
 }

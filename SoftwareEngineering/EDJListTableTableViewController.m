@@ -46,6 +46,19 @@
     return cell;
 }
 
+-(BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender{
+    if ([identifier isEqualToString:@"goToColumnList"]) {
+        if(!self.shouldGoToColumns){
+            EDJTable *table =[[[EDJTableServices sharedInstance] tables] objectAtIndex:[self.tableView indexPathForSelectedRow].row];
+            [self.delegate didSelectTableWithTableName:[table getName]];
+            [self dismissViewControllerAnimated:YES completion:nil];
+        }
+        
+        return self.shouldGoToColumns;
+    }
+    return true;
+}
+
 #pragma mark - Navigation
 - (void)prepareForSegue:(UIStoryboardSegue*)segue sender:(id)sender
 {

@@ -9,7 +9,9 @@
 #import <UIKit/UIKit.h>
 @protocol TableSelectionDelegate
 - (void)didSelectTableWithTableName:(NSString*)tableName withColumnName:(NSString*)columnName;
+- (void)didSelectTableWithTableName:(NSString *)tableName;
 @end
 @interface EDJListTableTableViewController : UITableViewController
 @property (nonatomic) id<TableSelectionDelegate> delegate;
+@property (nonatomic) BOOL shouldGoToColumns;
 @end

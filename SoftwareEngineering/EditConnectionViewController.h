@@ -15,5 +15,6 @@
 @property (weak, nonatomic) IBOutlet UITextField* dbConnectionStringTextField;
 - (IBAction)cancelButtonPressed:(id)sender;
 - (IBAction)saveButtonPressed:(id)sender;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 
 @end

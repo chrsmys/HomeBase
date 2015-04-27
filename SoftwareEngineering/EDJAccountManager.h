@@ -18,4 +18,9 @@
 -(void)logoutCurrentUser;
 -(void)changeConnectionForCurrentUser:(NSString *)username password:(NSString *)password connectionString:(NSString *)conString;
 + (EDJAccountManager*)sharedInstance;
+
+
+-(NSMutableArray *)getUserNameList;
+-(void)addSchemaToDefaults:(NSDictionary *)dictionary;
+-(NSDictionary *)getUserInfoForUsername:(NSString *)username;
 @end

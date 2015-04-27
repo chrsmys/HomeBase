@@ -40,6 +40,7 @@
 - (void)performAction:(void (^)(UIViewController* currentView))action
 {
     action(self);
+
 }
 
 - (void)didReceiveMemoryWarning
