@@ -8,6 +8,7 @@
 
 #import "TriggerDetailViewController.h"
 #import "EDJTrigger.h"
+#import "NSAttributedString+Constructors.h"
 @interface TriggerDetailViewController ()
 
 @end
@@ -21,7 +22,15 @@
 }
 - (void)viewDidAppear:(BOOL)animated
 {
-    self.triggerCodeDisplay.text = [_trigger body];
+    NSString* triggerInfo = [NSString stringWithFormat:@"TRIGGER TYPE: %@ \n\n TRIGGERING EVENT: %@ \n\n TRIGER BODY: \n %@ ", [self.trigger type], [self.trigger event], [self.trigger body]];
+
+    NSAttributedString* attributed = [NSAttributedString returnNSAttributedString:triggerInfo range:[triggerInfo rangeOfString:@"TRIGGER TYPE"] WithColour:[UIColor blackColor] WithUnderLine:true];
+    attributed = [NSAttributedString returnNSAttributedStringWithAttributedString:attributed range:[triggerInfo rangeOfString:@"TRIGGERING EVENT"] WithColour:[UIColor blackColor] WithUnderLine:true];
+    attributed = [NSAttributedString returnNSAttributedStringWithAttributedString:attributed range:[triggerInfo rangeOfString:@"TRIGGER BODY"] WithColour:[UIColor blackColor] WithUnderLine:true];
+    self.triggerCodeDisplay.attributedText = attributed;
+    self.triggerCodeDisplay.editable = false;
+
+    self.title = [self.trigger name];
 }
 
 - (void)didReceiveMemoryWarning
@@ -32,7 +41,10 @@
 
 - (void)setTrigger:(EDJTrigger*)trigger
 {
-    self.triggerCodeDisplay.text = [trigger body];
+    NSString* triggerInfo = [NSString stringWithFormat:@"TRIGGER TYPE : %@ \n TRIGGERING EVENT: %@ \n TRIGER BODY: \n %@ ", [trigger type], [trigger event], [trigger body]];
+
+    self.triggerCodeDisplay.text = triggerInfo;
+    self.triggerCodeDisplay.editable = false;
     _trigger = trigger;
 }
 /*

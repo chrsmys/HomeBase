@@ -12,6 +12,7 @@
 - (void)editConnectionButtonPressed;
 - (void)refreshButtonPressed;
 - (void)logoutButtonPressed;
+- (void)newUserSelected;
 @end
 @interface MenuViewController : UIViewController <UITableViewDataSource, UITableViewDelegate> {
     NSMutableArray* menuItems;

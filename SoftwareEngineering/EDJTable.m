@@ -126,4 +126,16 @@
     [columns removeObjectAtIndex:colIndex];
 }
 
+-(NSArray *)uniqueConstraints{
+    NSMutableDictionary *dictionary = [[NSMutableDictionary alloc] init];
+    for (EDJConstraint *constraint in self.constraints) {
+        [dictionary setObject:constraint forKey:[constraint constraintName]];
+    }
+    return [dictionary allValues];
+    
+}
+-(void)setName:(NSString *)_name{
+    name=_name;
+}
+
 @end

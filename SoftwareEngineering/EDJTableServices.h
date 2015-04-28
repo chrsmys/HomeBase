@@ -41,4 +41,6 @@
 
 -(void)loginValidator:(NSString *)username password:(NSString *)password connectionString:(NSString *)connectionString withCompletion:(void (^)(BOOL finished))completion withError:(void (^)(NSString* error))errorMethod;
 
+-(void)getConstraintInfoForConstraint:(NSString *)constraintName tableName:(NSString *)tablename withCompletion:(void (^)(NSString *info))completion withError:(void (^)(NSString* error))errorMethod;
+
 @end

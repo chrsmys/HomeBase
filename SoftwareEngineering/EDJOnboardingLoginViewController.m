@@ -17,12 +17,44 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+     self.view.backgroundColor=[UIColor colorWithRed:0.125 green:0.42 blue:0.608 alpha:1];
     // Do any additional setup after loading the view.
+}
+-(void)viewWillAppear:(BOOL)animated{
+    self.bottomLoginConstraint.constant-=50;
 }
 -(void)viewDidAppear:(BOOL)animated{
     self.connectionStringTextField.text=@"//137.45.192.130/itec2.radford.edu";
+    self.usernameTopConstraint.constant+=25;
+    self.passwordTopConstraint.constant+=25;
+    self.connectionStringTopConstraint.constant+=25;
+
     [UIView animateWithDuration:0.5 animations:^(void){
         self.loginView.alpha=1.0;
+        [UIView animateWithDuration:0.5 animations:^(void){
+            self.usernameTopConstraint.constant-=25;
+            self.usernameTextField.alpha=1;
+            [self.view layoutIfNeeded];
+        }completion:^(BOOL finished){
+            [UIView animateWithDuration:0.5 animations:^(void){
+                self.passwordTopConstraint.constant-=25;
+                self.passwordTextField.alpha=1;
+                [self.view layoutIfNeeded];
+            }completion:^(BOOL finished){
+                [UIView animateWithDuration:0.5 animations:^(void){
+                    self.connectionStringTopConstraint.constant-=25;
+                    self.connectionStringTextField.alpha=1;
+                    [self.view layoutIfNeeded];
+                }completion:^(BOOL finished){
+                    [UIView animateWithDuration:0.5 animations:^(void){
+                        self.bottomLoginConstraint.constant+=50;
+                        [self.view layoutIfNeeded];
+                    }completion:^(BOOL finished){
+                        
+                    }];
+                }];
+            }];
+        }];
     }];
 }
 - (void)didReceiveMemoryWarning {

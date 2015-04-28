@@ -12,5 +12,6 @@
 @property (weak, nonatomic) IBOutlet UITextField* constraintNameTextField;
 @property (weak, nonatomic) IBOutlet UITextView* primaryKeyListView;
 @property (nonatomic) EDJTableCreationRequest* tableRequest;
+@property (weak, nonatomic) IBOutlet UITableView *primaryKeyTableView;
 
 @end

@@ -13,4 +13,5 @@
 @property(nonatomic) EDJTable *table;
 @property(nonatomic) NSMutableArray *inKey;
 @property(nonatomic) NSMutableArray *notInKey;
+-(instancetype)initWithArray:(NSArray *)table withColumnsInKey:(NSArray *)selected;
 @end

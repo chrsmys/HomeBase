@@ -59,6 +59,14 @@
     return [self dictionaryToJSON:finalJSON];
 }
 
+-(NSArray *)getColumnList{
+    NSMutableArray *array = [[NSMutableArray alloc] init];
+    for (NSDictionary *dictionary in self.columns) {
+        [array addObject:[dictionary objectForKey:@"name"]];
+    }
+    return array;
+}
+
 - (NSString*)dictionaryToJSON:(NSDictionary*)dictionary
 {
     NSError* error;

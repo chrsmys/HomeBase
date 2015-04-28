@@ -21,6 +21,13 @@
     [self.notInKey removeObjectsInArray:self.inKey];
     return self;
 }
+-(instancetype)initWithArray:(NSArray *)table withColumnsInKey:(NSArray *)selected{
+        self=[super init];
+        self.inKey = [[NSMutableArray alloc] initWithArray:selected];
+        self.notInKey = [[NSMutableArray alloc] initWithArray:table];
+        [self.notInKey removeObjectsInArray:self.inKey];
+        return self;
+}
 
 #pragma mark - Table view data source
 

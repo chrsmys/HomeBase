@@ -39,6 +39,7 @@
     else {
     }
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refresh) name:@"refreshSchema" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(nameChange:) name:@"tableNameChanged" object:nil];
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 }
@@ -149,6 +150,13 @@
     self.squareLoading = [[RZSquaresLoading alloc] initWithFrame:CGRectMake(self.view.frame.size.width/2, self.view.frame.size.height/2, 100, 100)];
     [self.squareLoading setColor:[UIColor redColor]];
     [self.containerView addSubview:self.squareLoading];
+    self.view.userInteractionEnabled=false;
+}
+-(void)nameChange:(NSNotification *)notification{
+    [self.table setName:notification.object];
+    
+    self.tableNameLabel.text=[self.table getName];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"refreshSchema" object:nil];
 }
 
 @end

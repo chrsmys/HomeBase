@@ -12,5 +12,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *welcomeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *appSummaryLabel;
 @property (weak, nonatomic) IBOutlet UIButton *nextButton;
+@property (weak, nonatomic) IBOutlet UILabel *homeBaseLabel;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *nextButtonTopLayoutConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *welcomeTopConstraint;
 
 @end

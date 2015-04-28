@@ -10,6 +10,11 @@
 #import <UIKit/UIKit.h>
 #import "EDJTable.h"
 #import "EDJConstraint.h"
+@protocol ConstraintInfoDelegate
+- (void)selectedConstraint:(EDJConstraint*)constrain;
+@end
 @interface ConstraintDataSource : NSObject <UITableViewDataSource, UITableViewDelegate>
 @property (nonatomic) EDJTable* table;
+@property (nonatomic, weak) NSObject<ConstraintInfoDelegate>* delegate;
+@property (nonatomic) NSMutableArray *uniqueConstraints;
 @end

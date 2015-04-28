@@ -93,7 +93,7 @@
 }
 - (void)menuButtonWasPressed
 {
-
+    [menuView viewDidAppear:true];
     if (topContainer.frame.origin.x == 0) {
         [UIView animateWithDuration:1.0 animations:^(void) {
             topContainer.frame=CGRectMake(300, 0, topContainer.frame.size.width,topContainer.frame.size.height);
@@ -155,6 +155,10 @@
     [mainView viewDidAppear:true];
 }
 
+-(void)newUserSelected{
+    [self menuButtonWasPressed];
+    [mainView viewDidAppear:true];
+}
 /*
 #pragma mark - Navigation
 

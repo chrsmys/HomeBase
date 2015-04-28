@@ -12,6 +12,7 @@
 #import "TriggerDetailViewController.h"
 #import "ConstraintDataSource.h"
 #import "RZSquaresLoading.h"
+#import "ConstraintsInfoViewController.h"
 @interface TableInfoViewController ()
 @property (nonatomic) TriggerInfoDataSource* triggerDataSource;
 @property (nonatomic) ConstraintDataSource* constraintDataSource;
@@ -37,6 +38,7 @@
     self.constraintTableView.delegate = _constraintDataSource;
 
     _triggerDataSource.delegate = self;
+    _constraintDataSource.delegate = self;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -57,6 +59,10 @@
     selectedTrigger = trigger;
     [self performSegueWithIdentifier:@"ShowTriggerDetail" sender:trigger];
     NSLog(@"%@", selectedTrigger.body);
+}
+
+-(void)selectedConstraint:(EDJConstraint *)constrain{
+    [self performSegueWithIdentifier:@"showConstraints" sender:constrain];
 }
 
 - (void)didReceiveMemoryWarning
@@ -88,6 +94,17 @@
         if ([destinationController isKindOfClass:[TriggerDetailViewController class]]) {
             TriggerDetailViewController* edj = (TriggerDetailViewController*)destinationController;
             edj.trigger = (EDJTrigger*)sender;
+        }
+    }else if([segue.identifier isEqualToString:@"showConstraints"]){
+        UIViewController* destinationController = segue.destinationViewController;
+        
+        if ([destinationController isKindOfClass:[UINavigationController class]]) {
+            destinationController = segue.destinationViewController;
+        }
+        destinationController = [[(UINavigationController*)destinationController viewControllers] firstObject];
+        if ([destinationController isKindOfClass:[ConstraintsInfoViewController class]]) {
+            ConstraintsInfoViewController* edj = (ConstraintsInfoViewController*)destinationController;
+            edj.constraint = (EDJConstraint *)sender;
         }
     }
 }

@@ -16,7 +16,7 @@
 
 @implementation ColumnCreationViewController
 
-const NSUInteger columnCreationHeight = 300;
+const NSUInteger columnCreationHeight = 150;
 
 - (void)viewDidLoad
 {
@@ -39,14 +39,15 @@ const NSUInteger columnCreationHeight = 300;
         [self.columnListScrollView addSubview:creationView];
         [self.columnViews addObject:creationView];
     }
-    [self.columnListScrollView setContentSize:CGSizeMake(self.columnListScrollView.frame.size.width, [self.tableRequest expectedColumnCount] * columnCreationHeight + 40)];
+    [self.columnListScrollView setContentSize:CGSizeMake(self.columnListScrollView.frame.size.width, [self.tableRequest expectedColumnCount] * columnCreationHeight + 0)];
 
     UIButton* doneButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [doneButton setFrame:CGRectMake(self.columnListScrollView.frame.size.width - 100, ([self.tableRequest expectedColumnCount] * columnCreationHeight) - 40, 100, 40)];
+    [doneButton setFrame:CGRectMake(self.columnListScrollView.frame.size.width - 100, ([self.tableRequest expectedColumnCount] * columnCreationHeight) + 80, 100, 40)];
     [doneButton.titleLabel setFont:[UIFont fontWithName:@"FontAwesome" size:16]];
     [doneButton setTitle:@"Next \uf105" forState:UIControlStateNormal];
     [self.columnListScrollView addSubview:doneButton];
     [doneButton addTarget:self action:@selector(goNext) forControlEvents:UIControlEventTouchUpInside];
+    [self.columnListScrollView setContentSize:CGSizeMake(self.columnListScrollView.frame.size.width, doneButton.frame.origin.y+70)];
 }
 - (void)setTableRequest:(EDJTableCreationRequest*)tableRequest
 {

@@ -37,7 +37,6 @@
     
     return self;
 }
-
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     tableView.allowsSelectionDuringEditing=true;
     _tableview=tableView;

@@ -20,14 +20,31 @@
 }
 
 -(void)viewDidAppear:(BOOL)animated{
+    self.leftImageTopConstraint.constant-=45;
+    self.rightImageTopConstraint.constant-=45;
     [UIView animateWithDuration:0.5 animations:^(void){
         self.ExplanationTopLabel.alpha=1;
     }completion:^(BOOL finished){
+        
         [UIView animateWithDuration:0.5 animations:^(void){
-            self.nextButton.alpha=1;
+            self.leftImageTopConstraint.constant+=45;
+            self.leftImage.alpha=1.0;
+            [self.view layoutIfNeeded];
         }completion:^(BOOL finished){
-          
+            [UIView animateWithDuration:0.5 animations:^(void){
+                self.rightImageTopConstraint.constant+=45;
+                self.rightImage.alpha=1.0;
+                [self.view layoutIfNeeded];
+            }completion:^(BOOL finished){
+                [UIView animateWithDuration:0.5 animations:^(void){
+                    self.nextButton.alpha=1;
+                }completion:^(BOOL finished){
+                    
+                }];
+            }];
         }];
+
+        
     }];
 }
 

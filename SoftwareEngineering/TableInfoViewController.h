@@ -9,9 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "EDJTable.h"
 #import "TriggerInfoDataSource.h"
+#import "ConstraintDataSource.h"
 @class EDJTrigger;
-@interface TableInfoViewController : UIViewController <TriggerInfoDelegate> {
+@interface TableInfoViewController : UIViewController <TriggerInfoDelegate, ConstraintInfoDelegate> {
     EDJTrigger* selectedTrigger;
+    
 }
 @property (nonatomic, strong) EDJTable* table;
 @property (weak, nonatomic) IBOutlet UITextView* foreignKeyInfoTextView;

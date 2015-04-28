@@ -11,6 +11,10 @@
 @interface EDJOnboardingExplanationViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UILabel *ExplanationTopLabel;
 @property (weak, nonatomic) IBOutlet UIButton *nextButton;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *leftImageTopConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *rightImageTopConstraint;
+@property (weak, nonatomic) IBOutlet UIImageView *leftImage;
+@property (weak, nonatomic) IBOutlet UIImageView *rightImage;
 
 
 @end

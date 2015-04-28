@@ -68,6 +68,9 @@
 		9190E53B1AB7A91A0074CEB8 /* EDJColumnCreationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9190E53A1AB7A91A0074CEB8 /* EDJColumnCreationView.m */; };
 		9190E53E1AB7AAE10074CEB8 /* EDJColumnAmountSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9190E53D1AB7AAE10074CEB8 /* EDJColumnAmountSelectionViewController.m */; };
 		9190E5411AB7AD310074CEB8 /* ColumnCreationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9190E5401AB7AD310074CEB8 /* ColumnCreationViewController.m */; };
+		9191E1101AEF1EE60031CA91 /* ConstraintsInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9191E10F1AEF1EE60031CA91 /* ConstraintsInfoViewController.m */; };
+		9191E1131AEF415A0031CA91 /* IMG_0125.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 9191E1111AEF415A0031CA91 /* IMG_0125.PNG */; };
+		9191E1141AEF415A0031CA91 /* IMG_0124.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 9191E1121AEF415A0031CA91 /* IMG_0124.PNG */; };
 		91A69ED81ACCD6CA00B88276 /* MGSwipeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 91A69ED51ACCD6CA00B88276 /* MGSwipeButton.m */; };
 		91A69ED91ACCD6CA00B88276 /* MGSwipeTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 91A69ED71ACCD6CA00B88276 /* MGSwipeTableCell.m */; };
 		91A69EDC1ACCDF7200B88276 /* TriggerDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91A69EDB1ACCDF7200B88276 /* TriggerDetailViewController.m */; };
@@ -215,6 +218,10 @@
 		9190E53D1AB7AAE10074CEB8 /* EDJColumnAmountSelectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDJColumnAmountSelectionViewController.m; sourceTree = "<group>"; };
 		9190E53F1AB7AD310074CEB8 /* ColumnCreationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColumnCreationViewController.h; sourceTree = "<group>"; };
 		9190E5401AB7AD310074CEB8 /* ColumnCreationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColumnCreationViewController.m; sourceTree = "<group>"; };
+		9191E10E1AEF1EE60031CA91 /* ConstraintsInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConstraintsInfoViewController.h; sourceTree = "<group>"; };
+		9191E10F1AEF1EE60031CA91 /* ConstraintsInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConstraintsInfoViewController.m; sourceTree = "<group>"; };
+		9191E1111AEF415A0031CA91 /* IMG_0125.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IMG_0125.PNG; sourceTree = "<group>"; };
+		9191E1121AEF415A0031CA91 /* IMG_0124.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IMG_0124.PNG; sourceTree = "<group>"; };
 		91A69ED41ACCD6CA00B88276 /* MGSwipeButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGSwipeButton.h; sourceTree = "<group>"; };
 		91A69ED51ACCD6CA00B88276 /* MGSwipeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGSwipeButton.m; sourceTree = "<group>"; };
 		91A69ED61ACCD6CA00B88276 /* MGSwipeTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGSwipeTableCell.h; sourceTree = "<group>"; };
@@ -403,6 +410,8 @@
 		837A1B291A1B1D9F009BE6A7 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				9191E1111AEF415A0031CA91 /* IMG_0125.PNG */,
+				9191E1121AEF415A0031CA91 /* IMG_0124.PNG */,
 				912704361A2FF66600F31B82 /* image00.png */,
 				83DB0B5E1A128CA70031DD69 /* apple-touch-icon.png */,
 				837A1AAD1A19738E009BE6A7 /* Menu Button.png */,
@@ -433,6 +442,8 @@
 				83E525E81A1E52B30040D0E7 /* CloneCellViewController.m */,
 				91FF24FD1AC79C1E0004A38B /* TableInfoViewController.h */,
 				91FF24FE1AC79C1E0004A38B /* TableInfoViewController.m */,
+				9191E10E1AEF1EE60031CA91 /* ConstraintsInfoViewController.h */,
+				9191E10F1AEF1EE60031CA91 /* ConstraintsInfoViewController.m */,
 			);
 			name = "Authorized User Views";
 			sourceTree = "<group>";
@@ -723,11 +734,13 @@
 				913232E41AA69C950069C64F /* fontawesome-webfont.ttf in Resources */,
 				836F98C51A01DA9B00A73F85 /* Main.storyboard in Resources */,
 				836F98CA1A01DA9B00A73F85 /* LaunchScreen.xib in Resources */,
+				9191E1131AEF415A0031CA91 /* IMG_0125.PNG in Resources */,
 				9190E5381AB7A7FD0074CEB8 /* EDJColumnCreationView.xib in Resources */,
 				91D994241AB810770076F869 /* EDJFKConstraint.xib in Resources */,
 				837A1AAE1A19738E009BE6A7 /* Menu Button.png in Resources */,
 				836F98C71A01DA9B00A73F85 /* Images.xcassets in Resources */,
 				83DB0B5F1A128CA70031DD69 /* apple-touch-icon.png in Resources */,
+				9191E1141AEF415A0031CA91 /* IMG_0124.PNG in Resources */,
 				912704371A2FF66600F31B82 /* image00.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -803,6 +816,7 @@
 				91D9942D1AB825EE0076F869 /* EDJColumnTableViewController.m in Sources */,
 				9190E53B1AB7A91A0074CEB8 /* EDJColumnCreationView.m in Sources */,
 				914ED6441AEDD32D0012C9C6 /* RZSquaresLoading.m in Sources */,
+				9191E1101AEF1EE60031CA91 /* ConstraintsInfoViewController.m in Sources */,
 				913232E71AA69E6A0069C64F /* EDJTableServices.m in Sources */,
 				91353AA61AE6B9F800586593 /* UIScrollView+SVInfiniteScrolling.m in Sources */,
 				914ED6411AEDC4F30012C9C6 /* PrimaryKeyCreationViewController.m in Sources */,

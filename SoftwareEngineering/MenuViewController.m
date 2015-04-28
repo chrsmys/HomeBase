@@ -69,7 +69,9 @@ NSString* const LOGOUT_TEXT = @"Logout";
     }else{
         NSDictionary *dictionary = [[EDJAccountManager sharedInstance] getUserInfoForUsername:[menuItems objectAtIndex:indexPath.row]];
         [[EDJAccountManager sharedInstance] changeConnectionForCurrentUser:[dictionary objectForKey:@"Username"] password:[dictionary objectForKey:@"Password"] connectionString:[dictionary objectForKey:@"ConnectionString"]];
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"refresh" object:nil];
+        [self.delegate newUserSelected];
+
+        //[[NSNotificationCenter defaultCenter] postNotificationName:@"refresh" object:nil];
     }
 }
 - (CGFloat)tableView:(UITableView*)tableView heightForRowAtIndexPath:(NSIndexPath*)indexPath

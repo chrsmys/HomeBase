@@ -21,6 +21,8 @@
 -(void)removeColumnWithIndex:(int)colIndex;
 -(BOOL)isPrimaryKey:(NSString *)columnName;
 -(NSArray *)columnNames;
+-(NSArray *)uniqueConstraints;
+-(void)setName:(NSString *)_name;
 @property (nonatomic, retain) NSArray *foriegnKeys;
 @property (nonatomic, retain) NSArray *primaryKeys;
 @property (nonatomic, retain) NSMutableArray *triggers;

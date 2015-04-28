@@ -50,6 +50,12 @@
     [self.foreignKeyButton setTitle:foreignKeyText forState:UIControlStateNormal];
     [self.notNullButton setTitle:notNullText forState:UIControlStateNormal];
     [self.uniqueButton setTitle:uniqueText forState:UIControlStateNormal];
+    
+    self.primaryKeyButton.hidden=true;
+    self.foreignKeyButton.hidden=true;
+    self.notNullButton.hidden=true;
+    self.uniqueButton.hidden=true;
+    
 }
 
 + (instancetype)getView

@@ -16,5 +16,9 @@
 - (IBAction)loginButtonPressed:(id)sender;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *usernameTopConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *passwordTopConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *connectionStringTopConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomLoginConstraint;
 
 @end

@@ -9,8 +9,10 @@
 #import "EDJPrimaryKeyFinalViewController.h"
 #import "EDJTableCreationRequest.h"
 #import "ForeignKeyFinalViewController.h"
+#import "EDJKeySelectionDataSource.h"
+#import "EDJTableSubmissionViewController.h"
 @interface EDJPrimaryKeyFinalViewController ()
-
+@property (nonatomic) EDJKeySelectionDataSource* dataSource;
 @end
 
 @implementation EDJPrimaryKeyFinalViewController
@@ -18,25 +20,29 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    UIBarButtonItem* doneButton = [[UIBarButtonItem alloc] initWithTitle:@"Next" style:UIBarButtonItemStyleBordered target:self action:@selector(nextButtonPressed)];
+    UIBarButtonItem* doneButton = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStyleBordered target:self action:@selector(nextButtonPressed)];
     self.navigationItem.rightBarButtonItem = doneButton;
 }
 
 - (void)nextButtonPressed
 {
-    [self performSegueWithIdentifier:@"showFKConstraints" sender:self];
+    [self performSegueWithIdentifier:@"goToSubmissionView" sender:self];
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
     self.primaryKeyListView.text = [self primaryKeyList];
-    NSArray* tableRequest = [self.tableRequest listOfPrimaryKeys];
+    self.dataSource = [[EDJKeySelectionDataSource alloc] initWithArray:[self.tableRequest getColumnList] withColumnsInKey:nil];
+    self.primaryKeyTableView.dataSource = self.dataSource;
+    self.primaryKeyTableView.delegate = self.dataSource;
+    [self.primaryKeyTableView reloadData];
+    /*NSArray* tableRequest = [self.tableRequest listOfPrimaryKeys];
     if ([tableRequest count] == 1) {
         self.constraintNameTextField.text = [NSString stringWithFormat:@"%@_%@_PK", [self.tableRequest.tableName uppercaseString], [[self getShortestPrimaryKey] uppercaseString]];
     }
     else if ([tableRequest count] > 1) {
         self.constraintNameTextField.text = [NSString stringWithFormat:@"%@_COMPOSITE_PK", [self.tableRequest.tableName uppercaseString]];
-    }
+    }*/
 }
 - (NSString*)primaryKeyList
 {
@@ -71,12 +77,12 @@
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue*)segue sender:(id)sender
 {
-    if ([segue.identifier isEqualToString:@"showFKConstraints"]) {
-        if ([segue.destinationViewController isKindOfClass:[ForeignKeyFinalViewController class]]) {
-            ForeignKeyFinalViewController* final = segue.destinationViewController;
-            [self.tableRequest addPrimaryKeyWithConstraintName:self.constraintNameTextField.text withColumns:self.tableRequest.listOfPrimaryKeys];
-            final.tableRequest = self.tableRequest;
+    if ([segue.identifier isEqualToString:@"goToSubmissionView"]) {
+        if(self.constraintNameTextField.text!=nil && ![self.constraintNameTextField.text isEqualToString:@""] && [self.dataSource.inKey count]>0){
+            [self.tableRequest addPrimaryKeyWithConstraintName:self.constraintNameTextField.text withColumns:self.dataSource.inKey];
         }
+        EDJTableSubmissionViewController* submission = segue.destinationViewController;
+        submission.tableRequest = self.tableRequest;
     }
 }
 

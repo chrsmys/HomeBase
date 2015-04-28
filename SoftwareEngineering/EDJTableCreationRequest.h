@@ -22,5 +22,6 @@
 - (void)addPrimaryKeyWithConstraintName:(NSString*)constraintName withColumns:(NSArray*)columns;
 - (void)addForiegnKeyWithConstraintName:(NSString*)constraintName tableColumn:(NSString*)tColumn refTable:(NSString*)referencingTable refCol:(NSString*)referencingColumn deferable:(BOOL)deferable;
 - (NSString*)getNetworkJSONRequest;
+-(NSArray *)getColumnList;
 
 @end
