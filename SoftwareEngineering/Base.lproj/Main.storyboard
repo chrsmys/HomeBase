@@ -358,17 +358,17 @@
                         <viewControllerLayoutGuide type="bottom" id="1bv-GT-9gc"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="DdT-9y-2X6">
-                        <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Submitting" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wQJ-yr-tSM">
-                                <rect key="frame" x="74" y="131" width="151.5" height="38.5"/>
+                                <rect key="frame" x="224" y="281" width="151.5" height="38.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="32"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="33F-92-1ff">
-                                <rect key="frame" x="132" y="198" width="37" height="37"/>
+                                <rect key="frame" x="282" y="348" width="37" height="37"/>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -881,13 +881,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Constraint Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XTE-IJ-2fP">
-                                <rect key="frame" x="16" y="66" width="563" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Constraint Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XTE-IJ-2fP">
+                                <rect key="frame" x="16" y="66" width="568" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="XTE-IJ-2fP" firstAttribute="trailing" secondItem="FMZ-yF-c00" secondAttribute="trailingMargin" id="4ew-7G-PPS"/>
+                            <constraint firstItem="XTE-IJ-2fP" firstAttribute="top" secondItem="MYo-uT-HCP" secondAttribute="bottom" constant="22" id="Bq3-Je-ELR"/>
+                            <constraint firstItem="XTE-IJ-2fP" firstAttribute="leading" secondItem="FMZ-yF-c00" secondAttribute="leadingMargin" id="hMT-1E-pg6"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="constrainNameTextField" destination="XTE-IJ-2fP" id="4oG-rv-1rN"/>
@@ -1485,7 +1490,7 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="M75-lZ-tSP">
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="M75-lZ-tSP">
                                 <rect key="frame" x="252" y="291" width="37" height="37"/>
                             </activityIndicatorView>
                         </subviews>
@@ -2070,7 +2075,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You Can Easily Create, Delete, and Edit Your Schemas Tables" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UhG-AY-ImP">
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You Can Easily Create, Delete, and Edit Your User Schema Tables" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UhG-AY-ImP">
                                 <rect key="frame" x="16" y="82" width="568" height="57.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -2325,6 +2330,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="rAX-aO-w6i"/>
-        <segue reference="x64-ar-EfU"/>
+        <segue reference="1ji-Zm-IzI"/>
     </inferredMetricsTieBreakers>
 </document>

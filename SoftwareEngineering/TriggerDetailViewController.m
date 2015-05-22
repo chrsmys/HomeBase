@@ -22,7 +22,7 @@
 }
 - (void)viewDidAppear:(BOOL)animated
 {
-    NSString* triggerInfo = [NSString stringWithFormat:@"TRIGGER TYPE: %@ \n\n TRIGGERING EVENT: %@ \n\n TRIGER BODY: \n %@ ", [self.trigger type], [self.trigger event], [self.trigger body]];
+    NSString* triggerInfo = [NSString stringWithFormat:@"TRIGGER TYPE: %@ \n\n TRIGGERING EVENT: %@ \n\n TRIGGER BODY: \n %@ ", [self.trigger type], [self.trigger event], [self.trigger body]];
 
     NSAttributedString* attributed = [NSAttributedString returnNSAttributedString:triggerInfo range:[triggerInfo rangeOfString:@"TRIGGER TYPE"] WithColour:[UIColor blackColor] WithUnderLine:true];
     attributed = [NSAttributedString returnNSAttributedStringWithAttributedString:attributed range:[triggerInfo rangeOfString:@"TRIGGERING EVENT"] WithColour:[UIColor blackColor] WithUnderLine:true];

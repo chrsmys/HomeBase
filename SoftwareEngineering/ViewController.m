@@ -238,6 +238,10 @@
 }
 - (void)collectionView:(UICollectionView*)collectionView didSelectItemAtIndexPath:(NSIndexPath*)indexPath
 {
+    if (clone!=nil && clone.view.superview != nil) {
+        [clone.view removeFromSuperview];
+        clone.clonedCell.hidden = false;
+    }
     UICollectionViewCell* cells = [collectionView cellForItemAtIndexPath:indexPath];
     clone = [self.storyboard instantiateViewControllerWithIdentifier:@"CloneView"];
     [clone setTable:[tableList objectAtIndex:indexPath.row]];

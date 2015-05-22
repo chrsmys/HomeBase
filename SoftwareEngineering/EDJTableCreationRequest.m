@@ -55,7 +55,9 @@
     [finalJSON setObject:self.tableName forKey:@"name"];
     [finalJSON setObject:self.columns forKey:@"cols"];
     [finalJSON setObject:self.foriegnKeys forKey:@"foreignKey"];
-    [finalJSON setObject:self.primaryKey forKey:@"primaryKey"];
+    if (self.primaryKey.count >0) {
+        [finalJSON setObject:self.primaryKey forKey:@"primaryKey"];
+    }
     return [self dictionaryToJSON:finalJSON];
 }
 

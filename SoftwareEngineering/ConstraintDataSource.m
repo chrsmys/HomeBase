@@ -29,7 +29,22 @@
     EDJConstraint* constraint = [self.uniqueConstraints objectAtIndex:indexPath.row];
     ConstraintTableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:@"ConstraintCell" forIndexPath:indexPath];
     cell.constraintNameLabel.text = [constraint constraintName];
-    cell.tableColumnLabel.text = [constraint constraintType];
+    
+    NSString *constraintName = [constraint constraintType];
+    
+    if ([constraintName isEqualToString:@"P"]) {
+        constraintName = @"Primary Key";
+        
+    }else if ([constraintName isEqualToString:@"C"]) {
+        constraintName = @"Check";
+        
+    }else if ([constraintName isEqualToString:@"R"]) {
+            constraintName = @"Foreign Key";
+    }else if ([constraintName isEqualToString:@"U"]) {
+            constraintName = @"Unique";
+    }
+    
+    cell.tableColumnLabel.text = constraintName;
     cell.enabled = constraint.enabled;
     return cell;
 }

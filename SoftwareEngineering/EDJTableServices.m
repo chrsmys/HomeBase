@@ -457,6 +457,7 @@ static EDJTableServices* sharedInstance;
     [self addConstraintWithType:@"F" inTable:tableName constriantObject:cons withCompletion:completion withError:errorMethod];
 }
 
+
 - (void)addPKConstraintWithName:(NSString*)name table:(NSString*)tableName cols: (NSArray *)cols withCompletion:(void (^)(BOOL finished))completion withError:(void (^)(NSString* error))errorMethod
 {
     NSDictionary* dictionary = @{ @"constraintName" : name,
@@ -500,7 +501,6 @@ static EDJTableServices* sharedInstance;
 }
 
 #pragma mark - ErrorHandling
-
 
 - (BOOL)isError:(NSData*)data
 {
